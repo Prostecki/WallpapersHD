@@ -1,0 +1,27 @@
+version: "3.0"
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - 8080:80
+
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "test123"
+      MYSQL_DATABASE: "inordic"
+    ports:
+        - 3309:3306
+
+  adminer:
+    build:
+      context: .
+      dockerfile: Dockerfile-adminer
+    ports:
+        - 9000:8080
+
