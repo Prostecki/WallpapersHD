@@ -4,6 +4,9 @@ The technologies used are:
 <ul><li>HTML</li>
 <li>CSS</li>
 <li>JavaScript</li>
+<li>Docker</li>
+<li>PHP</li>
+<li>MySQL</li>
 </ul>
 
 <h1>Usage</h1><br>
