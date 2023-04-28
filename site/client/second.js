@@ -55,27 +55,28 @@ const wallpapers = [
             'img/space9.jpeg'
 ];
 
-//находим коробку под карточки
+//Get a variable for all wallpapers
 const main = document.querySelector('main');
 
-//получаем текст шаблона каталога
+//Get a template of Catalog
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
 
-//получаем текст шаблона карточки
+//Get a template of one Card
 const templateCard = document.getElementById('tmpl-card').innerHTML;
 
-//вызываем функцию при загрузке страницы
+//Call the function when opening a page
 renderCatalog();
 
-//создаем функцию по отрисовке каталога блоков карточек (показаны только первые картинки в массиве)
+//Create a function for rendering all wallpapers
 function renderCatalog() {
 
+    //clear page before rendering the catalog
     clearPage();
 
-    //рисуем данные на экран
+    //Rendering a data on the screen
     for (let i = 0; i < wallpapers.length; i++ ) {
 
-        //подставляем в шаблон данные, заменяем, и рендерим все картинки
+        //Replace a date in template and rendering all wallpapers
         main.innerHTML += templateCatalog.replace('${img}', wallpapers[i])
                                          .replace('${id}', i+1);
     }
@@ -84,40 +85,40 @@ function renderCatalog() {
 
 function renderImage(id) {
 
-    //очищаем страницу
+    //clear page before rendering the catalog
     clearPage();
 
-    //подставляем в шаблон данные, заменяем и рендерим
+    //Replace a data in template and rendering
     main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1]);
 
-    //При попытке обратиться к модалке внутри второго темлейта, нужно создавать переменные и функции внутри самой функции отрисовки ВТОРОГО темплейта;
+    //When we try to call a modal window, we need to declare variables inside the second template!
 
-        //обращаемся к модалке в DOM дереве
+        //Referring to a modal window in DOM
         const modalContainer = document.getElementById('modal_container');
 
-        //обращаемся к кнопке more info в DOM дереве
+        //Referring to a button 'More info' in DOM
         const open = document.getElementById('open');
 
-        //обращаемся к кнопке close в DOM дереве
+        //Reffering to a button 'Close' in DOM
         const close = document.getElementById('close');
 
-        //обращаемся к ссылке download в DOM
+        //Referring to a link 'Download' in DOM
         const linkDl = document.getElementById('download');
 
-        //задаем атрибут href и указываем какая именно будет картинка с помощью метода setAttribute
+        //Set an attribute href and specify which exactly will be pic with method setAttribute
         linkDl.setAttribute('href', wallpapers[id - 1]);
 
-        //Вешаем addEventListener на кнопку more info
+        //Set addEventListener on a button 'More info'
         open.addEventListener('click', () => {
             modalContainer.classList.add('show');
         });
         
-        //Вешаем addEventListener на кнопку close
+        //Set addEventListener on a button 'Close'
         close.addEventListener('click', () => {
             modalContainer.classList.remove('show');
         });
 
-        //обращаемся к элементу window (любое место кроме модалки), и вешаем слушатель по клику, и функцию, если место клика не модалка (Если евент (открытая модалка) равен контейнеру который мы вызвали, то мы убираем класс show)
+        //Reffering to a window (Any place besides a modal window, and set addEventListener and function, if a place of click not a modal window, we'll remove class 'show'
         window.addEventListener('click', (event) => {
             if (event.target == modalContainer) {
                 modalContainer.classList.remove('show');
@@ -125,10 +126,10 @@ function renderImage(id) {
         })
 }
 
-//функция очистки страницы
+//Function of clear page
 function clearPage() {
 
-    //заменяем шаблон на пустоту
+    //Replace a template for emptiness
     main.innerHTML = '';
 
 }
