@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dark.css">
+    <title>Document</title>
+</head>
+
+<header>
+    <div class='knopki' onclick="renderCatalog()">
+        Catalog
+    </div>
+</header>
+
+<body>
+    <main class="flex-box-main">
+
+    </main>
+
+    <footer class="footer">
+        <div class="bot">Copyright 2022 | Wallpapers Mark Taratynov</div>
+    </footer>
+
+    <template id="tmpl-catalog">
+            <div class="flex-box-group">
+                <div class="title">
+
+                </div>
+                <div style="overflow: hidden;">
+                    <img onclick="renderImage(${id})" class="pic" id="picure_${id}" src="${img}">
+                </div>
+                <div class="describe">
+
+                </div>
+            </div>
+    </template>
+
+    <template id="tmpl-card">
+        <div class="singleCard">
+            <img class="largePic" id="picure_${id}" src="${img}">
+            <button id="open" class="info">More info</button>
+            <a id="download" href="${img}" download>Download</a>
+
+            <div class="modal-container" id="modal_container">
+                <div class="modal">
+                    <h1>Modals are</h1>
+                    <p>lorem80</p>
+                    <button class="closeMe" id="close">
+                        Close Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+<script src="second.js" defer></script>
+</body>
+</html>
