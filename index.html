@@ -9,8 +9,14 @@
 </head>
 
 <header>
-    <div class='knopki' onclick="renderCatalog()">
+    <div class="knopki" onclick="renderCatalog()">
         Catalog
+    </div>
+    <div class="knopki" id="randomCard">
+        Random
+    </div>
+    <div class="knopki" id="randomBg">
+        Background
     </div>
 </header>
 
@@ -24,15 +30,12 @@
     </footer>
 
     <template id="tmpl-catalog">
-            <div class="flex-box-group">
+            <div class="flex-box-group" onclick="renderImage(${id})">
                 <div class="title">
-
+                    ${title}
                 </div>
-                <div style="overflow: hidden;">
-                    <img onclick="renderImage(${id})" class="pic" id="picure_${id}" src="${img}">
-                </div>
-                <div class="describe">
-
+                <div class="imgContainer">
+                    <img class="pic" id="picure_${id}" src="${img}">
                 </div>
             </div>
     </template>

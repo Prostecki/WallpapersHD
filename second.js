@@ -73,59 +73,57 @@ const randomBg = document.getElementById('randomBg');
 //Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
-//Reaction on some changes with window sizes
-function updateStylesOnResize() {
+// //Reaction on some changes with window sizes
+// function updateStylesOnResize() {
     
-    if(mediaQuery.matches) {
+//     if(mediaQuery.matches) {
     
-        //Previous scroll value
-        let prevScrollPosition = window.pageYOffset;
+//         //Previous scroll value
+//         let prevScrollPosition = window.pageYOffset;
         
-        //Declare an element, which we want to change
-        const menu = document.querySelector('header');
+//         //Declare an element, which we want to change
+//         const menu = document.querySelector('header');
         
-        //During scrolling I change some properties
-        window.addEventListener('scroll', () => {
+//         //During scrolling I change some properties
+//         window.addEventListener('scroll', () => {
         
-        //Current scroll value
-        const scrollPosition = window.pageYOffset;
+//         //Current scroll value
+//         const scrollPosition = window.pageYOffset;
         
-            if (scrollPosition > prevScrollPosition) {
-                scrollDirection = 'down';
-            } else {
-                scrollDirection = 'up';
-            }
+//             if (scrollPosition > prevScrollPosition) {
+//                 scrollDirection = 'down';
+//             } else {
+//                 scrollDirection = 'up';
+//             }
         
-            //if scrollPosition >= 200px, backgroundColor = grey;
-            if (scrollPosition >= 50) {
-                menu.style.backgroundColor = 'grey';
-                menu.style.transition = 'all 0.3s';
-            }
-            else {
-                menu.style.backgroundColor = 'rgb(0, 0, 0, 0)';
-                menu.style.color = 'white';
-                menu.style.transition = 'all 0.3s';
-            }
-            //save a current value of scrolling in variable prevScrollPosition
-            prevScrollPosition = scrollPosition;
+//             //if scrollPosition >= 200px, backgroundColor = grey;
+//             if (scrollPosition >= 50) {
+//                 menu.style.backgroundColor = 'grey';
+//                 menu.style.transition = 'all 0.3s';
+//             }
+//             else {
+//                 menu.style.backgroundColor = 'rgb(0, 0, 0, 0)';
+//                 menu.style.color = 'white';
+//                 menu.style.transition = 'all 0.3s';
+//             }
+//             //save a current value of scrolling in variable prevScrollPosition
+//             prevScrollPosition = scrollPosition;
          
-        });
-    }
-}
+//         });
+//     }
+// }
 
-//Update styles during changing resolution at the starting page
-updateStylesOnResize();
+// //Update styles during changing resolution at the starting page
+// updateStylesOnResize();
 
-//event which folow to changes with window 
-window.addEventListener('resize', () => {
+// //event which folow to changes with window 
+// window.addEventListener('resize', () => {
 
-    clearTimeout(resizeTimer);
+//     clearTimeout(resizeTimer);
 
-    resizeTimer = setTimeout(updateStylesOnResize, 250);
+//     resizeTimer = setTimeout(updateStylesOnResize, 250);
 
-})
-
-
+// })
 
 //Call the function when opening a page
 renderCatalog();
@@ -266,6 +264,22 @@ function clearPage() {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+
+    //Declare a container for operate with
+    const backgroundBody = document.querySelector('body');
+
+    // Generate a random index to select a wallpaper from the wallpapers array
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
+
+    //Declare a variable img with attributes of array
+    const randomImg = wallpapers[randomIndex]['file'];
+
+    //append attributes from array and change body style
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+
+    backgroundBody.style.backgroundSize = 'cover';
+})
 
 
 
