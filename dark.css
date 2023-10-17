@@ -22,13 +22,17 @@ body {
 }
 
 .largePic {
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.7s;
     width: 100%;
     height: 100%;
 }
 
 .singleCard {
-    border-radius: 5px;
-    border: 1px solid black;
+    margin: 10px;
+    transition: all 0.7s;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: end;
@@ -46,7 +50,7 @@ body {
     cursor: pointer;
     text-align: center;
     background: none;
-    z-index: 1;
+    /* z-index: 1; */
     margin-right: 15px;
     text-decoration: none;
 }
@@ -156,8 +160,6 @@ header {
 
 }
 
-
-
 .describe {
     width: 350px;
     height: 30px;
@@ -199,16 +201,21 @@ header {
 }
 
 .modal {
-    background-color: #fff;
-    width: 600px;
-    max-width: 100%;
-    padding: 30px 50px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #241d1d;
+    color: whitesmoke;
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal h1 {
     margin: 0;
+    text-align: center;
 }
 
 .modal p {
@@ -217,6 +224,7 @@ header {
 }
 
 .modal-container.show {
+    transition: all 0.7s;
     pointer-events: auto;
     opacity: 1;
 }
@@ -224,6 +232,7 @@ header {
 @media screen and (max-width: 800px) {
 
     body {
+        position: relative;
         width: 100%;
         /* background-attachment: fixed; */
         /* background-repeat: no-repeat; */
@@ -233,11 +242,6 @@ header {
     header {
         display: flex;
         justify-content: space-evenly;
-    }
-
-    .knopki {
-        padding: 8px 7px 9px;
-        font-size: 12px;
     }
 
     main {
@@ -251,6 +255,11 @@ header {
         flex-wrap: wrap;
     }
 
+    .knopki {
+        padding: 8px 7px 9px;
+        font-size: 12px;
+    }
+
     .largePic {
         border-radius: 20px;
         width: 100%;
@@ -258,8 +267,35 @@ header {
     }
 
     .singleCard {
+        margin: 15px;
         border: none;
         width: auto;
+        padding: 0;
+    }
+
+    .modal {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        /* padding: 10px; */
+        width: 300px;
+        height: 100px;
+        align-items: center;
+        transition: all 0.7s;
+        padding: 25px;
+    }
+
+    #close {
+        width: 80px;
+        border: none;
+        background-color: grey;
+        color: white;
+        font-weight: bolder;
+        padding: 5px;
+        box-shadow: 1px 3px 8px black;
+        border-radius: 10px;
+        transition: all 0.7s;
     }
 
     footer {

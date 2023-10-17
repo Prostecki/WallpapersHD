@@ -253,6 +253,7 @@ randomBg.addEventListener('click', () => {
     document.body.style.backgroundImage = `url(${randomImg})`;
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.transition = 'all 0.7s';
 });
 
 //Function of clear page
