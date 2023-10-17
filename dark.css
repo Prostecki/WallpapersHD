@@ -232,10 +232,11 @@ header {
 @media screen and (max-width: 800px) {
 
     body {
+        margin: 0;
+        padding: 0;
         position: relative;
         width: 100%;
-        /* background-attachment: fixed; */
-        /* background-repeat: no-repeat; */
+        height: 100vh;
         background-size: cover;
     }
     
@@ -300,5 +301,7 @@ header {
 
     footer {
         margin-top: 25px;
+        position: fixed;
+        bottom: 10px;
     }
 }
