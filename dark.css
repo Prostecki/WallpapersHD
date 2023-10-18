@@ -106,7 +106,7 @@ body {
 }
 
 .flex-box-main {
-    margin-top: 25px;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -122,10 +122,52 @@ body {
 }
 
 header {
+    position: relative;
     display: flex;
     margin-top: 20px;
     justify-content: space-around;
     align-items: center;
+}
+
+#menuBar{
+    position: fixed;
+    top: 10px;
+    left: -600px;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 50px;
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 9;
+}
+
+#openMenu {
+    border-radius: 25px;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 25px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: grey;
+    text-align: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+#openMenu:hover {
+    background-color: yellow;
+
+}
+
+#closeMenu {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 15px;
+    transition: all 0.7s;
 }
 
 .knopki {
@@ -251,12 +293,22 @@ header {
         justify-content: center;
     }
 
+    #menuBar {
+        width: auto;
+        height: auto;
+    }
+
+    #openMenu {
+        padding: 5px;
+    }
+
     .flex-box-group {
         display: flex;
         flex-wrap: wrap;
     }
 
     .knopki {
+        margin-left: 5px;
         padding: 8px 7px 9px;
         font-size: 12px;
     }

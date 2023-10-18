@@ -73,63 +73,13 @@ const randomBg = document.getElementById('randomBg');
 //Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
-// //Reaction on some changes with window sizes
-// function updateStylesOnResize() {
-    
-//     if(mediaQuery.matches) {
-    
-//         //Previous scroll value
-//         let prevScrollPosition = window.pageYOffset;
-        
-//         //Declare an element, which we want to change
-//         const menu = document.querySelector('header');
-        
-//         //During scrolling I change some properties
-//         window.addEventListener('scroll', () => {
-        
-//         //Current scroll value
-//         const scrollPosition = window.pageYOffset;
-        
-//             if (scrollPosition > prevScrollPosition) {
-//                 scrollDirection = 'down';
-//             } else {
-//                 scrollDirection = 'up';
-//             }
-        
-//             //if scrollPosition >= 200px, backgroundColor = grey;
-//             if (scrollPosition >= 50) {
-//                 menu.style.backgroundColor = 'grey';
-//                 menu.style.transition = 'all 0.3s';
-//             }
-//             else {
-//                 menu.style.backgroundColor = 'rgb(0, 0, 0, 0)';
-//                 menu.style.color = 'white';
-//                 menu.style.transition = 'all 0.3s';
-//             }
-//             //save a current value of scrolling in variable prevScrollPosition
-//             prevScrollPosition = scrollPosition;
-         
-//         });
-//     }
-// }
-
-// //Update styles during changing resolution at the starting page
-// updateStylesOnResize();
-
-// //event which folow to changes with window 
-// window.addEventListener('resize', () => {
-
-//     clearTimeout(resizeTimer);
-
-//     resizeTimer = setTimeout(updateStylesOnResize, 250);
-
-// })
-
 //Call the function when opening a page
 renderCatalog();
 
 //Create a function for rendering all wallpapers
 function renderCatalog() {
+
+
 
     //clear page before rendering the catalog
     clearPage();
@@ -148,6 +98,8 @@ function renderImage(id) {
 
     //clear page before rendering the catalog
     clearPage();
+
+    reloadPage;
 
     //Replace a data in template and rendering
     main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1]['file'])
@@ -265,7 +217,14 @@ function clearPage() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+const reloadPage = document.addEventListener('DOMContentLoaded', () => {
+
+    console.log('DOMContentLoaded event fired');
+
+    setTimeout(function() {
+        window.scrollTo(0, 300);
+    }, 2); //delay with 100ms
+
 
     //Declare a container for operate with
     const backgroundBody = document.querySelector('body');
@@ -282,5 +241,20 @@ document.addEventListener('DOMContentLoaded', () => {
     backgroundBody.style.backgroundSize = 'cover';
 })
 
+//How to open bar menu
+const openMenu = document.getElementById('openMenu');
+const closeMenu = document.getElementById('closeMenu');
+const menuBar = document.getElementById('menuBar');
+
+//click and appears menu
+openMenu.addEventListener('click', () => {
+    menuBar.style.transition = 'all 0.7s';
+    menuBar.style.left = '0px';
+});
+
+//click and disappears menu
+closeMenu.addEventListener('click', () => {
+    menuBar.style.left = '-600px';
+})
 
 
