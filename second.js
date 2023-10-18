@@ -248,12 +248,16 @@ const menuBar = document.getElementById('menuBar');
 
 //click and appears menu
 openMenu.addEventListener('click', () => {
+    openMenu.style.left = '-50px';
+    openMenu.style.transition = 'all 0.7s';
     menuBar.style.transition = 'all 0.7s';
     menuBar.style.left = '0px';
 });
 
 //click and disappears menu
 closeMenu.addEventListener('click', () => {
+    openMenu.style.left = '10px';
+    openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-600px';
 })
 
