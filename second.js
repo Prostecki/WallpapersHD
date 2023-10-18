@@ -222,7 +222,7 @@ const reloadPage = document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded event fired');
 
     setTimeout(function() {
-        window.scrollTo(0, 300);
+        window.scrollTo(0, 0);
     }, 2); //delay with 100ms
 
 
