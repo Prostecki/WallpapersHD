@@ -111,6 +111,7 @@ body {
     flex-wrap: wrap;
 }
 
+
 .styleCatalog {
     width: 400px;
     text-align: center;
@@ -143,6 +144,7 @@ header {
     background-color: grey;
     border-radius: 5px;
     z-index: 9;
+    box-shadow: 0px 5px 10px black;
 }
 
 #openMenu {
@@ -316,6 +318,29 @@ header {
         padding: 5px;
     }
 
+    #flex-box-main-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100vh;
+    }
+
+    #flex-box-group-grid {
+        margin: 5px;
+        width: 50px;
+        height: 50px;
+    }
+
+    #pic-grid {
+        width: 50px;
+        height: 50px;
+    }
+
+    #imgContainer-grid {
+        border-radius: 0px;
+    }
+
     .flex-box-group {
         display: flex;
         flex-wrap: wrap;
@@ -325,7 +350,8 @@ header {
         border: none;
         border-radius: 10px;
         margin-top: 0;
-        padding: 8px 7px 9px;
+        margin-left: 10px;
+        /* padding: 8px 7px 9px; */
         font-size: 12px;
     }
 

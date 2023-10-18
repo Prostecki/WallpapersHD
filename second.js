@@ -261,4 +261,12 @@ closeMenu.addEventListener('click', () => {
     menuBar.style.left = '-600px';
 })
 
+//view button to toggle class between grid and flex-direction column
+
+const view = document.getElementById('view');
+
+viev.addEventListener('click', () => {
+    main.classList.add('#flex-box-main-grid');
+})
+
 
