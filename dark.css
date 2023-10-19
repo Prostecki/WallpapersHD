@@ -137,10 +137,10 @@ header {
     left: -600px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 200px;
-    height: 150px;
+    height: auto;
     background-color: grey;
     border-radius: 5px;
     z-index: 9;
@@ -168,14 +168,19 @@ header {
 }
 
 #closeMenu {
+    background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+    padding: 3px;
     width: 20px;
+    height: 20px;
     text-align: center;
     cursor: pointer;
-    padding: 5px;
     font-size: 15px;
     transition: all 0.7s;
     border-radius: 50%;
-    border: .5px solid black;
+    border: .5px solid white;
     transition: all .7s;
     margin: 5px;
 }
@@ -186,16 +191,15 @@ header {
 }
 
 .knopki {
+    padding: 10px;
+    text-align: center;
     line-height: 10px;
     position: relative;
-    width: 100%;
-    height: 20px;
-    /* border-radius: 10px 10px 0 0; */
+    width: 80%;
     display: inline-block;
     outline: none;
     cursor: pointer;
     font-size: 14px;
-    line-height: 10px;
     transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
     letter-spacing: 2px;
@@ -204,8 +208,7 @@ header {
     font-weight: 700;
     text-align: center;
     color: white;
-    border-top: 0.5px solid black;
-    padding-top: 10px;
+    border-bottom: 0.5px solid black;
 }
 
 .knopki:hover{ 
@@ -309,13 +312,33 @@ header {
     }
 
     #menuBar {
+        font-size: 10px;
+        display: flex;
+        justify-content: space-evenly;
         flex-direction: row;
-        width: auto;
-        height: auto;
+        /* height: auto; */
+        width: 100%;
+        border-radius: 50px;
+        /* margin-left: 5px; */
     }
 
     #openMenu {
         padding: 5px;
+    }
+
+    #closeMenu {
+        background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        /* margin-right: 10px; */
+        /* width: 60px; */
+        border: none;
+        /* background-color: grey; */
+        color: white;
+        box-shadow: 1px 3px 8px black;
+        border-radius: 50%;
+        transition: all 0.7s;
     }
 
     #flex-box-main-grid {
@@ -347,11 +370,12 @@ header {
     }
 
     .knopki {
+        width: 25%;
+        padding: 5px;
+        text-align: center;
         border: none;
         border-radius: 10px;
         margin-top: 0;
-        margin-left: 10px;
-        /* padding: 8px 7px 9px; */
         font-size: 12px;
     }
 
@@ -379,18 +403,6 @@ header {
         align-items: center;
         transition: all 0.7s;
         padding: 25px;
-    }
-
-    #close {
-        width: 80px;
-        border: none;
-        background-color: grey;
-        color: white;
-        font-weight: bolder;
-        padding: 5px;
-        box-shadow: 1px 3px 8px black;
-        border-radius: 10px;
-        transition: all 0.7s;
     }
 
     footer {
