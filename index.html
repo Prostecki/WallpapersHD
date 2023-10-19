@@ -39,7 +39,7 @@
 
     <template id="tmpl-catalog">
         <!-- Comeback to previous class flex-box-group!!! -->
-            <div class="flex-box-group" onclick="renderImage(${id})">
+            <div id="allCards" class="flex-box-group" onclick="renderImage(${id})">
                 <div class="title">
                     ${title}
                 </div>
@@ -50,7 +50,7 @@
     </template>
 
     <template id="tmpl-card">
-        <div class="singleCard">
+        <div id="singleCard" class="singleCard">
             <img class="largePic" id="picure_${id}" src="${img}">
             <button id="open" class="info">More info</button>
             <a id="download" href="${img}" download>Download</a>

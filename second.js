@@ -267,6 +267,9 @@ closeMenu.addEventListener('click', () => {
 
 const view = document.getElementById('view');
 
+const allCards = Array.from(document.querySelectorAll('.flex-box-group'));
+
+const picCard = Array.from(document.querySelectorAll('pic'));
 //in order to toggle classes in one div
 function toggleClasses() {
 
@@ -282,9 +285,27 @@ function toggleClasses() {
         main.classList.remove('flex-box-main-grid');
         main.classList.add('flex-box-main');
     }
+
+}
+
+function catalogClassChanges() {
+    allCards.forEach((element) => {
+        if(element.classList.contains('flex-box-group')) {
+            element.classList.remove('flex-box-group');
+            element.classList.add('flex-box-group-grid');
+        } else {
+            element.classList.remove('flex-box-group-grid');
+            element.classList.add('flex-box-group');
+        }
+    picCard.forEach((element) => {
+        if(element.classList.contains('pic')) {
+            element.classList.remove('pic');
+            element.classList.add('pic-grid');
+        }
+    })
+    })
 }
 
 //Declare event for button view with function toggleClasses
 view.addEventListener('click', toggleClasses);
-
-
+view.addEventListener('click', catalogClassChanges);
