@@ -341,7 +341,7 @@ header {
         transition: all 0.7s;
     }
 
-    #flex-box-main-grid {
+    .flex-box-main-grid {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -349,18 +349,18 @@ header {
         height: 100vh;
     }
 
-    #flex-box-group-grid {
+    .flex-box-group-grid {
         margin: 5px;
         width: 50px;
         height: 50px;
     }
 
-    #pic-grid {
+    .pic-grid {
         width: 50px;
         height: 50px;
     }
 
-    #imgContainer-grid {
+    .imgContainer-grid {
         border-radius: 0px;
     }
 

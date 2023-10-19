@@ -263,10 +263,28 @@ closeMenu.addEventListener('click', () => {
 
 //view button to toggle class between grid and flex-direction column
 
+// ----------------------------------------------------------------//
+
 const view = document.getElementById('view');
 
-viev.addEventListener('click', () => {
-    main.classList.add('#flex-box-main-grid');
-})
+//in order to toggle classes in one div
+function toggleClasses() {
+
+    //if main contains some class
+    if (main.classList.contains('flex-box-main')){
+
+        //remove one and append other
+        main.classList.remove('flex-box-main');
+        main.classList.add('flex-box-main-grid');
+
+        //otherwise vice versa
+    } else {
+        main.classList.remove('flex-box-main-grid');
+        main.classList.add('flex-box-main');
+    }
+}
+
+//Declare event for button view with function toggleClasses
+view.addEventListener('click', toggleClasses);
 
 
