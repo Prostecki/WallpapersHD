@@ -55,26 +55,37 @@ const wallpapers = [
     {'file': 'img/space9.jpeg', 'name': 'Space 9', 'describe': 'Celestial wonders'}
   ];  
 
-//Get a variable for all wallpapers
 const main = document.querySelector('main');
-
-//Get a template of Catalog
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
-
-//Get a template of one Card
 const templateCard = document.getElementById('tmpl-card').innerHTML;
-
-//Declare catalog button in menu
 const mainCatalog = document.getElementById('mainCatalog');
-
-//Declare randomButton with id randomButton
 const randomCard = document.getElementById('randomCard');
-
-//Declare randomBg with id
 const randomBg = document.getElementById('randomBg');
-
-//Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
+
+//Function of clear page
+function clearPage() {
+    //Replace a template for emptiness
+    main.innerHTML = '';
+}
+
+function renderCatalog() {
+
+    //clear page before rendering the catalog
+    clearPage();
+
+    //Update the background of the body
+    setRandomBackground();
+
+    const catalogHtml = wallpapers.map((wallpaper, index) => {
+        return templateCatalog
+            .replace('${img}', wallpaper.file)
+            .replace('${id}', index + 1)
+            .replace('${title}', wallpaper.name);
+    });
+
+    main.innerHTML = catalogHtml.join('');
+}
 
 function toggleView() {
 
@@ -125,23 +136,75 @@ mainCatalog.addEventListener('click', renderCatalog);
 //     }
 // }
 
-function renderCatalog() {
 
-    //clear page before rendering the catalog
+
+function displayRandomImage() {
+
+    //Generate a random index to select a wallpaper from the wallpapers array
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
+
+    // Clear the page
     clearPage();
 
-    //Update the background of the body
-    setRandomBackground();
+    // Replace data in the template and render with random data
+    main.innerHTML += templateCard
+        .replace('${img}', wallpapers[randomIndex].file)
+        .replace('${title}', wallpapers[randomIndex].name)
+        .replace('${describe}', wallpapers[randomIndex].describe);
 
-    const catalogHtml = wallpapers.map((wallpaper, index) => {
-        return templateCatalog
-            .replace('${img}', wallpaper.file)
-            .replace('${id}', index + 1)
-            .replace('${title}', wallpaper.name);
+    //Referring to a modal window in the DOM
+    const modalContainer = document.getElementById('modal_container');
+
+    // Referring to buttons and link in the DOM
+    const open = document.getElementById('open');
+    const close = document.getElementById('close');
+    const linkDl = document.getElementById('download');
+
+    // Set an attribute href and specify which image to download
+    linkDl.setAttribute('href', wallpapers[randomIndex].file);
+
+    // Set event listeners for modal window
+    open.addEventListener('click', () => {
+        modalContainer.classList.add('show');
     });
 
-    main.innerHTML = catalogHtml.join('');
-}
+    close.addEventListener('click', () => {
+        modalContainer.classList.remove('show');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modalContainer) {
+            modalContainer.classList.remove('show');
+        }
+    });
+
+    // Populate the modal window with the image, title, and description
+    // You can use the same template you're using in other places
+    const modalContent = templateCard
+        .replace('${img}', image)
+        .replace('${title}', title)
+        .replace('${describe}', describe);
+
+    // Add the modal content to the modal container
+    modalContainer.innerHTML = modalContent;
+};
+
+
+
+// Click button to display random image
+randomCard.addEventListener('click', () => {
+    // Generate a random index to select a wallpaper from the wallpapers array
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
+
+    // Display the modal with random image
+    displayModal(
+        wallpapers[randomIndex].file,
+        wallpapers[randomIndex].name,
+        wallpapers[randomIndex].describe
+    );
+});
+
+randomCard.addEventListener('click', displayRandomImage);
 
 function renderImage(id) {
 
@@ -256,11 +319,7 @@ function setRandomBackground() {
     console.log('it works?');
 }
 
-//Function of clear page
-function clearPage() {
-    //Replace a template for emptiness
-    main.innerHTML = '';
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
