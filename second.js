@@ -76,9 +76,6 @@ function renderCatalog() {
     //clear page before rendering the catalog
     clearPage();
 
-    //Update the background of the body
-    setRandomBackground();
-
     const catalogHtml = wallpapers.map((wallpaper, index) => {
         return templateCatalog
             .replace('${img}', wallpaper.file)
@@ -201,9 +198,9 @@ function displayRandomImage() {
     // Populate the modal window with the image, title, and description
     // You can use the same template you're using in other places
     const modalContent = templateCard
-        .replace('${img}', image)
-        .replace('${title}', title)
-        .replace('${describe}', describe);
+        .replace('${img}', wallpapers[randomIndex].file)
+        .replace('${title}', wallpapers[randomIndex].name)
+        .replace('${describe}', wallpapers[randomIndex].describe);
 
     // Add the modal content to the modal container
     modalContainer.innerHTML = modalContent;
@@ -220,31 +217,6 @@ function closeTheMenu() {
     openMenu.style.left = '10px';
     openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-600px';
-}
-
-function toggleView() {
-
-    if (viewEnabled) {
-
-        gridViewEnabled = !gridViewEnabled;
-        
-        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
-        main.classList.toggle('flex-box-main', !gridViewEnabled);
-
-        console.log('work with groups');
-        
-        allCards.forEach(card => {
-            console.log('work with cards');
-            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
-            card.classList.toggle('flex-box-group', !gridViewEnabled);
-        });
-        
-        allPics.forEach(pic => {
-            console.log('work with pics');
-            pic.classList.toggle('pic-grid', gridViewEnabled);
-            pic.classList.toggle('pic', !gridViewEnabled);
-        });
-    }
 }
 
 mainCatalog.addEventListener('click', renderCatalog);
@@ -283,9 +255,9 @@ function renderImage(id) {
     clearPage();
 
     //Replace a data in template and rendering
-    main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1]['file'])
-                                  .replace('${title}', wallpapers[id - 1]['name'])
-                                  .replace('${describe}', wallpapers[id - 1]['describe']);
+    main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1].file)
+                                  .replace('${title}', wallpapers[id - 1].name)
+                                  .replace('${describe}', wallpapers[id - 1].describe);
 
     //When we try to call a modal window, we need to declare variables inside the second template!
 
@@ -322,54 +294,6 @@ function renderImage(id) {
         })
 }
 
-//Click button and appears random wallpaper
-randomCard.addEventListener('click', () => {
-    
-    // Generate a random index to select a wallpaper from the wallpapers array
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
-    //clear page
-    clearPage();
-    
-    //Replace a data in template and render with math random (randomWallpaper)
-    main.innerHTML += templateCard.replace('${img}', wallpapers[randomIndex]['file'])
-                                  .replace('${title}', wallpapers[randomIndex]['name'])
-                                  .replace('${describe}', wallpapers[randomIndex]['describe']);
-    
-                                  //Referring to a modal window in DOM
-        const modalContainer = document.getElementById('modal_container');
-    
-        //Referring to a button 'More info' in DOM
-        const open = document.getElementById('open');
-    
-        //Reffering to a button 'Close' in DOM
-        const close = document.getElementById('close');
-    
-        //Referring to a link 'Download' in DOM
-        const linkDl = document.getElementById('download');
-    
-        //Set an attribute href and specify which exactly will be pic with method setAttribute
-        linkDl.setAttribute('href', wallpapers[randomIndex]['file']);
-    
-        //Set addEventListener on a button 'More info'
-        open.addEventListener('click', () => {
-            modalContainer.classList.add('show');
-        });
-        
-        //Set addEventListener on a button 'Close'
-        close.addEventListener('click', () => {
-            modalContainer.classList.remove('show');
-        });
-    
-        //Reffering to a window (Any place besides a modal window, and set addEventListener and function, if a place of click not a modal window, we'll remove class 'show'
-        window.addEventListener('click', (event) => {
-            if (event.target == modalContainer) {
-                modalContainer.classList.remove('show');
-            }
-        });
-
-});
-
 function setRandomBackground() {
 
     const backgroundBody = document.querySelector('body');
@@ -390,6 +314,8 @@ function setRandomBackground() {
     console.log('it works?');
 }
 
+randomBg.addEventListener('click', setRandomBackground);
+
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
@@ -397,15 +323,14 @@ const menuBar = document.getElementById('menuBar');
 
 //click and appears menu
 openMenu.addEventListener('click', openTheMenu);
-
 //click and close menu
 closeMenu.addEventListener('click', closeTheMenu);
 
 // ----------------------------------------------------------------//
 //view button to toggle class between grid and flex-direction column
+const cards = document.querySelectorAll('.flex-box-group');
+const pics = document.querySelectorAll('.flex-box-group .pic');
 const view = document.getElementById('view');
-const allCards = document.querySelectorAll('.flex-box-group');
-const allPics = document.querySelectorAll('.flex-box-group .pic');
 
 //Flag indicating whether the function is allowed to be used
 let viewEnabled = true;
@@ -425,14 +350,13 @@ function toggleView() {
 
         console.log('work with groups');
         
-        allCards.forEach(card => {
+        cards.forEach(card => {
             console.log('work with cards');
             card.classList.toggle('flex-box-group-grid', gridViewEnabled);
             card.classList.toggle('flex-box-group', !gridViewEnabled);
         });
         
-        allPics.forEach(pic => {
-            console.log(viewEnabled, 'privet');
+        pics.forEach(pic => {
             console.log('work with pics');
             pic.classList.toggle('pic-grid', gridViewEnabled);
             pic.classList.toggle('pic', !gridViewEnabled);
