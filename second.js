@@ -270,8 +270,9 @@ closeMenu.addEventListener('click', closeTheMenu);
 
 const view = document.getElementById('view');
 
-const allCards = document.querySelectorAll('.flex-box-group .pic');
+const allCards = document.querySelectorAll('.flex-box-group');
 
+const allPics = document.querySelectorAll('.flex-box-group .pic');
 
 //in order to toggle classes in one div
 
@@ -293,24 +294,26 @@ function toggleClasses() {
 }
 
 function catalogClassChanges() {
-        allCards.forEach((element) => {
-            if (element.classList.contains('flex-box-group')) {
-                element.classList.remove('flex-box-group');
-                element.classList.add('flex-box-group-grid');
-            } else {
-                element.classList.remove('flex-box-group-grid');
-                element.classList.add('flex-box-group');
-            }
+    allCards.forEach((allCards) => {
+        if (allCards.classList.contains('flex-box-group')) {
+            allCards.classList.remove('flex-box-group');
+            allCards.classList.add('flex-box-group-grid');
+        } else {
+            allCards.classList.remove('flex-box-group-grid');
+            allCards.classList.add('flex-box-group');
+        }
     })
 }
 
 function imagesClassChanges() {
-
-    allCards.forEach(allCards => {
-        if (allCards.classList.contains('pic')) {
+    allPics.forEach(allPics => {
+        if (allPics.classList.contains('pic')) {
             console.log('test');
-            allCards.classList.remove('pic');
-            allCards.classList.add('pic-grid');
+            allPics.classList.remove('pic');
+            allPics.classList.add('pic-grid');
+        } else {
+            allPics.classList.remove('pic-grid');
+            allPics.classList.add('pic');
         }
     })
 };
@@ -318,3 +321,4 @@ function imagesClassChanges() {
 //Declare event for button view with function toggleClasses
 view.addEventListener('click', toggleClasses);
 view.addEventListener('click', catalogClassChanges);
+view.addEventListener('click', imagesClassChanges);
