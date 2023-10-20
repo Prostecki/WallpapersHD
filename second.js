@@ -76,7 +76,6 @@ const randomBg = document.getElementById('randomBg');
 //Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
-
 //Call the function when opening a page
 renderCatalog();
 
