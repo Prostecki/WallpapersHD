@@ -107,22 +107,40 @@ renderCatalog();
 mainCatalog.addEventListener('click', renderCatalog);
 
 //Create a function for rendering all wallpapers
+// function renderCatalog() {
+
+//     //clear page before rendering the catalog
+//     clearPage();
+
+//     //Update the background of body
+//     setRandomBackground();
+
+//     //Rendering a data on the screen
+//     for (let i = 0; i < wallpapers.length; i++ ) {
+
+//         //Replace a date in template and rendering all wallpapers
+//         main.innerHTML += templateCatalog.replace('${img}', wallpapers[i]['file'])
+//                                          .replace('${id}', i+1)
+//                                          .replace('${title}', wallpapers[i]['name']);
+//     }
+// }
+
 function renderCatalog() {
 
     //clear page before rendering the catalog
     clearPage();
 
-    //Update the background of body
+    //Update the background of the body
     setRandomBackground();
 
-    //Rendering a data on the screen
-    for (let i = 0; i < wallpapers.length; i++ ) {
+    const catalogHtml = wallpapers.map((wallpaper, index) => {
+        return templateCatalog
+            .replace('${img}', wallpaper.file)
+            .replace('${id}', index + 1)
+            .replace('${title}', wallpaper.name);
+    });
 
-        //Replace a date in template and rendering all wallpapers
-        main.innerHTML += templateCatalog.replace('${img}', wallpapers[i]['file'])
-                                         .replace('${id}', i+1)
-                                         .replace('${title}', wallpapers[i]['name']);
-    }
+    main.innerHTML = catalogHtml.join('');
 }
 
 function renderImage(id) {
@@ -312,6 +330,8 @@ let gridViewEnabled = false;
 
 function toggleView() {
 
+    console.log(viewEnabled);
+
     if (viewEnabled) {
 
         gridViewEnabled = !gridViewEnabled;
@@ -328,6 +348,7 @@ function toggleView() {
         });
         
         allPics.forEach(pic => {
+            console.log(viewEnabled, 'privet');
             console.log('work with pics');
             pic.classList.toggle('pic-grid', gridViewEnabled);
             pic.classList.toggle('pic', !gridViewEnabled);
@@ -337,3 +358,62 @@ function toggleView() {
 
 //Declare event for button view with function toggleClasses
 view.addEventListener('click', toggleView);
+
+//Create event listener on parent's element
+menuBar.addEventListener('click', (event) => {
+
+    //Check if the target element is a button with class "action-button"
+    if (event.target.classList.contains('action-button')) {
+
+        const buttonId = event.target.id;
+
+        //run a function on based ID button
+        switch(buttonId) {
+
+            case 'mainCatalog':
+
+                renderCatalog();
+
+                break;
+
+            case 'randomCard':
+
+                // Generate a random index to select a wallpaper from the wallpapers array
+                const randomIndex = Math.floor(Math.random() * wallpapers.length);
+
+                //clear page
+                clearPage();
+    
+                //Replace a data in template and render with math random (randomWallpaper)
+                main.innerHTML += templateCard.replace('${img}', wallpapers[randomIndex]['file'])
+                                  .replace('${title}', wallpapers[randomIndex]['name'])
+                                  .replace('${describe}', wallpapers[randomIndex]['describe']);
+            break;
+
+            case 'randomBg':
+            
+                const backgroundBody = document.querySelector('body');
+
+                //Declare a variable img with attributes of array
+                const randomImg = wallpapers[randomIndex]['file'];
+        
+                //Append attributes after addEventListener to body element
+                backgroundBody.style.backgroundImage = `url(${randomImg})`;
+                backgroundBody.style.backgroundRepeat = 'no-repeat';
+                backgroundBody.style.backgroundAttachment = 'fixed';
+                backgroundBody.style.transition = 'all 0.7s';
+
+                //It's just test
+                console.log('it works?');
+
+            break;
+
+            case 'view':
+
+                toggleView();
+
+            break;
+        }
+    }
+
+});
