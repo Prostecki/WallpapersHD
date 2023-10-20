@@ -63,6 +63,8 @@ const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
+renderCatalog();
+
 //Function of clear page
 function clearPage() {
     //Replace a template for emptiness
@@ -87,56 +89,74 @@ function renderCatalog() {
     main.innerHTML = catalogHtml.join('');
 }
 
-function toggleView() {
+function displayModal(image, title, describe) {
+    // Referring to a modal window in the DOM
+    const modalContainer = document.getElementById('modal_container');
+    const open = document.getElementById('open');
+    const close = document.getElementById('close');
+    const linkDl = document.getElementById('download');
 
-    if (viewEnabled) {
+    // Set an attribute href and specify which image to download
+    linkDl.setAttribute('href', image);
 
-        gridViewEnabled = !gridViewEnabled;
-        
-        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
-        main.classList.toggle('flex-box-main', !gridViewEnabled);
+    // Set event listeners for the modal window
+    open.addEventListener('click', () => {
+        modalContainer.classList.add('show');
+    });
 
-        console.log('work with groups');
-        
-        allCards.forEach(card => {
-            console.log('work with cards');
-            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
-            card.classList.toggle('flex-box-group', !gridViewEnabled);
-        });
-        
-        allPics.forEach(pic => {
-            console.log('work with pics');
-            pic.classList.toggle('pic-grid', gridViewEnabled);
-            pic.classList.toggle('pic', !gridViewEnabled);
-        });
-    }
+    close.addEventListener('click', () => {
+        modalContainer.classList.remove('show');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modalContainer) {
+            modalContainer.classList.remove('show');
+        }
+    });
+
+    // Populate the modal window with the image, title, and description
+    // You can use the same template you're using in other places
+    const modalContent = templateCard
+        .replace('${img}', image)
+        .replace('${title}', title)
+        .replace('${describe}', describe);
+
+    // Add the modal content to the modal container
+    modalContainer.innerHTML = modalContent;
 }
 
-//Call the function when opening a page
-renderCatalog();
+// Click button to display random image
+randomCard.addEventListener('click', () => {
+    // Generate a random index to select a wallpaper from the wallpapers array
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
 
-mainCatalog.addEventListener('click', renderCatalog);
+    // Display the modal with random image
+    displayModal(
+        wallpapers[randomIndex].file,
+        wallpapers[randomIndex].name,
+        wallpapers[randomIndex].describe
+    );
+});
 
-//Create a function for rendering all wallpapers
-// function renderCatalog() {
+function setRandomBackground() {
 
-//     //clear page before rendering the catalog
-//     clearPage();
+    const backgroundBody = document.querySelector('body');
 
-//     //Update the background of body
-//     setRandomBackground();
+    // Generate a random index to select a wallpaper from the wallpapers array
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
 
-//     //Rendering a data on the screen
-//     for (let i = 0; i < wallpapers.length; i++ ) {
+    //Declare a variable img with attributes of array
+    const randomImg = wallpapers[randomIndex]['file'];
+    
+    //Append attributes after addEventListener to body element
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+    backgroundBody.style.backgroundRepeat = 'no-repeat';
+    backgroundBody.style.backgroundAttachment = 'fixed';
+    backgroundBody.style.transition = 'all 0.7s';
 
-//         //Replace a date in template and rendering all wallpapers
-//         main.innerHTML += templateCatalog.replace('${img}', wallpapers[i]['file'])
-//                                          .replace('${id}', i+1)
-//                                          .replace('${title}', wallpapers[i]['name']);
-//     }
-// }
-
-
+    //It's just test
+    console.log('it works?');
+};
 
 function displayRandomImage() {
 
@@ -189,22 +209,73 @@ function displayRandomImage() {
     modalContainer.innerHTML = modalContent;
 };
 
+function openTheMenu() {
+    openMenu.style.left = '-50px';
+    openMenu.style.transition = 'all 0.7s';
+    menuBar.style.transition = 'all 0.7s';
+    menuBar.style.left = '0px';
+}
 
+function closeTheMenu() {
+    openMenu.style.left = '10px';
+    openMenu.style.transition = 'all 1s';
+    menuBar.style.left = '-600px';
+}
 
-// Click button to display random image
-randomCard.addEventListener('click', () => {
+function toggleView() {
+
+    if (viewEnabled) {
+
+        gridViewEnabled = !gridViewEnabled;
+        
+        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
+        main.classList.toggle('flex-box-main', !gridViewEnabled);
+
+        console.log('work with groups');
+        
+        allCards.forEach(card => {
+            console.log('work with cards');
+            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
+            card.classList.toggle('flex-box-group', !gridViewEnabled);
+        });
+        
+        allPics.forEach(pic => {
+            console.log('work with pics');
+            pic.classList.toggle('pic-grid', gridViewEnabled);
+            pic.classList.toggle('pic', !gridViewEnabled);
+        });
+    }
+}
+
+mainCatalog.addEventListener('click', renderCatalog);
+randomCard.addEventListener('click', displayRandomImage);
+
+//other events listeners
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    console.log('DOMContentLoaded event fired');
+
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 2); //delay with 100ms
+
+    //Declare a container for operate with
+    const backgroundBody = document.querySelector('body');
+
     // Generate a random index to select a wallpaper from the wallpapers array
     const randomIndex = Math.floor(Math.random() * wallpapers.length);
 
-    // Display the modal with random image
-    displayModal(
-        wallpapers[randomIndex].file,
-        wallpapers[randomIndex].name,
-        wallpapers[randomIndex].describe
-    );
+    //Declare a variable img with attributes of array
+    const randomImg = wallpapers[randomIndex]['file'];
+
+    //append attributes from array and change body style
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+
+    backgroundBody.style.backgroundSize = 'cover';
 });
 
-randomCard.addEventListener('click', displayRandomImage);
+
 
 function renderImage(id) {
 
@@ -319,48 +390,10 @@ function setRandomBackground() {
     console.log('it works?');
 }
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    console.log('DOMContentLoaded event fired');
-
-    setTimeout(function() {
-        window.scrollTo(0, 0);
-    }, 2); //delay with 100ms
-
-    //Declare a container for operate with
-    const backgroundBody = document.querySelector('body');
-
-    // Generate a random index to select a wallpaper from the wallpapers array
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
-    //Declare a variable img with attributes of array
-    const randomImg = wallpapers[randomIndex]['file'];
-
-    //append attributes from array and change body style
-    backgroundBody.style.backgroundImage = `url(${randomImg})`;
-
-    backgroundBody.style.backgroundSize = 'cover';
-})
-
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
 const menuBar = document.getElementById('menuBar');
-
-function closeTheMenu() {
-    openMenu.style.left = '10px';
-    openMenu.style.transition = 'all 1s';
-    menuBar.style.left = '-600px';
-}
-
-function openTheMenu() {
-    openMenu.style.left = '-50px';
-    openMenu.style.transition = 'all 0.7s';
-    menuBar.style.transition = 'all 0.7s';
-    menuBar.style.left = '0px';
-}
 
 //click and appears menu
 openMenu.addEventListener('click', openTheMenu);
@@ -370,23 +403,15 @@ closeMenu.addEventListener('click', closeTheMenu);
 
 // ----------------------------------------------------------------//
 //view button to toggle class between grid and flex-direction column
-
-//button view
 const view = document.getElementById('view');
-
-//Define all cards in catalog
 const allCards = document.querySelectorAll('.flex-box-group');
-
-//Define all pics in allCards within flex-box-group
 const allPics = document.querySelectorAll('.flex-box-group .pic');
 
 //Flag indicating whether the function is allowed to be used
 let viewEnabled = true;
-
 let gridViewEnabled = false;
 
 //in order to toggle classes in one div
-
 function toggleView() {
 
     console.log(viewEnabled);
@@ -429,49 +454,6 @@ menuBar.addEventListener('click', (event) => {
         //run a function on based ID button
         switch(buttonId) {
 
-            case 'mainCatalog':
-
-                renderCatalog();
-
-                break;
-
-            case 'randomCard':
-
-                // Generate a random index to select a wallpaper from the wallpapers array
-                const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
-                //clear page
-                clearPage();
-    
-                //Replace a data in template and render with math random (randomWallpaper)
-                main.innerHTML += templateCard.replace('${img}', wallpapers[randomIndex]['file'])
-                                  .replace('${title}', wallpapers[randomIndex]['name'])
-                                  .replace('${describe}', wallpapers[randomIndex]['describe']);
-            break;
-
-            case 'randomBg':
-            
-                const backgroundBody = document.querySelector('body');
-
-                //Declare a variable img with attributes of array
-                const randomImg = wallpapers[randomIndex]['file'];
-        
-                //Append attributes after addEventListener to body element
-                backgroundBody.style.backgroundImage = `url(${randomImg})`;
-                backgroundBody.style.backgroundRepeat = 'no-repeat';
-                backgroundBody.style.backgroundAttachment = 'fixed';
-                backgroundBody.style.transition = 'all 0.7s';
-
-                //It's just test
-                console.log('it works?');
-
-            break;
-
-            case 'view':
-
-                toggleView();
-
-            break;
         }
     }
 
