@@ -246,31 +246,35 @@ const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
 const menuBar = document.getElementById('menuBar');
 
-//click and appears menu
-openMenu.addEventListener('click', () => {
+function closeTheMenu() {
+    openMenu.style.left = '10px';
+    openMenu.style.transition = 'all 1s';
+    menuBar.style.left = '-600px';
+}
+
+function openTheMenu() {
     openMenu.style.left = '-50px';
     openMenu.style.transition = 'all 0.7s';
     menuBar.style.transition = 'all 0.7s';
     menuBar.style.left = '0px';
-});
+}
 
-//click and disappears menu
-closeMenu.addEventListener('click', () => {
-    openMenu.style.left = '10px';
-    openMenu.style.transition = 'all 1s';
-    menuBar.style.left = '-600px';
-})
+//click and appears menu
+openMenu.addEventListener('click', openTheMenu);
 
-//view button to toggle class between grid and flex-direction column
+//click and close menu
+closeMenu.addEventListener('click', closeTheMenu);
 
 // ----------------------------------------------------------------//
+//view button to toggle class between grid and flex-direction column
 
 const view = document.getElementById('view');
 
-const allCards = Array.from(document.querySelectorAll('.flex-box-group'));
+const allCards = document.querySelectorAll('.flex-box-group .pic');
 
-const picCard = Array.from(document.querySelectorAll('pic'));
+
 //in order to toggle classes in one div
+
 function toggleClasses() {
 
     //if main contains some class
@@ -289,22 +293,27 @@ function toggleClasses() {
 }
 
 function catalogClassChanges() {
-    allCards.forEach((element) => {
-        if(element.classList.contains('flex-box-group')) {
-            element.classList.remove('flex-box-group');
-            element.classList.add('flex-box-group-grid');
-        } else {
-            element.classList.remove('flex-box-group-grid');
-            element.classList.add('flex-box-group');
-        }
-    picCard.forEach((element) => {
-        if(element.classList.contains('pic')) {
-            element.classList.remove('pic');
-            element.classList.add('pic-grid');
-        }
-    })
+        allCards.forEach((element) => {
+            if (element.classList.contains('flex-box-group')) {
+                element.classList.remove('flex-box-group');
+                element.classList.add('flex-box-group-grid');
+            } else {
+                element.classList.remove('flex-box-group-grid');
+                element.classList.add('flex-box-group');
+            }
     })
 }
+
+function imagesClassChanges() {
+
+    allCards.forEach(allCards => {
+        if (allCards.classList.contains('pic')) {
+            console.log('test');
+            allCards.classList.remove('pic');
+            allCards.classList.add('pic-grid');
+        }
+    })
+};
 
 //Declare event for button view with function toggleClasses
 view.addEventListener('click', toggleClasses);
