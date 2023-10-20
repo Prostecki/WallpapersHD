@@ -64,6 +64,9 @@ const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
 //Get a template of one Card
 const templateCard = document.getElementById('tmpl-card').innerHTML;
 
+//Declare catalog button in menu
+const mainCatalog = document.getElementById('mainCatalog');
+
 //Declare randomButton with id randomButton
 const randomCard = document.getElementById('randomCard');
 
@@ -73,13 +76,14 @@ const randomBg = document.getElementById('randomBg');
 //Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
+
 //Call the function when opening a page
 renderCatalog();
 
+mainCatalog.addEventListener('click', renderCatalog);
+
 //Create a function for rendering all wallpapers
 function renderCatalog() {
-
-
 
     //clear page before rendering the catalog
     clearPage();
@@ -216,7 +220,6 @@ function clearPage() {
 
 }
 
-
 const reloadPage = document.addEventListener('DOMContentLoaded', () => {
 
     console.log('DOMContentLoaded event fired');
@@ -224,7 +227,6 @@ const reloadPage = document.addEventListener('DOMContentLoaded', () => {
     setTimeout(function() {
         window.scrollTo(0, 0);
     }, 2); //delay with 100ms
-
 
     //Declare a container for operate with
     const backgroundBody = document.querySelector('body');
@@ -268,57 +270,46 @@ closeMenu.addEventListener('click', closeTheMenu);
 // ----------------------------------------------------------------//
 //view button to toggle class between grid and flex-direction column
 
+//button view
 const view = document.getElementById('view');
 
+//Define all cards in catalog
 const allCards = document.querySelectorAll('.flex-box-group');
 
+//Define all pics in allCards within flex-box-group
 const allPics = document.querySelectorAll('.flex-box-group .pic');
+
+//Flag indicating whether the function is allowed to be used
+let viewEnabled = true;
+
+let gridViewEnabled = false;
 
 //in order to toggle classes in one div
 
-function toggleClasses() {
+function toggleView() {
 
-    //if main contains some class
-    if (main.classList.contains('flex-box-main')){
+    if (viewEnabled) {
 
-        //remove one and append other
-        main.classList.remove('flex-box-main');
-        main.classList.add('flex-box-main-grid');
+        gridViewEnabled = !gridViewEnabled;
+        
+        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
+        main.classList.toggle('flex-box-main', !gridViewEnabled);
 
-        //otherwise vice versa
-    } else {
-        main.classList.remove('flex-box-main-grid');
-        main.classList.add('flex-box-main');
+        console.log('work with groups');
+        
+        allCards.forEach(card => {
+            console.log('work with cards');
+            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
+            card.classList.toggle('flex-box-group', !gridViewEnabled);
+        });
+        
+        allPics.forEach(pic => {
+            console.log('work with pics');
+            pic.classList.toggle('pic-grid', gridViewEnabled);
+            pic.classList.toggle('pic', !gridViewEnabled);
+        });
     }
-
 }
-
-function catalogClassChanges() {
-    allCards.forEach((allCards) => {
-        if (allCards.classList.contains('flex-box-group')) {
-            allCards.classList.remove('flex-box-group');
-            allCards.classList.add('flex-box-group-grid');
-        } else {
-            allCards.classList.remove('flex-box-group-grid');
-            allCards.classList.add('flex-box-group');
-        }
-    })
-}
-
-function imagesClassChanges() {
-    allPics.forEach(allPics => {
-        if (allPics.classList.contains('pic')) {
-            console.log('test');
-            allPics.classList.remove('pic');
-            allPics.classList.add('pic-grid');
-        } else {
-            allPics.classList.remove('pic-grid');
-            allPics.classList.add('pic');
-        }
-    })
-};
 
 //Declare event for button view with function toggleClasses
-view.addEventListener('click', toggleClasses);
-view.addEventListener('click', catalogClassChanges);
-view.addEventListener('click', imagesClassChanges);
+view.addEventListener('click', toggleView);
