@@ -192,11 +192,21 @@ randomCard.addEventListener('click', () => {
 
 });
 
-//Click button for changing a background of body
-randomBg.addEventListener('click', () => {
+function setRandomBackground() {
+
+    
+    const backgroundBody = document.querySelector('body');
 
     // Generate a random index to select a wallpaper from the wallpapers array
     const randomIndex = Math.floor(Math.random() * wallpapers.length);
+    
+}
+
+//Click button for changing a background of body
+randomBg.addEventListener('click', () => {
+
+    
+    
 
     //Declare a variable img with attributes of array
     const randomImg = wallpapers[randomIndex]['file'];
