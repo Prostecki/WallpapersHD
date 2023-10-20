@@ -76,6 +76,31 @@ const randomBg = document.getElementById('randomBg');
 //Define a media query 
 const mediaQuery = window.matchMedia('(max-width: 800px)');
 
+function toggleView() {
+
+    if (viewEnabled) {
+
+        gridViewEnabled = !gridViewEnabled;
+        
+        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
+        main.classList.toggle('flex-box-main', !gridViewEnabled);
+
+        console.log('work with groups');
+        
+        allCards.forEach(card => {
+            console.log('work with cards');
+            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
+            card.classList.toggle('flex-box-group', !gridViewEnabled);
+        });
+        
+        allPics.forEach(pic => {
+            console.log('work with pics');
+            pic.classList.toggle('pic-grid', gridViewEnabled);
+            pic.classList.toggle('pic', !gridViewEnabled);
+        });
+    }
+}
+
 //Call the function when opening a page
 renderCatalog();
 
@@ -86,6 +111,9 @@ function renderCatalog() {
 
     //clear page before rendering the catalog
     clearPage();
+
+    //Update the background of body
+    setRandomBackground();
 
     //Rendering a data on the screen
     for (let i = 0; i < wallpapers.length; i++ ) {
@@ -101,8 +129,6 @@ function renderImage(id) {
 
     //clear page before rendering the catalog
     clearPage();
-
-    reloadPage;
 
     //Replace a data in template and rendering
     main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1]['file'])
@@ -194,42 +220,31 @@ randomCard.addEventListener('click', () => {
 
 function setRandomBackground() {
 
-    
     const backgroundBody = document.querySelector('body');
 
     // Generate a random index to select a wallpaper from the wallpapers array
     const randomIndex = Math.floor(Math.random() * wallpapers.length);
-    
-}
-
-//Click button for changing a background of body
-randomBg.addEventListener('click', () => {
-
-    
-    
 
     //Declare a variable img with attributes of array
     const randomImg = wallpapers[randomIndex]['file'];
+    
+    //Append attributes after addEventListener to body element
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+    backgroundBody.style.backgroundRepeat = 'no-repeat';
+    backgroundBody.style.backgroundAttachment = 'fixed';
+    backgroundBody.style.transition = 'all 0.7s';
 
     //It's just test
     console.log('it works?');
-
-    //Append attributes after addEventListener to body element
-    document.body.style.backgroundImage = `url(${randomImg})`;
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundAttachment = 'fixed';
-    document.body.style.transition = 'all 0.7s';
-});
+}
 
 //Function of clear page
 function clearPage() {
-
     //Replace a template for emptiness
     main.innerHTML = '';
-
 }
 
-const reloadPage = document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     console.log('DOMContentLoaded event fired');
 
