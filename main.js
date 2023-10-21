@@ -6,10 +6,20 @@ const templateCard = document.getElementById('tmpl-card').innerHTML;
 const mainCatalog = document.getElementById('mainCatalog');
 const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
+
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
 const menuBar = document.getElementById('menuBar');
+
+//view button to toggle class between grid and flex-direction column
+const cards = document.querySelectorAll('.flex-box-group');
+const pics = document.querySelectorAll('.flex-box-group .pic');
+const view = document.getElementById('view');
+
+//Flag indicating whether the function is allowed to be used
+let viewEnabled = true;
+let gridViewEnabled = false;
 
 renderCatalog();
 
@@ -18,6 +28,9 @@ randomCard.addEventListener('click', displayRandomImage);
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 randomBg.addEventListener('click', setRandomBackground);
 templateCard.addEventListener('click', renderImage);
+openMenu.addEventListener('click', openTheMenu);
+closeMenu.addEventListener('click', closeTheMenu);
+view.addEventListener('click', toggleView);
 //other events listeners
 
 //Function of clear page
@@ -27,19 +40,32 @@ function clearPage() {
 }
 
 function renderCatalog() {
-
-    //clear page before rendering the catalog
+    // Clear the page before rendering the catalog
     clearPage();
 
     const catalogHtml = wallpapers.map((wallpaper, index) => {
-        return templateCatalog
+        const template = document.createElement('template');
+
+        template.innerHTML = templateCatalog
             .replace('${img}', wallpaper.file)
             .replace('${id}', index + 1)
             .replace('${title}', wallpaper.name);
+
+        const element = template.content.firstElementChild;
+
+        element.addEventListener('click', () => {
+            // Define function renderImage with index
+            renderImage(index + 1); 
+        });
+
+        return element;
     });
 
-    main.innerHTML = catalogHtml.join('');
+    catalogHtml.forEach(element => {
+        main.appendChild(element);
+    });
 }
+
 
 function displayModal(image, title, describe) {
     // Referring to a modal window in the DOM
@@ -229,24 +255,6 @@ function setRandomBackground() {
     console.log('it works?');
 }
 
-
-
-//click and appears menu
-openMenu.addEventListener('click', openTheMenu);
-//click and close menu
-closeMenu.addEventListener('click', closeTheMenu);
-
-// ----------------------------------------------------------------//
-//view button to toggle class between grid and flex-direction column
-const cards = document.querySelectorAll('.flex-box-group');
-const pics = document.querySelectorAll('.flex-box-group .pic');
-const view = document.getElementById('view');
-
-//Flag indicating whether the function is allowed to be used
-let viewEnabled = true;
-let gridViewEnabled = false;
-
-//in order to toggle classes in one div
 function toggleView() {
 
     console.log(viewEnabled);
@@ -273,10 +281,6 @@ function toggleView() {
         });
     }
 }
-
-//Declare event for button view with function toggleClasses
-view.addEventListener('click', toggleView);
-
 //Create event listener on parent's element
 menuBar.addEventListener('click', (event) => {
 
