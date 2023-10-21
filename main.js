@@ -58,12 +58,14 @@ function renderCatalog() {
             // Define function renderImage with index
             renderImage(index + 1); 
         });
+
+        element.classList.add('fade-in');
+
         return element;
     });
 
     catalogHtml.forEach(element => {
         main.appendChild(element);
-        // console.log('testCard')
     });
 };
 
@@ -132,7 +134,10 @@ function displayRandomImage() {
         .replace('${title}', randomWallpaper.name)
         .replace('${describe}', randomWallpaper.describe);
 
+    //For appearing animation
     const largePic = card.querySelector('.largePic');
+    largePic.classList.add('fade-in');
+
     const title = card.querySelector('.titleModal');
     const describe = card.querySelector('.describe');
     const infoButton = card.querySelector('.info');
