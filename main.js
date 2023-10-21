@@ -76,9 +76,10 @@ function renderImage(id) {
 
     //Replace a data in template and rendering
     main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1].file)
+                                  .replace('${img}', wallpapers[id - 1].file)
                                   .replace('${title}', wallpapers[id - 1].name)
                                   .replace('${describe}', wallpapers[id - 1].describe);
-
+                                  
     const modalContainer = document.getElementById('modal_container');
     const moreInfoButton = document.getElementById('open');
 
@@ -95,7 +96,6 @@ function renderImage(id) {
 };
 
 function displayRandomImage() {
-
     //Generate a random index to select a wallpaper from the wallpapers array
     const randomIndex = Math.floor(Math.random() * wallpapers.length);
 
@@ -107,42 +107,6 @@ function displayRandomImage() {
         .replace('${img}', wallpapers[randomIndex].file)
         .replace('${title}', wallpapers[randomIndex].name)
         .replace('${describe}', wallpapers[randomIndex].describe);
-
-    //Referring to a modal window in the DOM
-    const modalContainer = document.getElementById('modal_container');
-
-    // Referring to buttons and link in the DOM
-    const open = document.getElementById('open');
-    const close = document.getElementById('close');
-    const linkDl = document.getElementById('download');
-
-    // Set an attribute href and specify which image to download
-    linkDl.setAttribute('href', wallpapers[randomIndex].file);
-
-    // Set event listeners for modal window
-    open.addEventListener('click', () => {
-        modalContainer.classList.add('show');
-    });
-
-    close.addEventListener('click', () => {
-        modalContainer.classList.remove('show');
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target == modalContainer) {
-            modalContainer.classList.remove('show');
-        }
-    });
-
-    // Populate the modal window with the image, title, and description
-    // You can use the same template you're using in other places
-    const modalContent = templateCard
-        .replace('${img}', wallpapers[randomIndex].file)
-        .replace('${title}', wallpapers[randomIndex].name)
-        .replace('${describe}', wallpapers[randomIndex].describe);
-
-    // Add the modal content to the modal container
-    modalContainer.innerHTML = modalContent;
 };
 
 function openTheMenu() {
