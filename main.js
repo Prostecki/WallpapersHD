@@ -1,4 +1,5 @@
 import wallpapers from "./catalog.js";
+// import { displayModal } from "./modal.js";
 
 const main = document.querySelector('main');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
@@ -58,50 +59,40 @@ function renderCatalog() {
             // Define function renderImage with index
             renderImage(index + 1); 
         });
-
         return element;
     });
 
     catalogHtml.forEach(element => {
         main.appendChild(element);
+        // console.log('testCard')
     });
 };
 
-function displayModal(image, title, describe) {
+function renderImage(id) {
 
-    // Referring to a modal window in the DOM
+    console.log('testCard');
+
+    //clear page before rendering the catalog
+    clearPage();
+
+    //Replace a data in template and rendering
+    main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1].file)
+                                  .replace('${title}', wallpapers[id - 1].name)
+                                  .replace('${describe}', wallpapers[id - 1].describe);
+
     const modalContainer = document.getElementById('modal_container');
-    const open = document.getElementById('open');
-    const close = document.getElementById('close');
-    const linkDl = document.getElementById('download');
+    const moreInfoButton = document.getElementById('open');
 
-    // Set an attribute href and specify which image to download
-    linkDl.setAttribute('href', image);
-
-    // Set event listeners for the modal window
-    open.addEventListener('click', () => {
-        modalContainer.classList.add('show');
+    moreInfoButton.addEventListener('click', () => {
+        modalContainer.classList.add('show')
     });
 
-    close.addEventListener('click', () => {
+    const closeButton = document.getElementById('close');
+
+    closeButton.addEventListener('click', () => {
         modalContainer.classList.remove('show');
     });
 
-    window.addEventListener('click', (event) => {
-        if (event.target == modalContainer) {
-            modalContainer.classList.remove('show');
-        }
-    });
-
-    // Populate the modal window with the image, title, and description
-    // You can use the same template you're using in other places
-    const modalContent = templateCard
-        .replace('${img}', image)
-        .replace('${title}', title)
-        .replace('${describe}', describe);
-
-    // Add the modal content to the modal container
-    modalContainer.innerHTML = modalContent;
 };
 
 function displayRandomImage() {
@@ -193,51 +184,6 @@ function reloadPageWithBg(){
     backgroundBody.style.backgroundSize = 'cover';
 };
 
-function renderImage(id) {
-
-    //clear page before rendering the catalog
-    clearPage();
-
-    //Replace a data in template and rendering
-    main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1].file)
-                                  .replace('${title}', wallpapers[id - 1].name)
-                                  .replace('${describe}', wallpapers[id - 1].describe);
-
-    //When we try to call a modal window, we need to declare variables inside the second template!
-
-        //Referring to a modal window in DOM
-        const modalContainer = document.getElementById('modal_container');
-
-        //Referring to a button 'More info' in DOM
-        const open = document.getElementById('open');
-
-        //Reffering to a button 'Close' in DOM
-        const close = document.getElementById('close');
-
-        //Referring to a link 'Download' in DOM
-        const linkDl = document.getElementById('download');
-
-        //Set an attribute href and specify which exactly will be pic with method setAttribute
-        linkDl.setAttribute('href', wallpapers[id - 1]['file']);
-
-        //Set addEventListener on a button 'More info'
-        open.addEventListener('click', () => {
-            modalContainer.classList.add('show');
-        });
-        
-        //Set addEventListener on a button 'Close'
-        close.addEventListener('click', () => {
-            modalContainer.classList.remove('show');
-        });
-
-        //Reffering to a window (Any place besides a modal window, and set addEventListener and function, if a place of click not a modal window, we'll remove class 'show'
-        window.addEventListener('click', (event) => {
-            if (event.target == modalContainer) {
-                modalContainer.classList.remove('show');
-            }
-        })
-};
-
 function setRandomBackground() {
 
     const backgroundBody = document.querySelector('body');
@@ -284,18 +230,3 @@ function toggleView() {
         });
     }
 };
-// //Create event listener on parent's element
-// menuBar.addEventListener('click', (event) => {
-
-//     //Check if the target element is a button with class "action-button"
-//     if (event.target.classList.contains('action-button')) {
-
-//         const buttonId = event.target.id;
-
-//         //run a function on based ID button
-//         switch(buttonId) {
-
-//         }
-//     }
-
-// });
