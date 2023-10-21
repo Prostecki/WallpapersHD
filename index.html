@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="dark.css">
-    <script src="second.js" type="module"></script>
     <title>Wallpapers</title>
 </head>
 
@@ -30,7 +30,7 @@
     </footer>
 
     <template id="tmpl-catalog">
-            <div id="allCards" class="flex-box-group" onclick="renderImage(${id})">
+            <div id="allCards" class="flex-box-group">
                 <div class="title">${title}</div>
                 <div class="imgContainer">
                     <img class="pic" src="${img}">
