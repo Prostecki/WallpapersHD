@@ -1,5 +1,4 @@
 import wallpapers from "./catalog.js";
-// import { displayModal } from "./modal.js";
 
 const main = document.querySelector('main');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
@@ -30,9 +29,9 @@ closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-// templateCard.addEventListener('click', renderImage);
 view.addEventListener('click', toggleView);
-//other events listeners
+
+//... Other events listeners
 
 //Function of clear page
 function clearPage() {
