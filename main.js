@@ -68,45 +68,85 @@ function renderCatalog() {
 };
 
 function renderImage(id) {
-
-    console.log('testCard');
-
-    //clear page before rendering the catalog
+    //Clear page before rendering the catalog
     clearPage();
 
-    //Replace a data in template and rendering
-    main.innerHTML += templateCard.replace('${img}', wallpapers[id - 1].file)
-                                  .replace('${img}', wallpapers[id - 1].file)
-                                  .replace('${title}', wallpapers[id - 1].name)
-                                  .replace('${describe}', wallpapers[id - 1].describe);
-                                  
-    const modalContainer = document.getElementById('modal_container');
-    const moreInfoButton = document.getElementById('open');
+    // Create an element from template
+    const template = document.getElementById('tmpl-card');
+    //Need to read how to use it generally
+    const templateContent = document.importNode(template.content, true);
+    const card = templateContent.querySelector('.singleCard');
 
-    moreInfoButton.addEventListener('click', () => {
-        modalContainer.classList.add('show')
+    // Replace a data in template
+    const largePic = card.querySelector('.largePic');
+    const title = card.querySelector('.titleModal');
+    const describe = card.querySelector('.describe');
+    
+    largePic.src = wallpapers[id - 1].file;
+    title.textContent = wallpapers[id - 1].name;
+    describe.textContent = wallpapers[id - 1].describe;
+    
+    // Didplay an created element on the page
+    main.appendChild(card);
+    
+    const modalContainer = card.querySelector('.modal-container');
+    const openButton = card.querySelector('.info');
+    const closeButton = card.querySelector('.closeMe');
+    
+    openButton.addEventListener('click', () => {
+        modalContainer.classList.add('show');
     });
-
-    const closeButton = document.getElementById('close');
 
     closeButton.addEventListener('click', () => {
         modalContainer.classList.remove('show');
+        modalContainer.style.transition = '.5s';
     });
+
+    largePic.style.opacity = 0;
+    largePic.style.transform = 'scale(0)';
+    title.style.opacity = 0;
+    title.style.transform = 'translateY(30px)';
+
+    const delay = 100;
+
+    setTimeout(() => {
+        // Show an image and panel with animation
+        largePic.style.opacity = 1;
+        largePic.style.transform = 'scale(1)';
+        title.style.opacity = 1;
+        title.style.transform = 'translateY(0)';
+    }, delay);
 
 };
 
 function displayRandomImage() {
-    //Generate a random index to select a wallpaper from the wallpapers array
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
     // Clear the page
     clearPage();
 
-    // Replace data in the template and render with random data
-    main.innerHTML += templateCard
-        .replace('${img}', wallpapers[randomIndex].file)
-        .replace('${title}', wallpapers[randomIndex].name)
-        .replace('${describe}', wallpapers[randomIndex].describe);
+    const randomIndex = Math.floor(Math.random() * wallpapers.length);
+    const randomWallpaper = wallpapers[randomIndex];
+
+    const card = document.createElement('div');
+    card.innerHTML = templateCard
+        .replace('${img}', randomWallpaper.file)
+        .replace('${title}', randomWallpaper.name)
+        .replace('${describe}', randomWallpaper.describe);
+
+    const largePic = card.querySelector('.largePic');
+    const title = card.querySelector('.titleModal');
+    const describe = card.querySelector('.describe');
+    const infoButton = card.querySelector('.info');
+    const closeButton = card.querySelector('.closeMe');
+    const modalContainer = card.querySelector('.modal-container');
+
+    largePic.src = randomWallpaper.file;
+    title.textContent = randomWallpaper.name;
+    describe.textContent = randomWallpaper.describe;
+
+    infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
+    closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
+
+    main.appendChild(card); 
 };
 
 function openTheMenu() {

@@ -252,6 +252,11 @@
      pointer-events: auto;
      opacity: 1;
 }
+ .modal-container.show.fade-out {
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+    opacity: 0;
+}
  @media screen and (max-width: 800px) {
      body {
          margin: 0;
@@ -343,7 +348,7 @@
          width: 300px;
          height: 100px;
          align-items: center;
-         transition: all 0.7s;
+         /* transition: all 0.7s; */
          padding: 25px;
     }
      footer {
