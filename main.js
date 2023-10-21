@@ -23,13 +23,13 @@ let gridViewEnabled = false;
 
 renderCatalog();
 
-mainCatalog.addEventListener('click', renderCatalog);
-randomCard.addEventListener('click', displayRandomImage);
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
-randomBg.addEventListener('click', setRandomBackground);
-templateCard.addEventListener('click', renderImage);
 openMenu.addEventListener('click', openTheMenu);
 closeMenu.addEventListener('click', closeTheMenu);
+mainCatalog.addEventListener('click', renderCatalog);
+randomCard.addEventListener('click', displayRandomImage);
+randomBg.addEventListener('click', setRandomBackground);
+// templateCard.addEventListener('click', renderImage);
 view.addEventListener('click', toggleView);
 //other events listeners
 
@@ -37,13 +37,14 @@ view.addEventListener('click', toggleView);
 function clearPage() {
     //Replace a template for emptiness
     main.innerHTML = '';
-}
+};
 
 function renderCatalog() {
     // Clear the page before rendering the catalog
     clearPage();
 
     const catalogHtml = wallpapers.map((wallpaper, index) => {
+
         const template = document.createElement('template');
 
         template.innerHTML = templateCatalog
@@ -64,10 +65,10 @@ function renderCatalog() {
     catalogHtml.forEach(element => {
         main.appendChild(element);
     });
-}
-
+};
 
 function displayModal(image, title, describe) {
+
     // Referring to a modal window in the DOM
     const modalContainer = document.getElementById('modal_container');
     const open = document.getElementById('open');
@@ -101,7 +102,7 @@ function displayModal(image, title, describe) {
 
     // Add the modal content to the modal container
     modalContainer.innerHTML = modalContent;
-}
+};
 
 function displayRandomImage() {
 
@@ -159,13 +160,15 @@ function openTheMenu() {
     openMenu.style.transition = 'all 0.7s';
     menuBar.style.transition = 'all 0.7s';
     menuBar.style.left = '0px';
-}
+    console.log('test');
+};
 
 function closeTheMenu() {
+    console.log('test');
     openMenu.style.left = '10px';
     openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-600px';
-}
+};
 
 function reloadPageWithBg(){
 
@@ -188,7 +191,7 @@ function reloadPageWithBg(){
     backgroundBody.style.backgroundImage = `url(${randomImg})`;
 
     backgroundBody.style.backgroundSize = 'cover';
-}
+};
 
 function renderImage(id) {
 
@@ -233,7 +236,7 @@ function renderImage(id) {
                 modalContainer.classList.remove('show');
             }
         })
-}
+};
 
 function setRandomBackground() {
 
@@ -253,7 +256,7 @@ function setRandomBackground() {
 
     //It's just test
     console.log('it works?');
-}
+};
 
 function toggleView() {
 
@@ -280,19 +283,19 @@ function toggleView() {
             pic.classList.toggle('pic', !gridViewEnabled);
         });
     }
-}
-//Create event listener on parent's element
-menuBar.addEventListener('click', (event) => {
+};
+// //Create event listener on parent's element
+// menuBar.addEventListener('click', (event) => {
 
-    //Check if the target element is a button with class "action-button"
-    if (event.target.classList.contains('action-button')) {
+//     //Check if the target element is a button with class "action-button"
+//     if (event.target.classList.contains('action-button')) {
 
-        const buttonId = event.target.id;
+//         const buttonId = event.target.id;
 
-        //run a function on based ID button
-        switch(buttonId) {
+//         //run a function on based ID button
+//         switch(buttonId) {
 
-        }
-    }
+//         }
+//     }
 
-});
+// });
