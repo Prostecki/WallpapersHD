@@ -6,20 +6,14 @@ const templateCard = document.getElementById('tmpl-card').innerHTML;
 const mainCatalog = document.getElementById('mainCatalog');
 const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
-
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
 const menuBar = document.getElementById('menuBar');
-
 //view button to toggle class between grid and flex-direction column
 const cards = document.querySelectorAll('.flex-box-group');
 const pics = document.querySelectorAll('.flex-box-group .pic');
 const view = document.getElementById('view');
-
-//Flag indicating whether the function is allowed to be used
-let viewEnabled = true;
-let gridViewEnabled = false;
 
 renderCatalog();
 
@@ -166,7 +160,7 @@ function closeTheMenu() {
     console.log('test');
     openMenu.style.left = '10px';
     openMenu.style.transition = 'all 1s';
-    menuBar.style.left = '-600px';
+    menuBar.style.left = '-800px';
 };
 
 function reloadPageWithBg(){
@@ -214,27 +208,32 @@ function setRandomBackground() {
 
 function toggleView() {
 
-    console.log(viewEnabled);
+    //check, if it's saved in localStorage and set up a default value 
+    let gridViewEnabled = localStorage.getItem('gridViewEnabled') === 'true' || false;
 
-    if (viewEnabled) {
+    gridViewEnabled = !gridViewEnabled;
 
-        gridViewEnabled = !gridViewEnabled;
-        
-        main.classList.toggle('flex-box-main-grid', gridViewEnabled);
-        main.classList.toggle('flex-box-main', !gridViewEnabled);
+    // Save new value in localStorage
+    localStorage.setItem('gridViewEnabled', gridViewEnabled);
+    
+    let main = document.querySelector('main');
+    let cards = document.querySelectorAll('.flex-box-group');
+    let pics = document.querySelectorAll('.flex-box-group .pic');
+    
+    main.classList.toggle('flex-box-main-grid', gridViewEnabled);
+    main.classList.toggle('flex-box-main', !gridViewEnabled);
 
-        console.log('work with groups');
+    console.log('work with groups');
+    cards.forEach(card => {
+        console.log('work with cards');
+        card.classList.toggle('flex-box-group-grid', gridViewEnabled);
+        card.classList.toggle('flex-box-group', !gridViewEnabled);
+    });
         
-        cards.forEach(card => {
-            console.log('work with cards');
-            card.classList.toggle('flex-box-group-grid', gridViewEnabled);
-            card.classList.toggle('flex-box-group', !gridViewEnabled);
-        });
+    pics.forEach(pic => {
+        console.log('work with pics');
+        pic.classList.toggle('pic-grid', gridViewEnabled);
+        pic.classList.toggle('pic', !gridViewEnabled);
+    });
         
-        pics.forEach(pic => {
-            console.log('work with pics');
-            pic.classList.toggle('pic-grid', gridViewEnabled);
-            pic.classList.toggle('pic', !gridViewEnabled);
-        });
-    }
 };
