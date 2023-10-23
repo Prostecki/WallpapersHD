@@ -27,10 +27,11 @@ randomBg.addEventListener('click', setRandomBackground);
 
 document.addEventListener('DOMContentLoaded', () =>{
     view.addEventListener('click', () => {
-    
         const newCSSFile = 'css/grid.css';
-    
+
         cssLink.href = newCSSFile;
+        openMenu.addEventListener('click', openTheMenu);
+        closeMenu.addEventListener('click', closeTheMenu);
     });
 });
 
