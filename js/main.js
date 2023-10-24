@@ -27,17 +27,21 @@ randomBg.addEventListener('click', setRandomBackground);
 document.addEventListener('DOMContentLoaded', () =>{
     view.addEventListener('click', () => {
         let gridViewEnabledCss = true;
+        //change a css file with delay and applying some style
         setTimeout(() => {
             //toggle the flag
             gridViewEnabledCss = !isGridViewEnabledCss();
             const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
             cssLink.href = newCSSFile;
         }, 2000)
-        let loadingAnimation = document.getElementById('loadingAnimation')
+
+        //after 2 sec, apply some style for loading div
+        let loadingAnimation = document.getElementById('loadingAnimation');
         loadingAnimation.style.opacity = '0.8';
         loadingAnimation.style.transition = 'all 0.8s';
         console.log('div vidno');
 
+        //delay with applying some style
         setTimeout(() => {
             loadingAnimation.style.opacity = '0';
             loadingAnimation.style.transition = 'all 0.8s';
