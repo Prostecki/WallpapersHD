@@ -1,5 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+}
+ #menuBar{
+    position: fixed;
+    margin: 0;
+    top: 10px;
+    left: -500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+    height: auto;
+    background-color: grey;
+    border-radius: 5px;
+    z-index: 9;
+    box-shadow: 0px 5px 10px black;
+}
+ .knopki {
+    padding: 10px;
+    text-align: center;
+    line-height: 10px;
+    position: relative;
+    width: 80%;
+    /* display: inline-block; */
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    transition-duration: .3s;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border-bottom: 0.5px solid black;
+}
+
 @media screen and (max-width: 800px) {
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
  * {
      font-family: 'Ubuntu', sans-serif;
 }
@@ -12,24 +54,15 @@
     display: flex;
     width: 100%;
 }
-#menuBar{
-    position: fixed;
-    padding: 5px;
-    margin: 0;
-    top: 10px;
-    left: -500px;
+ #menuBar {
+    font-size: 10px;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    height: auto;
-    background-color: grey;
-    border-radius: 5px;
-    z-index: 9;
-    box-shadow: 0px 5px 10px black;
-    width: 90%;
+    flex-direction: row;
+    width: 100%;
     border-radius: 50px;
 }
-#openMenu {
+ #openMenu {
     border-radius: 50%;
     position: fixed;
     left: 10px;
@@ -43,46 +76,38 @@
     cursor: pointer;
     transition: all 0.7s;
 }
-#openMenu:hover {
+ #openMenu:hover {
     background-color: yellow;
 }
- #closeMenu {
+   #closeMenu {
     background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
-    background-size: cover;
     background-position: center;
-    width: 10px;
-    height: 10px;
     background-size: cover;
-    padding: 5px;
+    background-color: white;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
     text-align: center;
-    border: none;
-    color: white;
-    box-shadow: 1px 3px 8px black;
-    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
     transition: all 0.7s;
+    border-radius: 50%;
+    border: .5px solid white;
+    transition: all .7s;
+    margin: 5px;
 }
  #closeMenu:hover {
     background-color: wheat;
     transition: all .7s;
 }
-.knopki {
+ .knopki {
+    width: 25%;
     padding: 5px;
     text-align: center;
-    line-height: 10px;
-    position: relative;
-    width: auto;
-    display: inline-block;
-    outline: none;
-    cursor: pointer;
-    font-size: 10px;
-    transition-property: background-color, border-color, color, box-shadow, filter;
-    transition-duration: .3s;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    white-space: normal;
-    text-align: center;
-    color: white;
-    height: auto;
+    border: none;
+    border-radius: 10px;
+    margin-top: 0;
+    font-size: 12px;
 }
  .pic {
      width: 100%;
@@ -90,18 +115,18 @@
      border-radius: 20px;
      box-sizing: border-box;
      transition: all 0.4s;
-    }
+}
  .flex-box-main {
     display: flex;
     flex-wrap: wrap;
     margin: 50px 15px;
     
- }
+}
  .flex-box-group {
     position: relative;
-    width: 100px;
+    width: 120px;
     margin: 10px;
- }
+}
  .title {
     font-size: 10px;
     color: white;
@@ -111,10 +136,10 @@
     margin: 0 auto;
     text-align: center;
     opacity: 0.5;
- }
+}
  .imgContainer {
     width: 100%;
- }
+}
  .singleCard {
     margin: 10px;
     transition: all 0.7s;
@@ -123,10 +148,10 @@
     flex-wrap: wrap;
     align-items: end;
     justify-content: end;
- }
+}
  .largePic {
     width: 100%;
- }
+}
  .modal-container {
     position: fixed;
     top: 0;
@@ -191,5 +216,8 @@
     z-index: 10;
     transition: all 0.7s;
     pointer-events: none;
+ }
+ .bot{
+    color: white;
  }
 }

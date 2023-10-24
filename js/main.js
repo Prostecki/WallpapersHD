@@ -16,7 +16,9 @@ const pics = document.querySelectorAll('.flex-box-group .pic');
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
+//render catalog after loading page
 renderCatalog();
+//Declare a function with visible of button
 displayGridButton();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
@@ -25,6 +27,7 @@ closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
+window.addEventListener('resize', displayGridButton);
 document.addEventListener('DOMContentLoaded', () =>{
     view.addEventListener('click', () => {
         let gridViewEnabledCss = true;
@@ -49,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
-window.addEventListener('resize', displayGridButton);
 
 //... Other events listeners
+
 function displayGridButton() {
     if(window.innerWidth > 800) {
         console.log('testViewButton800')
@@ -60,7 +63,6 @@ function displayGridButton() {
         view.style.display = 'block';
     }
 }
-
 
 function isGridViewEnabledCss() {
     return cssLink.href.includes('grid.css');
@@ -243,39 +245,3 @@ function setRandomBackground() {
     //It's just test
     console.log('it works?');
 };
-
-function toggleView() {
-
-    //check, if it's saved in localStorage and set up a default value 
-    let gridViewEnabled = localStorage.getItem('gridViewEnabled') === 'true' || false;
-
-    gridViewEnabled = !gridViewEnabled;
-
-    // Save new value in localStorage
-    localStorage.setItem('gridViewEnabled', gridViewEnabled);
-    
-    let main = document.querySelector('main');
-    let cards = document.querySelectorAll('.flex-box-group');
-    let pics = document.querySelectorAll('.flex-box-group .pic');
-    
-    main.classList.toggle('flex-box-main-grid', gridViewEnabled);
-    main.classList.toggle('flex-box-main', !gridViewEnabled);
-
-    console.log('work with groups');
-    cards.forEach(card => {
-        console.log('work with cards');
-        card.classList.toggle('flex-box-group-grid', gridViewEnabled);
-        card.classList.toggle('flex-box-group', !gridViewEnabled);
-    });
-        
-    pics.forEach(pic => {
-        console.log('work with pics');
-        pic.classList.toggle('pic-grid', gridViewEnabled);
-        pic.classList.toggle('pic', !gridViewEnabled);
-    });
-        
-};
-
-function loadPicture() {
-
-}
