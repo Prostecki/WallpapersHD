@@ -15,7 +15,6 @@ const cards = document.querySelectorAll('.flex-box-group');
 const pics = document.querySelectorAll('.flex-box-group .pic');
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
-let newCSSFile;
 
 renderCatalog();
 
@@ -25,18 +24,23 @@ closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-
 document.addEventListener('DOMContentLoaded', () =>{
     view.addEventListener('click', () => {
         let gridViewEnabledCss = true;
-        //toggle the flag
-        gridViewEnabledCss = !isGridViewEnabledCss();
-        const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
-        cssLink.href = newCSSFile;
+        setTimeout(() => {
+            //toggle the flag
+            gridViewEnabledCss = !isGridViewEnabledCss();
+            const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
+            cssLink.href = newCSSFile;
+        }, 2000)
+        let loadingAnimation = document.getElementById('loadingAnimation')
+        loadingAnimation.style.opacity = '0.8';
+        loadingAnimation.style.transition = 'all 0.8s';
     });
 });
 
 //... Other events listeners
+
 
 function isGridViewEnabledCss() {
     return cssLink.href.includes('grid.css');
