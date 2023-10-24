@@ -13,35 +13,38 @@
     display: flex;
     width: 100%;
 }
- #menuBar {
+#menuBar{
     position: fixed;
-    color: white;
-    margin: 10px 0;
-    background-color: purple;
-    padding: 10px;
-    font-size: 15px;
+    padding: 5px;
+    margin: 0;
+    top: 10px;
+    left: -500px;
     display: flex;
     justify-content: space-evenly;
-    flex-direction: row;
-    width: 450px;
+    align-items: center;
+    height: auto;
+    background-color: grey;
+    border-radius: 5px;
+    z-index: 9;
+    box-shadow: 0px 5px 10px black;
+    width: 100%;
     border-radius: 50px;
-    z-index: 5;
 }
- #openMenu {
-    border-radius: 25px;
+#openMenu {
+    border-radius: 50%;
     position: fixed;
     left: 10px;
     top: 10px;
     width: 25px;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px;
     background-color: grey;
     text-align: center;
     z-index: 9;
     cursor: pointer;
     transition: all 0.7s;
 }
- #openMenu:hover {
+#openMenu:hover {
     background-color: yellow;
 }
  #closeMenu {
@@ -65,19 +68,20 @@
     text-align: center;
     line-height: 10px;
     position: relative;
-    width: auto;
+    width: 25%;
     display: inline-block;
     outline: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 10px;
     transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
     letter-spacing: 2px;
     text-transform: uppercase;
     white-space: normal;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-align: center;
     color: white;
+    height: auto;
 }
  .pic {
      width: 100%;

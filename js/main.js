@@ -15,6 +15,7 @@ const cards = document.querySelectorAll('.flex-box-group');
 const pics = document.querySelectorAll('.flex-box-group .pic');
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
+let newCSSFile;
 
 renderCatalog();
 
@@ -24,10 +25,15 @@ closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-document.addEventListener('DOMContentLoaded', () =>{
-    view.addEventListener('click', () => {
-        const newCSSFile = 'css/grid.css';
 
+document.addEventListener('DOMContentLoaded', () =>{
+    let gridViewEnabledCss = true;
+    view.addEventListener('click', () => {
+        //toggle the flag
+        gridViewEnabledCss = !gridViewEnabledCss;
+        
+        
+        const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
         cssLink.href = newCSSFile;
         openMenu.addEventListener('click', openTheMenu);
         closeMenu.addEventListener('click', closeTheMenu);
