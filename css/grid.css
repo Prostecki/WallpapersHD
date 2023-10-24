@@ -23,8 +23,9 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    width: 100%;
+    width: 450px;
     border-radius: 50px;
+    z-index: 5;
 }
  #openMenu {
     border-radius: 25px;
@@ -45,8 +46,9 @@
 }
  #closeMenu {
     background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    background-size: cover;
+    padding: 5px;
     text-align: center;
     border: none;
     color: white;
@@ -59,11 +61,11 @@
     transition: all .7s;
 }
 .knopki {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     line-height: 10px;
     position: relative;
-    width: 80%;
+    width: auto;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -76,15 +78,94 @@
     font-weight: 700;
     text-align: center;
     color: white;
-    border-bottom: 0.5px solid black;
 }
-
  .pic {
-     width: 350px;
-     height: 200px;
+     width: 100%;
      border: .5px solid black;
      border-radius: 20px;
      box-sizing: border-box;
      transition: all 0.4s;
     }
+ .flex-box-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 15px;
+    
+ }
+ .flex-box-group {
+    position: relative;
+    width: 100px;
+    margin: 10px;
+ }
+ .title {
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: 33%;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.5;
+ }
+ .imgContainer {
+    width: 100%;
+ }
+ .singleCard {
+    position: relative;
+    width: 100%;
+ }
+ .largePic {
+    width: 100%;
+ }
+ .modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition: opacity 0.3 ease;
+}
+ .modal {
+    background-color: #241d1d;
+    color: whitesmoke;
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .modal h1 {
+    margin: 0;
+    text-align: center;
+}
+ .modal p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+ .modal-container.show {
+    transition: all 0.7s;
+    pointer-events: auto;
+    opacity: 1;
+}
+ .modal-container.show.fade-out {
+   transition: opacity 0.7s ease;
+   pointer-events: none;
+   opacity: 0;
+}
+ .footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }

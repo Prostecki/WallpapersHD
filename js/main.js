@@ -24,7 +24,6 @@ closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-
 document.addEventListener('DOMContentLoaded', () =>{
     view.addEventListener('click', () => {
         const newCSSFile = 'css/grid.css';

@@ -125,7 +125,7 @@
      position: fixed;
      margin: 0;
      top: 10px;
-     /* left: -500px; */
+     left: -500px;
      display: flex;
      flex-direction: column;
      justify-content: space-evenly;
