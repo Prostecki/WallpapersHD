@@ -36,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () =>{
         let loadingAnimation = document.getElementById('loadingAnimation')
         loadingAnimation.style.opacity = '0.8';
         loadingAnimation.style.transition = 'all 0.8s';
+        console.log('div vidno');
+
+        setTimeout(() => {
+            loadingAnimation.style.opacity = '0';
+            loadingAnimation.style.transition = 'all 0.8s';
+        }, 2000);
     });
 });
 
