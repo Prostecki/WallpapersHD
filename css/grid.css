@@ -124,7 +124,7 @@ header {
 }
  .flex-box-group {
     position: relative;
-    width: 120px;
+    width: 100px;
     margin: 10px;
 }
  .title {
@@ -140,7 +140,7 @@ header {
  .imgContainer {
     width: 100%;
 }
- .singleCard {
+.singleCard {
     margin: 10px;
     transition: all 0.7s;
     border-radius: 10px;
@@ -152,7 +152,21 @@ header {
  .largePic {
     width: 100%;
 }
- .modal-container {
+.info, #download {
+    font-size: 13px;
+    margin-top: 15px;
+    color: white;
+    border-radius: 5px;
+    border: 0.5px solid white;
+    transition: .5s;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    background: none;
+    margin-right: 15px;
+    text-decoration: none;
+}
+.modal-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -166,7 +180,7 @@ header {
     pointer-events: none;
     transition: opacity 0.3 ease;
 }
- .modal {
+.modal {
     background-color: #241d1d;
     color: whitesmoke;
     width: 400px;
@@ -178,20 +192,20 @@ header {
     align-items: center;
     justify-content: center;
 }
- .modal h1 {
+.modal h1 {
     margin: 0;
     text-align: center;
 }
- .modal p {
+.modal p {
     font-size: 14px;
     opacity: 0.7;
 }
- .modal-container.show {
+.modal-container.show {
     transition: all 0.7s;
     pointer-events: auto;
     opacity: 1;
 }
- .modal-container.show.fade-out {
+.modal-container.show.fade-out {
    transition: opacity 0.7s ease;
    pointer-events: none;
    opacity: 0;
