@@ -27,22 +27,21 @@ randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
 
 document.addEventListener('DOMContentLoaded', () =>{
-    let gridViewEnabledCss = true;
     view.addEventListener('click', () => {
+        let gridViewEnabledCss = true;
         //toggle the flag
-        gridViewEnabledCss = !gridViewEnabledCss;
-        
-        
+        gridViewEnabledCss = !isGridViewEnabledCss();
         const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
         cssLink.href = newCSSFile;
-        openMenu.addEventListener('click', openTheMenu);
-        closeMenu.addEventListener('click', closeTheMenu);
     });
 });
 
 //... Other events listeners
 
-//Function of clear page
+function isGridViewEnabledCss() {
+    return cssLink.href.includes('grid.css');
+}
+
 function clearPage() {
     //Replace a template for emptiness
     main.innerHTML = '';
@@ -252,3 +251,7 @@ function toggleView() {
     });
         
 };
+
+function loadPicture() {
+
+}
