@@ -181,7 +181,7 @@
      line-height: 10px;
      position: relative;
      width: 80%;
-     display: inline-block;
+     /* display: inline-block; */
      outline: none;
      cursor: pointer;
      font-size: 14px;

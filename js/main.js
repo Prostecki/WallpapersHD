@@ -17,6 +17,7 @@ const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
 renderCatalog();
+displayGridButton();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
@@ -48,8 +49,17 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
+window.addEventListener('resize', displayGridButton);
 
 //... Other events listeners
+function displayGridButton() {
+    if(window.innerWidth > 800) {
+        console.log('testViewButton800')
+        view.style.display = 'none';
+    } else {
+        view.style.display = 'block';
+    }
+}
 
 
 function isGridViewEnabledCss() {

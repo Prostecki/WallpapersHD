@@ -6,7 +6,6 @@
  body {
     margin: 0 auto;
     background-color: grey;
-    /* display: flex; */
     flex-wrap: wrap;
 }
  header {
@@ -81,7 +80,6 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     white-space: normal;
-    /* font-weight: 700; */
     text-align: center;
     color: white;
     height: auto;
@@ -118,13 +116,13 @@
     width: 100%;
  }
  .singleCard {
-        margin: 10px;
-        transition: all 0.7s;
-        border-radius: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: end;
-        justify-content: end;
+    margin: 10px;
+    transition: all 0.7s;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: end;
  }
  .largePic {
     width: 100%;
