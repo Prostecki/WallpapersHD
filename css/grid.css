@@ -46,9 +46,8 @@ header {
      font-family: 'Ubuntu', sans-serif;
 }
  body {
-    margin: 0 auto;
-    background-color: grey;
     flex-wrap: wrap;
+    background-attachment: fixed;
 }
  header {
     display: flex;
@@ -119,6 +118,7 @@ header {
 }
  .flex-box-main {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 50px;
 }
