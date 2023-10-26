@@ -139,7 +139,6 @@ function renderImage(id) {
     });
 
     largePic.style.opacity = 0;
-    largePic.style.transform = 'scale(0)';
     title.style.opacity = 0;
     title.style.transform = 'translateY(30px)';
 
@@ -149,6 +148,7 @@ function renderImage(id) {
         // Show an image and panel with animation
         largePic.style.opacity = 1;
         largePic.style.transform = 'scale(1)';
+        largePic.style.transition = 'all 0.3s'
         title.style.opacity = 1;
         title.style.transform = 'translateY(0)';
     }, delay);
