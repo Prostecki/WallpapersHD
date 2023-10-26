@@ -30,7 +30,6 @@
      border-radius: 10px;
      display: flex;
      flex-wrap: wrap;
-     align-items: end;
      justify-content: end;
 }
  .info, #download {
@@ -101,9 +100,9 @@
      transform: scale(1.1);
 }
  .flex-box-main {
-    margin: 20px 0;
-     display: flex;
-     flex-wrap: wrap;
+    /* margin: 20px 0; */
+    display: flex;
+    flex-wrap: wrap;
 }
  .styleCatalog {
      width: 400px;
@@ -309,14 +308,13 @@
          padding: 0;
          position: relative;
          width: 100%;
-         height: 100vh;
+         /* height: 100vh; */
     }
      header {
          display: flex;
          justify-content: space-evenly;
     }
      main {
-         margin: 5;
          width: 100%;
          justify-content: center;
     }
