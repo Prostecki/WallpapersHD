@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
+console.log('testpagetoday');
 
 //... Other events listeners
 
