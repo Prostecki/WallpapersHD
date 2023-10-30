@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
+document.addEventListener('DOMContentLoaded', renderCategories);
 
 //... Other events listeners
 
@@ -106,43 +107,28 @@ function renderCatalog() {
     });
 };
 
-
 function renderCategories() {
     
     clearPage();
 
     console.log('test');
     
-    const catalogCategories = wallpapers.map((wallpaper, index) => {
+    wallpapers.forEach((wallpaper, index) => {
 
-        console.log('test to categories')
+        const categoryElement = document.createElement('div');
 
-        const template = document.createElement('template');
+        categoryElement.classList.add('category');
 
-        template.innerHTML = templateCategories
-            .replace('${category}', wallpaper.category)
-            .replace('${id}', index + 1 );
+        categoryElement.innerHTML = `<p class="categoriesName">${wallpaper[index].category}</p>`;
         
-        const element = template.element.firstElementChild;
-
-        element.addEventListener('click', () => {
-
-            renderCategories(index + 1);
-
+        categoryElement.addEventListener('click', () => {
+            console.log(`'category clicked: ${wallpaper[index].category}'`);
         });
 
-        return element;
-
-    });
-    
-    catalogCategories.forEach(element => {
-
-        main.appendChild(element);
+        main.appendChild(categoryElement);
         
-        console.log('try one')
     });
-    
-};
+}
 
 function renderImage(id) {
     //Clear page before rendering the catalog

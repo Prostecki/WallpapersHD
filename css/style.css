@@ -104,9 +104,11 @@
 }
  .category {
     display: flex;
-    width: 500px;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
     background-color: greenyellow;
-    height: 500px;
+    margin: 20px;
  }
  .styleCatalog {
      width: 400px;
