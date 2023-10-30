@@ -18,9 +18,9 @@ const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
 //render catalog after loading page
-// renderCatalog();
+renderCatalog();
 
-renderCategories();
+// renderCategories();
 
 //Declare a function with visible of button
 displayGridButton();
@@ -105,29 +105,30 @@ function renderCatalog() {
     // Clear the page before rendering the catalog
     clearPage();
 
-    const catalogHtml = wallpapers.map((wallpaper, index) => {
+    const catalogHtml = Object.keys(wallpapers).map((category) => {
 
-        const template = document.createElement('template');
-
-        template.innerHTML = templateCatalog
+        return wallpapers[category].map((wallpaper, index) => {
+            const template = document.createElement('template');
+            template.innerHTML = templateCatalog
             .replace('${img}', wallpaper.file)
             .replace('${id}', index + 1)
             .replace('${title}', wallpaper.name);
 
-        const element = template.content.firstElementChild;
+            const element = template.content.firstElementChild;
 
-        element.addEventListener('click', () => {
-            // Define function renderImage with index
-            renderImage(index + 1); 
+            element.addEventListener('click', () => {
+                // Define function renderImage with index
+                renderImage(index + 1); 
+
+            });
+
+                element.classList.add('fade-in');
+
+                return element;
+            });
         });
-
-        element.classList.add('fade-in');
-
-        return element;
-    });
-
-    catalogHtml.forEach(element => {
-        main.appendChild(element);
+                catalogHtml.flat().forEach((element) => {
+                main.appendChild(element);
     });
 };
 
@@ -244,7 +245,7 @@ function reloadPageWithBg(){
 
     // Generate a random index to select a wallpaper from the wallpapers array
     const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
+    
     //Declare a variable img with attributes of array
     const randomImg = wallpapers[randomIndex]['file'];
 
