@@ -246,3 +246,8 @@ function setRandomBackground() {
     //It's just test
     console.log('it works?');
 };
+
+function renderCategories() {
+    clearPage();
+    
+}
