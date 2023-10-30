@@ -21,6 +21,7 @@ const cssLink = document.getElementById('cssLink');
 // renderCatalog();
 
 renderCategories();
+
 //Declare a function with visible of button
 displayGridButton();
 
@@ -58,6 +59,29 @@ document.addEventListener('DOMContentLoaded', () =>{
 document.addEventListener('DOMContentLoaded', renderCategories);
 
 //... Other events listeners
+
+function renderCategories() {
+    
+    clearPage();
+
+    console.log('test');
+    
+    wallpapers.forEach((wallpaper, index) => {
+
+        const categoryElement = document.createElement('div');
+
+        categoryElement.classList.add('category');
+
+        categoryElement.innerHTML = `<p class="categoriesName">${wallpaper[index].category}</p>`;
+        
+        categoryElement.addEventListener('click', () => {
+            console.log(`'category clicked: ${wallpaper[index].category}'`);
+        });
+
+        main.appendChild(categoryElement);
+
+    });
+};
 
 function displayGridButton() {
     if(window.innerWidth > 800) {
@@ -106,29 +130,6 @@ function renderCatalog() {
         main.appendChild(element);
     });
 };
-
-function renderCategories() {
-    
-    clearPage();
-
-    console.log('test');
-    
-    wallpapers.forEach((wallpaper, index) => {
-
-        const categoryElement = document.createElement('div');
-
-        categoryElement.classList.add('category');
-
-        categoryElement.innerHTML = `<p class="categoriesName">${wallpaper[index].category}</p>`;
-        
-        categoryElement.addEventListener('click', () => {
-            console.log(`'category clicked: ${wallpaper[index].category}'`);
-        });
-
-        main.appendChild(categoryElement);
-        
-    });
-}
 
 function renderImage(id) {
     //Clear page before rendering the catalog

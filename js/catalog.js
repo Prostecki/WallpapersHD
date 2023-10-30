@@ -1,17 +1,17 @@
-const wallpapers = [
-    [
-      {'file': 'img/1.jpeg','category': 'Popular' , 'name': 'Textures', 'describe': 'Beautiful textures'},
-      {'file': 'img/2.jpeg','category': 'Popular' , 'name': 'Shore', 'describe': 'Scenic shoreline'},
-      {'file': 'img/3.jpeg','category': 'Popular' , 'name': 'Ball', 'describe': 'Playful ball'},
-      {'file': 'img/4.jpeg','category': 'Popular' , 'name': 'Space car', 'describe': 'Futuristic space car'},
-      {'file': 'img/5.jpeg','category': 'Popular' , 'name': 'Chess', 'describe': 'Chessboard'},
-      {'file': 'img/6.jpeg','category': 'Popular' , 'name': 'Christmas', 'describe': 'Christmas decorations'},
-      {'file': 'img/7.jpeg','category': 'Popular' , 'name': 'New-York', 'describe': 'New York cityscape'},
-      {'file': 'img/8.jpeg','category': 'Popular' , 'name': 'Winter', 'describe': 'Winter wonderland'},
-      {'file': 'img/9.jpeg','category': 'Popular' , 'name': 'Tale', 'describe': 'Magical fairy tale'}
+const wallpapers = {
+   "Popular": [
+      {'file': 'img/1.jpeg', 'name': 'Textures', 'describe': 'Beautiful textures'},
+      {'file': 'img/2.jpeg', 'name': 'Shore', 'describe': 'Scenic shoreline'},
+      {'file': 'img/3.jpeg', 'name': 'Ball', 'describe': 'Playful ball'},
+      {'file': 'img/4.jpeg', 'name': 'Space car', 'describe': 'Futuristic space car'},
+      {'file': 'img/5.jpeg', 'name': 'Chess', 'describe': 'Chessboard'},
+      {'file': 'img/6.jpeg', 'name': 'Christmas', 'describe': 'Christmas decorations'},
+      {'file': 'img/7.jpeg', 'name': 'New-York', 'describe': 'New York cityscape'},
+      {'file': 'img/8.jpeg', 'name': 'Winter', 'describe': 'Winter wonderland'},
+      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale'}
     ],
 
-    [
+    "Animals": [
       {'file': 'img/animals1.jpeg', 'category': 'Animals', 'name': 'Wolf', 'describe': 'Majestic wolf'},
       {'file': 'img/animals2.jpeg', 'category': 'Animals', 'name': 'Cat', 'describe': 'Cute cat'},
       {'file': 'img/animals3.jpeg', 'category': 'Animals', 'name': 'Lynx', 'describe': 'Wild lynx'},
@@ -23,7 +23,7 @@ const wallpapers = [
       {'file': 'img/animals9.jpeg', 'category': 'Animals', 'name': 'Black cat', 'describe': 'Mysterious black cat'}
     ],
 
-    [
+    "Cars": [
       {'file': 'img/auto1.jpeg', 'category': 'Cars', 'name': 'BMW', 'describe': 'Sleek BMW car'},
       {'file': 'img/auto2.jpeg', 'category': 'Cars', 'name': 'BMW Black', 'describe': 'Black BMW'},
       {'file': 'img/auto3.jpeg', 'category': 'Cars', 'name': 'BWM Night', 'describe': 'BMW at night'},
@@ -35,7 +35,7 @@ const wallpapers = [
       {'file': 'img/auto9.jpeg', 'category': 'Cars', 'name': 'Speed car', 'describe': 'High-speed racing car'}
     ],
 
-    [
+    "Food": [
       {'file': 'img/food1.jpeg', 'category' :'Food','name': 'Fika', 'describe': 'Fika time'},
       {'file': 'img/food2.jpeg', 'category' :'Food','name': 'Cozy caffe', 'describe': 'Cozy cafe'},
       {'file': 'img/food3.jpeg', 'category' :'Food','name': 'Caffe Latte', 'describe': 'Caffe Latte'},
@@ -47,7 +47,7 @@ const wallpapers = [
       {'file': 'img/food9.jpeg', 'category' :'Food','name': 'Strawberries 2', 'describe': 'More strawberries'}
     ],
 
-    [
+    "Nature": [
       {'file': 'img/nature1.jpeg', 'category' :'Nature', 'name': 'Forest', 'describe': 'Mystical forest'},
       {'file': 'img/nature2.jpeg', 'category' :'Nature', 'name': 'Night sky', 'describe': 'Starry night sky'},
       {'file': 'img/nature3.jpeg', 'category' :'Nature', 'name': 'Morning nature', 'describe': 'Morning in nature'},
@@ -59,7 +59,7 @@ const wallpapers = [
       {'file': 'img/nature9.jpeg', 'category' :'Nature', 'name': 'Road', 'describe': 'Endless road'}
     ],
 
-    [
+    "Space": [
       {'file': 'img/space1.jpeg',  'category' :'Space', 'name': 'Space', 'describe': 'Outer space'},
       {'file': 'img/space2.jpeg',  'category' :'Space', 'name': 'Space 2', 'describe': 'More outer space'},
       {'file': 'img/space3.jpeg',  'category' :'Space', 'name': 'Space 3', 'describe': 'Even more outer space'},
@@ -70,6 +70,6 @@ const wallpapers = [
       {'file': 'img/space8.jpeg',  'category' :'Space', 'name': 'Space 8', 'describe': 'Journey to the stars'},
       {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders'}
     ]
-  ];  
+};
 
-  export default wallpapers;
+export default wallpapers;
