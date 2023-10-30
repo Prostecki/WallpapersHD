@@ -102,6 +102,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+ .category {
+    display: flex;
+    width: 500px;
+    background-color: greenyellow;
+    height: 500px;
+ }
  .styleCatalog {
      width: 400px;
      text-align: center;

@@ -2,6 +2,7 @@ import wallpapers from "./catalog.js";
 
 const main = document.querySelector('main');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
+const templateCategories = document.getElementById('tmpl-categories');
 const templateCard = document.getElementById('tmpl-card').innerHTML;
 const mainCatalog = document.getElementById('mainCatalog');
 const randomCard = document.getElementById('randomCard');
@@ -17,7 +18,9 @@ const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
 //render catalog after loading page
-renderCatalog();
+// renderCatalog();
+
+renderCategories();
 //Declare a function with visible of button
 displayGridButton();
 
@@ -52,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
-console.log('testpagetoday');
 
 //... Other events listeners
 
@@ -102,6 +104,44 @@ function renderCatalog() {
     catalogHtml.forEach(element => {
         main.appendChild(element);
     });
+};
+
+
+function renderCategories() {
+    
+    clearPage();
+
+    console.log('test');
+    
+    const catalogCategories = wallpapers.map((wallpaper, index) => {
+
+        console.log('test to categories')
+
+        const template = document.createElement('template');
+
+        template.innerHTML = templateCategories
+            .replace('${category}', wallpaper.category)
+            .replace('${id}', index + 1 );
+        
+        const element = template.element.firstElementChild;
+
+        element.addEventListener('click', () => {
+
+            renderCategories(index + 1);
+
+        });
+
+        return element;
+
+    });
+    
+    catalogCategories.forEach(element => {
+
+        main.appendChild(element);
+        
+        console.log('try one')
+    });
+    
 };
 
 function renderImage(id) {
@@ -246,8 +286,3 @@ function setRandomBackground() {
     //It's just test
     console.log('it works?');
 };
-
-function renderCategories() {
-    clearPage();
-    
-}
