@@ -53,7 +53,7 @@ header {
     flex-wrap: wrap;
     background-attachment: fixed;
     display: flex;
-    height: 100vh;
+    height: a;
 }
  header {
     display: flex;
