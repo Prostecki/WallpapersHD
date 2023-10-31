@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
-document.addEventListener('DOMContentLoaded', renderCategories);
+// document.addEventListener('DOMContentLoaded', renderCategories);
 
 //... Other events listeners
 
@@ -105,6 +105,7 @@ function renderCatalog() {
     // Clear the page before rendering the catalog
     clearPage();
 
+    //object.keys read entire array with all attributes 
     const catalogHtml = Object.keys(wallpapers).map((category) => {
 
         return wallpapers[category].map((wallpaper, index) => {
@@ -125,6 +126,7 @@ function renderCatalog() {
                 element.classList.add('fade-in');
 
                 return element;
+
             });
         });
                 catalogHtml.flat().forEach((element) => {
@@ -243,11 +245,20 @@ function reloadPageWithBg(){
     //Declare a container for operate with
     const backgroundBody = document.querySelector('body');
 
-    // Generate a random index to select a wallpaper from the wallpapers array
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
+    //get an array of categories from the "wallpapers" object
+    const categories = Object.keys(wallpapers);
+
+    // Generate a random index to select categories from the wallpapers array
+    const randomCategory = Math.floor[(Math.random() * categories.length)];
+
+    //get the wallpapers array for the selected category
+    const wallpapersInCategory = wallpapers[randomCategory];
+
+    //Generate a random index to select a wallpaper from the selected category
+    const randomIndex = Math.floor(Math.random() * wallpapersInCategory.length);
     
     //Declare a variable img with attributes of array
-    const randomImg = wallpapers[randomIndex]['file'];
+    const randomImg = wallpapersInCategory[randomIndex]['file'];
 
     //append attributes from array and change body style
     backgroundBody.style.backgroundImage = `url(${randomImg})`;
