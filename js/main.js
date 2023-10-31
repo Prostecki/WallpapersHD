@@ -250,12 +250,26 @@ function reloadPageWithBg(){
 
     // Generate a random index to select categories from the wallpapers array
     const randomCategory = Math.floor[(Math.random() * categories.length)];
+    
+    
 
     //get the wallpapers array for the selected category
     const wallpapersInCategory = wallpapers[randomCategory];
-
+    
     //Generate a random index to select a wallpaper from the selected category
     const randomIndex = Math.floor(Math.random() * wallpapersInCategory.length);
+
+    const randomWallpaper = wallpapersInCategory[randomIndex];
+
+    console.log(wallpapers.Animals.length)
+
+    console.log(randomCategory);
+
+    //test for define an array
+    console.log(wallpapers.Popular[4].file);
+
+
+   
     
     //Declare a variable img with attributes of array
     const randomImg = wallpapersInCategory[randomIndex]['file'];
