@@ -18,9 +18,9 @@ const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
 //render catalog after loading page
-renderCatalog();
+// renderCatalog();
 
-// renderCategories();
+renderCategories();
 
 //Declare a function with visible of button
 displayGridButton();
@@ -66,16 +66,16 @@ function renderCategories() {
 
     console.log('test');
     
-    wallpapers.forEach((wallpaper, index) => {
+    Object.keys(wallpapers).forEach((category) => {
 
         const categoryElement = document.createElement('div');
 
         categoryElement.classList.add('category');
 
-        categoryElement.innerHTML = `<p class="categoriesName">${wallpaper[index].category}</p>`;
+        categoryElement.innerHTML = `<p class="categoriesName">${category}</p>`;
         
         categoryElement.addEventListener('click', () => {
-            console.log(`'category clicked: ${wallpaper[index].category}'`);
+            console.log(`'category clicked: ${category}'`);
         });
 
         main.appendChild(categoryElement);
@@ -234,51 +234,51 @@ function closeTheMenu() {
     menuBar.style.left = '-800px';
 };
 
-function reloadPageWithBg(){
+// function reloadPageWithBg(){
 
-    console.log('DOMContentLoaded event fired');
+//     console.log('DOMContentLoaded event fired');
 
-    setTimeout(function() {
-        window.scrollTo(0, 0);
-    }, 2); //delay with 100ms
+//     setTimeout(function() {
+//         window.scrollTo(0, 0);
+//     }, 2); //delay with 100ms
 
-    //Declare a container for operate with
-    const backgroundBody = document.querySelector('body');
+//     //Declare a container for operate with
+//     const backgroundBody = document.querySelector('body');
 
-    //get an array of categories from the "wallpapers" object
-    const categories = Object.keys(wallpapers);
+//     //get an array of categories from the "wallpapers" object
+//     const categories = Object.keys(wallpapers);
 
-    // Generate a random index to select categories from the wallpapers array
-    const randomCategory = Math.floor[(Math.random() * categories.length)];
+//     // Generate a random index to select categories from the wallpapers array
+//     const randomCategory = Math.floor[(Math.random() * categories.length)];
     
     
 
-    //get the wallpapers array for the selected category
-    const wallpapersInCategory = wallpapers[randomCategory];
+//     //get the wallpapers array for the selected category
+//     const wallpapersInCategory = wallpapers[randomCategory];
     
-    //Generate a random index to select a wallpaper from the selected category
-    const randomIndex = Math.floor(Math.random() * wallpapersInCategory.length);
+//     //Generate a random index to select a wallpaper from the selected category
+//     const randomIndex = Math.floor(Math.random() * wallpapersInCategory.length);
 
-    const randomWallpaper = wallpapersInCategory[randomIndex];
+//     const randomWallpaper = wallpapersInCategory[randomIndex];
 
-    console.log(wallpapers.Animals.length)
+//     console.log(wallpapers.Animals.length)
 
-    console.log(randomCategory);
+//     console.log(randomCategory);
 
-    //test for define an array
-    console.log(wallpapers.Popular[4].file);
+//     //test for define an array
+//     console.log(wallpapers.Popular[4].file);
 
 
    
     
-    //Declare a variable img with attributes of array
-    const randomImg = wallpapersInCategory[randomIndex]['file'];
+//     //Declare a variable img with attributes of array
+//     const randomImg = wallpapersInCategory[randomIndex]['file'];
 
-    //append attributes from array and change body style
-    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+//     //append attributes from array and change body style
+//     backgroundBody.style.backgroundImage = `url(${randomImg})`;
 
-    backgroundBody.style.backgroundSize = 'cover';
-};
+//     backgroundBody.style.backgroundSize = 'cover';
+// };
 
 function setRandomBackground() {
 
