@@ -4,7 +4,7 @@ const main = document.querySelector('main');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
 const templateCategories = document.getElementById('tmpl-categories');
 const templateCard = document.getElementById('tmpl-card').innerHTML;
-const mainCatalog = document.getElementById('mainCatalog');
+const allCategories = document.getElementById('categories');
 const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
 //How to open bar menu
@@ -28,7 +28,7 @@ displayGridButton();
 // document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
 closeMenu.addEventListener('click', closeTheMenu);
-mainCatalog.addEventListener('click', renderCatalog);
+allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
 window.addEventListener('resize', displayGridButton);
@@ -56,6 +56,23 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
+// Add a click event listener for category elements
+main.addEventListener('click', (event) => {
+
+    //Find closest parent's element with class category during click
+    const categoryElement = event.target.closest('.category');
+
+    //If it founded an element of category
+    if (categoryElement) {
+
+        //Get a text (name of category) from element
+        const selectedCategory = categoryElement.textContent;
+
+        //Call a function with chosen category
+        renderChosenCategory(selectedCategory);
+    }
+});
+
 // document.addEventListener('DOMContentLoaded', renderCategories);
 
 //... Other events listeners
@@ -81,25 +98,61 @@ function renderCategoriesList() {
     });
 };
 
+function setRandomBackground() {
+
+    const backgroundBody = document.querySelector('body');
+
+    // Generate a random index to select a wallpaper from the wallpapers array
+
+    const categoryKeys = Object.keys(wallpapers);
+
+    const randomCategoryIndex = Math.floor(Math.random() * categoryKeys.length);
+
+    const randomCategory = categoryKeys[randomCategoryIndex];
+
+    const randomIndex = Math.floor(Math.random() * wallpapers[randomCategory].length);
+
+    //Declare a variable img with attributes of array
+    const randomImg = wallpapers[randomCategory][randomIndex]['file'];
+
+    console.log(randomImg);
+    
+    //Append attributes after addEventListener to body element
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+    backgroundBody.style.backgroundRepeat = 'no-repeat';
+    backgroundBody.style.backgroundAttachment = 'fixed';
+    backgroundBody.style.transition = 'all 0.7s';
+
+    //It's just test
+    console.log('it works?');
+};
+
 function renderChosenCategory(category) {
-    clearPage(); // Clear the page before rendering wallpapers
+
+    // Clear the page before rendering wallpapers
+    clearPage();
 
     // Trim leading/trailing whitespace
     const trimmedCategory = category.trim();
 
     // Check if the selected category exists in the wallpapers object
     if (wallpapers.hasOwnProperty(trimmedCategory)) {
+        //if the category exists, get an array of images in this category
         const wallpapersInCategory = wallpapers[trimmedCategory];
 
         // Loop through wallpapers in the selected category
         wallpapersInCategory.forEach((wallpaper, index) => {
+
+            //Create a template for each image
             const template = document.createElement('template');
+
             // Replace template placeholders with wallpaper data
             template.innerHTML = templateCatalog
                 .replace('${img}', wallpaper.file)
                 .replace('${id}', index + 1)
                 .replace('${title}', wallpaper.name);
 
+            //create an element from template
             const element = template.content.firstElementChild;
 
             // Add a click event listener to each wallpaper element
@@ -107,27 +160,18 @@ function renderChosenCategory(category) {
                 renderImage(index + 1);
             });
 
+            // Add an animation of appearing element
             element.classList.add('fade-in');
 
+            //Append an element on a page
             main.appendChild(element);
         });
+
     } else {
+        //If a chosen category doesn't exist in object wallpapers, display a message
         console.log(`Category "${trimmedCategory}" not found.`);
     }
-}
-
-// Add a click event listener for category elements
-main.addEventListener('click', (event) => {
-    const categoryElement = event.target.closest('.category');
-
-    if (categoryElement) {
-        const selectedCategory = categoryElement.textContent;
-        renderChosenCategory(selectedCategory);
-    }
-});
-
-
-// You can add more event listeners and functions as needed
+};
 
 function displayGridButton() {
     if(window.innerWidth > 800) {
@@ -136,11 +180,11 @@ function displayGridButton() {
     } else {
         view.style.display = 'block';
     }
-}
+};
 
 function isGridViewEnabledCss() {
     return cssLink.href.includes('grid.css');
-}
+};
 
 function clearPage() {
     //Replace a template for emptiness
@@ -326,22 +370,3 @@ function closeTheMenu() {
 //     backgroundBody.style.backgroundSize = 'cover';
 // };
 
-function setRandomBackground() {
-
-    const backgroundBody = document.querySelector('body');
-
-    // Generate a random index to select a wallpaper from the wallpapers array
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
-
-    //Declare a variable img with attributes of array
-    const randomImg = wallpapers[randomIndex]['file'];
-    
-    //Append attributes after addEventListener to body element
-    backgroundBody.style.backgroundImage = `url(${randomImg})`;
-    backgroundBody.style.backgroundRepeat = 'no-repeat';
-    backgroundBody.style.backgroundAttachment = 'fixed';
-    backgroundBody.style.transition = 'all 0.7s';
-
-    //It's just test
-    console.log('it works?');
-};
