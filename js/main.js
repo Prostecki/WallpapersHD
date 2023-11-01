@@ -20,12 +20,12 @@ const cssLink = document.getElementById('cssLink');
 //render catalog after loading page
 // renderCatalog();
 
-renderCategories();
+renderCategoriesList();
 
 //Declare a function with visible of button
 displayGridButton();
 
-document.addEventListener('DOMContentLoaded', reloadPageWithBg);
+// document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
 closeMenu.addEventListener('click', closeTheMenu);
 mainCatalog.addEventListener('click', renderCatalog);
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 //... Other events listeners
 
-function renderCategories() {
+function renderCategoriesList() {
     
     clearPage();
 
@@ -74,14 +74,68 @@ function renderCategories() {
 
         categoryElement.innerHTML = `<p class="categoriesName">${category}</p>`;
         
-        categoryElement.addEventListener('click', () => {
-            console.log(`'category clicked: ${category}'`);
-        });
+        // categoryElement.addEventListener('click', () => {
+        //     console.log(`${category}`);
+        // });
+
+        categoryElement.addEventListener('click', renderChosenCategory);
 
         main.appendChild(categoryElement);
 
     });
 };
+
+// Function to render wallpapers in a selected category
+function renderChosenCategory(category) {
+    clearPage(); // Clear the page before rendering wallpapers
+
+    // Check if the selected category exists in the wallpapers object
+    if (wallpapers.hasOwnProperty(category)) {
+        const wallpapersInCategory = wallpapers[category];
+
+        // Loop through wallpapers in the selected category
+        wallpapersInCategory.forEach((wallpaper, index) => {
+            const template = document.createElement('template');
+            // Replace template placeholders with wallpaper data
+            template.innerHTML = templateCatalog
+                .replace('${img}', wallpaper.file)
+                .replace('${id}', index + 1)
+                .replace('${title}', wallpaper.name);
+
+            const element = template.content.firstChild;
+
+            // Add a click event listener to each wallpaper element
+            element.addEventListener('click', () => {
+                renderImage(index + 1);
+            });
+
+            element.classLis.add('fade-in');
+
+            main.appendChild(element);
+        });
+    } else {
+        console.log(`Category "${category}" not found.`);
+    }
+}
+
+// You should add event listeners based on your HTML structure.
+// For example, if you have category elements with a specific class:
+const categoryElements = document.querySelectorAll('.category');
+
+// Add event listeners to each category element
+categoryElements.forEach((categoryElement) => {
+    categoryElement.addEventListener('click', (event) => {
+        // Get the text content of the clicked category
+        const selectedCategory = event.currentTarget.textContent.trim();
+
+        console.log(`Category clicked: ${selectedCategory}`);
+
+        // Call the function to render wallpapers for the selected category
+        renderChosenCategory(selectedCategory);
+    });
+});
+
+// You can add more event listeners and functions as needed
 
 function displayGridButton() {
     if(window.innerWidth > 800) {
