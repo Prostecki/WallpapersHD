@@ -1,5 +1,6 @@
 import wallpapers from "./catalog.js";
 
+const backgroundBody = document.querySelector('body');
 const main = document.querySelector('main');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
 const templateCategories = document.getElementById('tmpl-categories');
@@ -25,7 +26,7 @@ renderCategoriesList();
 //Declare a function with visible of button
 displayGridButton();
 
-// document.addEventListener('DOMContentLoaded', reloadPageWithBg);
+document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
 closeMenu.addEventListener('click', closeTheMenu);
 allCategories.addEventListener('click', renderCategoriesList);
@@ -72,6 +73,7 @@ main.addEventListener('click', (event) => {
         renderChosenCategory(selectedCategory);
     }
 });
+// document.addEventListener('DOMContentLoaded', setRandomBackground);
 
 // document.addEventListener('DOMContentLoaded', renderCategories);
 
@@ -100,7 +102,7 @@ function renderCategoriesList() {
 
 function setRandomBackground() {
 
-    const backgroundBody = document.querySelector('body');
+    
 
     // Generate a random index to select a wallpaper from the wallpapers array
 
@@ -126,6 +128,46 @@ function setRandomBackground() {
     //It's just test
     console.log('it works?');
 };
+
+console.log(reloadPageWithBg);
+
+function reloadPageWithBg(){
+
+    console.log('DOMContentLoaded event fired');
+
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 2); //delay with 100ms
+
+    //Declare a container for operate with
+    
+
+    //get an array of categories from the "wallpapers" object
+    const categoryKeys = Object.keys(wallpapers);
+
+    // Generate a random index to select categories from the wallpapers array
+    const randomCategoryIndex = Math.floor[(Math.random() * categoryKeys.length)];
+    
+    //get the wallpapers array for the selected category
+    const randomCategory = categoryKeys[randomCategoryIndex];
+    
+    //Generate a random index to select a wallpaper from the selected category
+    const randomIndex = Math.floor(Math.random() * wallpapers[randomCategory].length);
+
+    console.log(wallpapers.Animals.length)
+
+    console.log(randomCategory);
+    
+    //Declare a variable img with attributes of array
+    const randomImg = wallpapers[randomCategory][randomIndex]['file'];
+
+    //append attributes from array and change body style
+    backgroundBody.style.backgroundImage = `url(${randomImg})`;
+
+    backgroundBody.style.backgroundSize = 'cover';
+};
+
+
 
 function renderChosenCategory(category) {
 
@@ -191,38 +233,38 @@ function clearPage() {
     main.innerHTML = '';
 };
 
-function renderCatalog() {
-    // Clear the page before rendering the catalog
-    clearPage();
+// function renderCatalog() {
+//     // Clear the page before rendering the catalog
+//     clearPage();
 
-    //object.keys read entire array with all attributes 
-    const catalogHtml = Object.keys(wallpapers).map((category) => {
+//     //object.keys read entire array with all attributes 
+//     const catalogHtml = Object.keys(wallpapers).map((category) => {
 
-        return wallpapers[category].map((wallpaper, index) => {
-            const template = document.createElement('template');
-            template.innerHTML = templateCatalog
-            .replace('${img}', wallpaper.file)
-            .replace('${id}', index + 1)
-            .replace('${title}', wallpaper.name);
+//         return wallpapers[category].map((wallpaper, index) => {
+//             const template = document.createElement('template');
+//             template.innerHTML = templateCatalog
+//             .replace('${img}', wallpaper.file)
+//             .replace('${id}', index + 1)
+//             .replace('${title}', wallpaper.name);
 
-            const element = template.content.firstElementChild;
+//             const element = template.content.firstElementChild;
 
-            element.addEventListener('click', () => {
-                // Define function renderImage with index
-                renderImage(index + 1); 
+//             element.addEventListener('click', () => {
+//                 // Define function renderImage with index
+//                 renderImage(index + 1); 
 
-            });
+//             });
 
-                element.classList.add('fade-in');
+//                 element.classList.add('fade-in');
 
-                return element;
+//                 return element;
 
-            });
-        });
-                catalogHtml.flat().forEach((element) => {
-                main.appendChild(element);
-    });
-};
+//             });
+//         });
+//                 catalogHtml.flat().forEach((element) => {
+//                 main.appendChild(element);
+//     });
+// };
 
 function renderImage(id) {
     //Clear page before rendering the catalog
@@ -323,50 +365,4 @@ function closeTheMenu() {
     openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-800px';
 };
-
-// function reloadPageWithBg(){
-
-//     console.log('DOMContentLoaded event fired');
-
-//     setTimeout(function() {
-//         window.scrollTo(0, 0);
-//     }, 2); //delay with 100ms
-
-//     //Declare a container for operate with
-//     const backgroundBody = document.querySelector('body');
-
-//     //get an array of categories from the "wallpapers" object
-//     const categories = Object.keys(wallpapers);
-
-//     // Generate a random index to select categories from the wallpapers array
-//     const randomCategory = Math.floor[(Math.random() * categories.length)];
-    
-    
-
-//     //get the wallpapers array for the selected category
-//     const wallpapersInCategory = wallpapers[randomCategory];
-    
-//     //Generate a random index to select a wallpaper from the selected category
-//     const randomIndex = Math.floor(Math.random() * wallpapersInCategory.length);
-
-//     const randomWallpaper = wallpapersInCategory[randomIndex];
-
-//     console.log(wallpapers.Animals.length)
-
-//     console.log(randomCategory);
-
-//     //test for define an array
-//     console.log(wallpapers.Popular[4].file);
-
-
-   
-    
-//     //Declare a variable img with attributes of array
-//     const randomImg = wallpapersInCategory[randomIndex]['file'];
-
-//     //append attributes from array and change body style
-//     backgroundBody.style.backgroundImage = `url(${randomImg})`;
-
-//     backgroundBody.style.backgroundSize = 'cover';
-// };
 
