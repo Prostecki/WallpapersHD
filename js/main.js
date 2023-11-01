@@ -83,6 +83,8 @@ function renderCategoriesList() {
     
     clearPage();
 
+    reloadPageWithBg();
+
     console.log('test');
     
     Object.keys(wallpapers).forEach((category) => {
@@ -101,8 +103,6 @@ function renderCategoriesList() {
 };
 
 function setRandomBackground() {
-
-    
 
     // Generate a random index to select a wallpaper from the wallpapers array
 
@@ -129,50 +129,40 @@ function setRandomBackground() {
     console.log('it works?');
 };
 
-console.log(reloadPageWithBg);
-
 function reloadPageWithBg(){
-
-    console.log('DOMContentLoaded event fired');
 
     setTimeout(function() {
         window.scrollTo(0, 0);
     }, 2); //delay with 100ms
-
-    //Declare a container for operate with
     
-
     //get an array of categories from the "wallpapers" object
     const categoryKeys = Object.keys(wallpapers);
 
     // Generate a random index to select categories from the wallpapers array
-    const randomCategoryIndex = Math.floor[(Math.random() * categoryKeys.length)];
-    
+    const randomCategoryIndex = Math.floor(Math.random() * categoryKeys.length);
+
     //get the wallpapers array for the selected category
     const randomCategory = categoryKeys[randomCategoryIndex];
     
     //Generate a random index to select a wallpaper from the selected category
     const randomIndex = Math.floor(Math.random() * wallpapers[randomCategory].length);
-
-    console.log(wallpapers.Animals.length)
-
-    console.log(randomCategory);
     
     //Declare a variable img with attributes of array
     const randomImg = wallpapers[randomCategory][randomIndex]['file'];
 
     //append attributes from array and change body style
     backgroundBody.style.backgroundImage = `url(${randomImg})`;
-
     backgroundBody.style.backgroundSize = 'cover';
+    backgroundBody.style.transition = '0.4s';
 };
-
-
 
 function renderChosenCategory(category) {
 
     // Clear the page before rendering wallpapers
     clearPage();
+
+    //check if a category is a valid string
+    if (typeof category === 'string') {
 
     // Trim leading/trailing whitespace
     const trimmedCategory = category.trim();
@@ -213,6 +203,7 @@ function renderChosenCategory(category) {
         //If a chosen category doesn't exist in object wallpapers, display a message
         console.log(`Category "${trimmedCategory}" not found.`);
     }
+}
 };
 
 function displayGridButton() {
@@ -356,13 +347,22 @@ function openTheMenu() {
     openMenu.style.transition = 'all 0.7s';
     menuBar.style.transition = 'all 0.7s';
     menuBar.style.left = '0px';
-    console.log('test');
+    console.log('It opens!');
+
+    // document.addEventListener('click', closeTheMenuOnClick);
 };
 
 function closeTheMenu() {
-    console.log('test');
+    console.log('It closes!');
     openMenu.style.left = '10px';
     openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-800px';
 };
 
+// function closeTheMenuOnClick(event) {
+//     if (event.target !== openMenu && !openMenu.contains(event.target)) {
+//         closeTheMenu();
+
+//         document.removeEventListener('click', closeTheMenuOnClick);
+//     }
+// }
