@@ -104,14 +104,16 @@ function renderCategoriesList() {
 
 function setRandomBackground() {
 
-    // Generate a random index to select a wallpaper from the wallpapers array
-
+    // Get an array of category keys from the 'wallpapers' object
     const categoryKeys = Object.keys(wallpapers);
 
+    // Generate a random index for selecting a category
     const randomCategoryIndex = Math.floor(Math.random() * categoryKeys.length);
 
+    // Select a random category using the random index
     const randomCategory = categoryKeys[randomCategoryIndex];
 
+    // Generate a random index for selecting an image from the selected category
     const randomIndex = Math.floor(Math.random() * wallpapers[randomCategory].length);
 
     //Declare a variable img with attributes of array
@@ -128,6 +130,79 @@ function setRandomBackground() {
     //It's just test
     console.log('it works?');
 };
+
+console.log('All categories: ', Object.keys(wallpapers));
+
+function renderImage(category, id) {
+    // Clear the page before rendering the catalog
+    clearPage();
+
+    // Check if the category exists in the wallpapers object
+    if (wallpapers.hasOwnProperty(category)) {
+        // Select the category and the specific image
+        const selectedCategory = wallpapers[category];
+
+        // Check if id is a valid index within the selected category
+        if (id >= 1 && id <= selectedCategory.length) {
+            const imageData = selectedCategory[id - 1];
+
+            // Create an element from template
+            const template = document.getElementById('tmpl-card');
+            // Import element content <template>
+            const templateContent = document.importNode(template.content, true);
+
+            // Indicate a selector to templateContent
+            const card = templateContent.querySelector('.singleCard');
+
+            // Replace data in template
+            const largePic = card.querySelector('.largePic');
+            const title = card.querySelector('.titleModal');
+            const describe = card.querySelector('.describe');
+
+            largePic.src = imageData.file;
+            title.textContent = imageData.name;
+            describe.textContent = imageData.describe;
+
+            // Display the created element on the page
+            main.appendChild(card);
+
+            const modalContainer = card.querySelector('.modal-container');
+            const openButton = card.querySelector('.info');
+            const closeButton = card.querySelector('.closeMe');
+
+            openButton.addEventListener('click', () => {
+                modalContainer.classList.add('show');
+            });
+
+            closeButton.addEventListener('click', () => {
+                modalContainer.classList.remove('show');
+                modalContainer.style.transition = '.5s';
+            });
+
+            largePic.style.opacity = 0;
+            title.style.opacity = 0;
+            title.style.transform = 'translateY(30px)';
+
+            const delay = 100;
+
+            setTimeout(() => {
+                // Show an image and panel with animation
+                largePic.style.opacity = 1;
+                largePic.style.transform = 'scale(1)';
+                largePic.style.transition = 'all 0.3s';
+                title.style.opacity = 1;
+                title.style.transform = 'translateY(0)';
+            }, delay);
+        } else {
+            console.log('Invalid image ID.');
+        }
+    } else {
+        console.log('Invalid category.');
+    }
+}
+
+console.log(renderImage('Animals, 3'));
+
 
 function reloadPageWithBg(){
 
@@ -197,6 +272,7 @@ function renderChosenCategory(category) {
 
             //Append an element on a page
             main.appendChild(element);
+            console.log(trimmedCategory);
         });
 
     } else {
@@ -256,58 +332,6 @@ function clearPage() {
 //                 main.appendChild(element);
 //     });
 // };
-
-function renderImage(id) {
-    //Clear page before rendering the catalog
-    clearPage();
-
-    // Create an element from template
-    const template = document.getElementById('tmpl-card');
-    //Need to read how to use it generally
-    const templateContent = document.importNode(template.content, true);
-    const card = templateContent.querySelector('.singleCard');
-
-    // Replace a data in template
-    const largePic = card.querySelector('.largePic');
-    const title = card.querySelector('.titleModal');
-    const describe = card.querySelector('.describe');
-    
-    largePic.src = wallpapers[id - 1].file;
-    title.textContent = wallpapers[id - 1].name;
-    describe.textContent = wallpapers[id - 1].describe;
-    
-    // Didplay an created element on the page
-    main.appendChild(card);
-    
-    const modalContainer = card.querySelector('.modal-container');
-    const openButton = card.querySelector('.info');
-    const closeButton = card.querySelector('.closeMe');
-    
-    openButton.addEventListener('click', () => {
-        modalContainer.classList.add('show');
-    });
-
-    closeButton.addEventListener('click', () => {
-        modalContainer.classList.remove('show');
-        modalContainer.style.transition = '.5s';
-    });
-
-    largePic.style.opacity = 0;
-    title.style.opacity = 0;
-    title.style.transform = 'translateY(30px)';
-
-    const delay = 100;
-
-    setTimeout(() => {
-        // Show an image and panel with animation
-        largePic.style.opacity = 1;
-        largePic.style.transform = 'scale(1)';
-        largePic.style.transition = 'all 0.3s'
-        title.style.opacity = 1;
-        title.style.transform = 'translateY(0)';
-    }, delay);
-
-};
 
 function displayRandomImage() {
     // Clear the page
