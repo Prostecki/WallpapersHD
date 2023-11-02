@@ -133,12 +133,13 @@ function setRandomBackground() {
 
 console.log('All categories: ', Object.keys(wallpapers));
 
-function renderImage(category, id) {
+function renderImage(category, id, element) {
     // Clear the page before rendering the catalog
     clearPage();
 
     // Check if the category exists in the wallpapers object
     if (wallpapers.hasOwnProperty(category)) {
+
         // Select the category and the specific image
         const selectedCategory = wallpapers[category];
 
@@ -148,6 +149,7 @@ function renderImage(category, id) {
 
             // Create an element from template
             const template = document.getElementById('tmpl-card');
+
             // Import element content <template>
             const templateContent = document.importNode(template.content, true);
 
@@ -193,16 +195,14 @@ function renderImage(category, id) {
                 title.style.opacity = 1;
                 title.style.transform = 'translateY(0)';
             }, delay);
+
         } else {
             console.log('Invalid image ID.');
         }
     } else {
         console.log('Invalid category.');
     }
-}
-
-console.log(renderImage('Animals, 3'));
-
+};
 
 function reloadPageWithBg(){
 
