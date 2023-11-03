@@ -137,26 +137,30 @@ function setRandomBackground() {
     console.log('it works?');
 };
 
-console.log('All categories: ', Object.keys(wallpapers));
+// console.log('All categories: ', Object.keys(wallpapers));
 
 // console.log(renderImage('Animals', 2));
 
-function renderImage(category, id) {
+function renderImage(trimmedCategory, id) {
     // Clear the page before rendering the catalog
     clearPage();
 
     console.log('Category has choosen');
 
+    if(typeof category === 'string') {
+        
+        const trimmedCategory = category.trim();
+
     // Check if the category exists in the wallpapers object
-    if (wallpapers.hasOwnProperty(category)) {
+    if (wallpapers.hasOwnProperty(trimmedCategory)) {
 
         // Select the category and the specific image
-        const selectedCategory = wallpapers[category];
+        const selectedCategory = wallpapers[trimmedCategory];
 
         // Check if id is a valid index within the selected category
-        if (id >= 1 && id <= imagesInCategory.length) {
+        if (id >= 1 && id <= selectedCategory.length) {
 
-            const imageData = selectedCategory[id - 1];
+            const imageData = selectedCategory[id];
 
             // Create an element from template
             const template = document.getElementById('tmpl-card').innerHTML;
@@ -178,6 +182,10 @@ function renderImage(category, id) {
 
             // Display the created element on the page
             main.appendChild(card);
+
+
+
+
 
             const modalContainer = card.querySelector('.modal-container');
             const openButton = card.querySelector('.info');
@@ -211,7 +219,9 @@ function renderImage(category, id) {
         }
     } else {
         console.log('Invalid category.');
+        // console.log(wallpapers['Space'][0].file);
     }
+}
 };
 
 function reloadPageWithBg(){
