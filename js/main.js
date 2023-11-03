@@ -85,7 +85,7 @@ function renderCategoriesList() {
 
     reloadPageWithBg();
 
-    console.log('test');
+    console.log('Categories are avaliable!');
     
     Object.keys(wallpapers).forEach((category) => {
 
@@ -133,9 +133,11 @@ function setRandomBackground() {
 
 console.log('All categories: ', Object.keys(wallpapers));
 
-function renderImage(category, id, element) {
+function renderImage(category, id) {
     // Clear the page before rendering the catalog
     clearPage();
+
+    console.log('Category has choosen');
 
     // Check if the category exists in the wallpapers object
     if (wallpapers.hasOwnProperty(category)) {
@@ -155,6 +157,8 @@ function renderImage(category, id, element) {
 
             // Indicate a selector to templateContent
             const card = templateContent.querySelector('.singleCard');
+
+            
 
             // Replace data in template
             const largePic = card.querySelector('.largePic');
@@ -195,7 +199,6 @@ function renderImage(category, id, element) {
                 title.style.opacity = 1;
                 title.style.transform = 'translateY(0)';
             }, delay);
-
         } else {
             console.log('Invalid image ID.');
         }
@@ -272,7 +275,7 @@ function renderChosenCategory(category) {
 
             //Append an element on a page
             main.appendChild(element);
-            console.log(trimmedCategory);
+            console.log("Choosen category is: " + trimmedCategory);
         });
 
     } else {
