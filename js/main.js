@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 2000);
     });
 });
+
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {
 
@@ -80,23 +81,28 @@ main.addEventListener('click', (event) => {
 //... Other events listeners
 
 function renderCategoriesList() {
-    
     clearPage();
 
     reloadPageWithBg();
 
     console.log('Categories are avaliable!');
     
+    //Get keys of categories from object wallpapers
     Object.keys(wallpapers).forEach((category) => {
 
+        //create a div element for category
         const categoryElement = document.createElement('div');
 
+        //append a class category to created element
         categoryElement.classList.add('category');
 
+        //Define contain of element based on name of category
         categoryElement.innerHTML = `<p class="categoriesName">${category}</p>`;
         
+        //event listener for element of category
         categoryElement.addEventListener('click', renderChosenCategory);
 
+        //append an element on the page in 'main'
         main.appendChild(categoryElement);
 
     });
@@ -133,6 +139,8 @@ function setRandomBackground() {
 
 console.log('All categories: ', Object.keys(wallpapers));
 
+// console.log(renderImage('Animals', 2));
+
 function renderImage(category, id) {
     // Clear the page before rendering the catalog
     clearPage();
@@ -146,19 +154,18 @@ function renderImage(category, id) {
         const selectedCategory = wallpapers[category];
 
         // Check if id is a valid index within the selected category
-        if (id >= 1 && id <= selectedCategory.length) {
+        if (id >= 1 && id <= imagesInCategory.length) {
+
             const imageData = selectedCategory[id - 1];
 
             // Create an element from template
-            const template = document.getElementById('tmpl-card');
+            const template = document.getElementById('tmpl-card').innerHTML;
 
             // Import element content <template>
             const templateContent = document.importNode(template.content, true);
 
             // Indicate a selector to templateContent
             const card = templateContent.querySelector('.singleCard');
-
-            
 
             // Replace data in template
             const largePic = card.querySelector('.largePic');
@@ -260,7 +267,8 @@ function renderChosenCategory(category) {
             template.innerHTML = templateCatalog
                 .replace('${img}', wallpaper.file)
                 .replace('${id}', index + 1)
-                .replace('${title}', wallpaper.name);
+                .replace('${title}', wallpaper.name)
+                .replace('${category}', category);
 
             //create an element from template
             const element = template.content.firstElementChild;
