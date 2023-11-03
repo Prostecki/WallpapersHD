@@ -137,84 +137,86 @@ function setRandomBackground() {
     console.log('it works?');
 };
 
-// console.log('All categories: ', Object.keys(wallpapers));
-
-// console.log(renderImage('Animals', 2));
-
 function renderImage(category, id) {
     // Clear the page before rendering the catalog
     clearPage();
 
-    console.log(wallpapers);
+    if (typeof trimmedCategory === 'string') {
 
-    // Check if the category exists in the wallpapers object
-    if (wallpapers.hasOwnProperty(category)) {
+        const trimmedCategory = category.trim();
 
-        // Select the category and the specific image
-        const selectedCategory = wallpapers[category];
-
-        // Check if id is a valid index within the selected category
-        if (id >= 1 && id <= selectedCategory.length) {
-
-            const imageData = selectedCategory[id];
-
-            // Create an element from template
-            const template = document.getElementById('tmpl-card').innerHTML;
-
-            // Import element content <template>
-            const templateContent = document.importNode(template.content, true);
-
-            // Indicate a selector to templateContent
-            const card = templateContent.querySelector('.singleCard');
-
-            // Replace data in template
-            const largePic = card.querySelector('.largePic');
-            const title = card.querySelector('.titleModal');
-            const describe = card.querySelector('.describe');
-
-            largePic.src = imageData.file;
-            title.textContent = imageData.name;
-            describe.textContent = imageData.describe;
-
-            // Display the created element on the page
-            main.appendChild(card);
-
-            const modalContainer = card.querySelector('.modal-container');
-            const openButton = card.querySelector('.info');
-            const closeButton = card.querySelector('.closeMe');
-
-            openButton.addEventListener('click', () => {
-                modalContainer.classList.add('show');
-            });
-
-            closeButton.addEventListener('click', () => {
-                modalContainer.classList.remove('show');
-                modalContainer.style.transition = '.5s';
-            });
-
-            largePic.style.opacity = 0;
-            title.style.opacity = 0;
-            title.style.transform = 'translateY(30px)';
-
-            const delay = 100;
-
-            setTimeout(() => {
-                // Show an image and panel with animation
-                largePic.style.opacity = 1;
-                largePic.style.transform = 'scale(1)';
-                largePic.style.transition = 'all 0.3s';
-                title.style.opacity = 1;
-                title.style.transform = 'translateY(0)';
-            }, delay);
+        console.log(trimmedCategory);
+    
+        // Check if the category exists in the wallpapers object
+        if (wallpapers.hasOwnProperty(trimmedCategory)) {
+    
+            // Select the category and the specific image
+            const selectedCategory = wallpapers[trimmedCategory];
+    
+            // Check if id is a valid index within the selected category
+            if (id >= 1 && id <= selectedCategory.length) {
+    
+                const imageData = selectedCategory[id];
+    
+                // Create an element from template
+                const template = document.getElementById('tmpl-card').innerHTML;
+    
+                // Import element content <template>
+                const templateContent = document.importNode(template.content, true);
+    
+                // Indicate a selector to templateContent
+                const card = templateContent.querySelector('.singleCard');
+    
+                // Replace data in template
+                const largePic = card.querySelector('.largePic');
+                const title = card.querySelector('.titleModal');
+                const describe = card.querySelector('.describe');
+    
+                largePic.src = imageData.file;
+                title.textContent = imageData.name;
+                describe.textContent = imageData.describe;
+    
+                // Display the created element on the page
+                main.appendChild(card);
+    
+                const modalContainer = card.querySelector('.modal-container');
+                const openButton = card.querySelector('.info');
+                const closeButton = card.querySelector('.closeMe');
+    
+                openButton.addEventListener('click', () => {
+                    modalContainer.classList.add('show');
+                });
+    
+                closeButton.addEventListener('click', () => {
+                    modalContainer.classList.remove('show');
+                    modalContainer.style.transition = '.5s';
+                });
+    
+                largePic.style.opacity = 0;
+                title.style.opacity = 0;
+                title.style.transform = 'translateY(30px)';
+    
+                const delay = 100;
+    
+                setTimeout(() => {
+                    // Show an image and panel with animation
+                    largePic.style.opacity = 1;
+                    largePic.style.transform = 'scale(1)';
+                    largePic.style.transition = 'all 0.3s';
+                    title.style.opacity = 1;
+                    title.style.transform = 'translateY(0)';
+                }, delay);
+            } else {
+                console.log('Invalid image ID.');
+                console.log(`${category}`);
+            }
         } else {
-            console.log('Invalid image ID.');
-            console.log(`${category}`);
+            console.log('Invalid category.');
+            // console.log(wallpapers['Space'][0].file);
         }
-    } else {
-        console.log('Invalid category.');
-        // console.log(wallpapers['Space'][0].file);
-    }
-};
+    };
+}
+
 
 function reloadPageWithBg(){
 
@@ -297,7 +299,6 @@ function renderChosenCategory(category) {
 
 function displayGridButton() {
     if(window.innerWidth > 800) {
-        console.log('testViewButton800')
         view.style.display = 'none';
     } else {
         view.style.display = 'block';
