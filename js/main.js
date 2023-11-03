@@ -137,21 +137,21 @@ function setRandomBackground() {
     console.log('it works?');
 };
 
-function renderImage(category, id) {
+function renderImage(wallpapers, category, id) {
+
     // Clear the page before rendering the catalog
     clearPage();
 
-    if (typeof trimmedCategory === 'string') {
+    console.log(wallpapers);
 
-        const trimmedCategory = category.trim();
-
-        console.log(trimmedCategory);
+    console.log('function stopped here (render)');
     
         // Check if the category exists in the wallpapers object
-        if (wallpapers.hasOwnProperty(trimmedCategory)) {
+
+        if (wallpapers.hasOwnProperty(category)) {
     
             // Select the category and the specific image
-            const selectedCategory = wallpapers[trimmedCategory];
+            const selectedCategory = wallpapers[category];
     
             // Check if id is a valid index within the selected category
             if (id >= 1 && id <= selectedCategory.length) {
@@ -212,11 +212,10 @@ function renderImage(category, id) {
             }
         } else {
             console.log('Invalid category.');
+            console.log(`${wallpapers}`);
             // console.log(wallpapers['Space'][0].file);
         }
-    };
-}
-
+};
 
 function reloadPageWithBg(){
 
@@ -287,6 +286,7 @@ function renderChosenCategory(category) {
 
             //Append an element on a page
             main.appendChild(element);
+            
             console.log("Choosen category is: " + trimmedCategory);
         });
 
