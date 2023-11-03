@@ -141,21 +141,17 @@ function setRandomBackground() {
 
 // console.log(renderImage('Animals', 2));
 
-function renderImage(trimmedCategory, id) {
+function renderImage(category, id) {
     // Clear the page before rendering the catalog
     clearPage();
 
-    console.log('Category has choosen');
-
-    if(typeof category === 'string') {
-        
-        const trimmedCategory = category.trim();
+    console.log(wallpapers);
 
     // Check if the category exists in the wallpapers object
-    if (wallpapers.hasOwnProperty(trimmedCategory)) {
+    if (wallpapers.hasOwnProperty(category)) {
 
         // Select the category and the specific image
-        const selectedCategory = wallpapers[trimmedCategory];
+        const selectedCategory = wallpapers[category];
 
         // Check if id is a valid index within the selected category
         if (id >= 1 && id <= selectedCategory.length) {
@@ -182,10 +178,6 @@ function renderImage(trimmedCategory, id) {
 
             // Display the created element on the page
             main.appendChild(card);
-
-
-
-
 
             const modalContainer = card.querySelector('.modal-container');
             const openButton = card.querySelector('.info');
@@ -216,12 +208,12 @@ function renderImage(trimmedCategory, id) {
             }, delay);
         } else {
             console.log('Invalid image ID.');
+            console.log(`${category}`);
         }
     } else {
         console.log('Invalid category.');
         // console.log(wallpapers['Space'][0].file);
     }
-}
 };
 
 function reloadPageWithBg(){
