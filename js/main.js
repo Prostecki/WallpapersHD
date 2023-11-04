@@ -1,4 +1,5 @@
 import wallpapers from "./catalog.js";
+import {openTheMenu, closeTheMenu }from "./menu.js";
 
 const backgroundBody = document.querySelector('body');
 const main = document.querySelector('main');
@@ -286,7 +287,7 @@ function renderChosenCategory(category) {
 
             //Append an element on a page
             main.appendChild(element);
-            
+
             console.log("Choosen category is: " + trimmedCategory);
         });
 
@@ -380,22 +381,7 @@ function displayRandomImage() {
     main.appendChild(card); 
 };
 
-function openTheMenu() {
-    openMenu.style.left = '-50px';
-    openMenu.style.transition = 'all 0.7s';
-    menuBar.style.transition = 'all 0.7s';
-    menuBar.style.left = '0px';
-    console.log('It opens!');
 
-    // document.addEventListener('click', closeTheMenuOnClick);
-};
-
-function closeTheMenu() {
-    console.log('It closes!');
-    openMenu.style.left = '10px';
-    openMenu.style.transition = 'all 1s';
-    menuBar.style.left = '-800px';
-};
 
 // function closeTheMenuOnClick(event) {
 //     if (event.target !== openMenu && !openMenu.contains(event.target)) {
