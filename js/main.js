@@ -1,5 +1,5 @@
 import wallpapers from "./catalog.js";
-import {openTheMenu, closeTheMenu }from "./menu.js";
+import { openTheMenu, closeTheMenu }from "./menu.js";
 
 const main = document.querySelector('main');
 const backgroundBody = document.querySelector('body');
@@ -185,21 +185,16 @@ function renderChosenCategory(category) {
         wallpapersInCategory.forEach((wallpaper, index) => {
 
             //Create a template for each image
-            const template = document.createElement('template');
-
-            // Replace template placeholders with wallpaper data
-            template.innerHTML = templateCatalog
-                .replace('${img}', wallpaper.file)
-                .replace('${id}', index + 1)
-                .replace('${title}', wallpaper.name)
-                .replace('${category}', category);
+            const template = document.getElementById('tmpl-catalog').content;
 
             //create an element from template
-            const element = template.content.firstElementChild;
+            const element = document.importNode(template, true);
 
-            // Add a click event listener to each wallpaper element
-            element.addEventListener('click', () => {
-                renderImage(index + 1);
+            element.querySelector('.pic').src = wallpaper.file;
+            element.querySelector('.title').textContent = wallpaper.name;
+            element.querySelector('.imgCongainer').classList.add('category');
+            element.querySelector('.pic').addEventListener('click', () => {
+                renderImage(trimmedCategory, index + 1);
             });
 
             // Add an animation of appearing element
@@ -222,29 +217,25 @@ function renderImage(category, id) {
 
     // Clear the page before rendering the catalog
     clearPage();
-  
-    console.log('function stopped here (render)');
+
+    let selectedCategory;
     
         // Check if the category exists in the wallpapers object
-  
         if (wallpapers.hasOwnProperty(category)) {
     
             // Select the category and the specific image
-            const selectedCategory = wallpapers[category];
+            selectedCategory = wallpapers[category];
     
             // Check if id is a valid index within the selected category
             if (id >= 1 && id <= selectedCategory.length) {
     
-                const imageData = selectedCategory[id];
+                const imageData = selectedCategory[id - 1];
     
                 // Create an element from template
-                const template = document.getElementById('tmpl-card').innerHTML;
+                const template = document.getElementById('tmpl-card').content;
     
                 // Import element content <template>
-                const templateContent = document.importNode(template.content, true);
-    
-                // Indicate a selector to templateContent
-                const card = templateContent.querySelector('.singleCard');
+                const card = document.importNode(template.content, true);
     
                 // Replace data in template
                 const largePic = card.querySelector('.largePic');
@@ -290,12 +281,12 @@ function renderImage(category, id) {
                 console.log(`${category}`);
             }
         } else {
-            console.log('Invalid category.');
-            console.log(`${wallpapers}`);
-            console.log([id]);
-            // console.log(wallpapers['Space'][0].file);
+            console.log('Invalid category.', category);
+            console.log(wallpapers.Animals[4].file);
+            console.log(selectedCategory)
+            console.log(wallpapers);
         }
-  };
+};
 
 function displayGridButton() {
     if(window.innerWidth > 800) {
