@@ -184,17 +184,18 @@ function renderChosenCategory(category) {
         // Loop through wallpapers in the selected category
         wallpapersInCategory.forEach((wallpaper, index) => {
 
-            //Create a template for each image
-            const template = document.getElementById('tmpl-catalog').content;
-
             //create an element from template
-            const element = document.importNode(template, true);
+            const element = document.createElement('div');
 
-            element.querySelector('.pic').src = wallpaper.file;
-            element.querySelector('.title').textContent = wallpaper.name;
-            element.querySelector('.imgCongainer').classList.add('category');
-            element.querySelector('.pic').addEventListener('click', () => {
-                renderImage(trimmedCategory, index + 1);
+            element.innerHTML = templateCatalog;
+
+            const pic = element.querySelector('.pic');
+            const title = element.querySelector('.title');
+            pic.src = wallpaper.file;
+            title.textContent = wallpaper.name;
+
+            element.addEventListener('click', () => {
+                renderImage(index + 1);
             });
 
             // Add an animation of appearing element
@@ -232,7 +233,7 @@ function renderImage(category, id) {
                 const imageData = selectedCategory[id - 1];
     
                 // Create an element from template
-                const template = document.getElementById('tmpl-card').content;
+                const template = document.getElementById('tmpl-card');
     
                 // Import element content <template>
                 const card = document.importNode(template.content, true);
