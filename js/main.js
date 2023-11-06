@@ -191,11 +191,12 @@ function renderChosenCategory(category) {
 
             const pic = element.querySelector('.pic');
             const title = element.querySelector('.title');
+
             pic.src = wallpaper.file;
             title.textContent = wallpaper.name;
 
             element.addEventListener('click', () => {
-                renderImage(index + 1);
+                renderImage(trimmedCategory, index + 1);
             });
 
             // Add an animation of appearing element
