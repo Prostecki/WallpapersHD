@@ -190,9 +190,11 @@ function renderChosenCategory(category) {
             const pic = element.querySelector('.pic');
             const title = element.querySelector('.title');
 
+            //set a path to image and name
             pic.src = wallpaper.file;
             title.textContent = wallpaper.name;
-
+            
+            //append a listener for display an element
             element.addEventListener('click', () => {
                 renderImage(trimmedCategory, index + 1);
             });
@@ -257,19 +259,18 @@ function renderImage(category, id) {
                 console.log(openButton);
                 console.log(modalContainer);
 
-                if (modalContainer) {
-                    openButton.addEventListener('click', () => {
-                        modalContainer.classList.add('show');
-                    });
+                openButton.addEventListener('click', () => {
+                    modalContainer.classList.add('show');
+                });
 
-                    closeButton.addEventListener('click', () => {
-                        modalContainer.classList.remove('show');
-                        modalContainer.style.transition = '.5s';
-                    });
-                    largePic.style.opacity = 0;
-                    title.style.opacity = 0;
-                    title.style.transform = 'translateY(30px)';
-                }
+                closeButton.addEventListener('click', () => {
+                    modalContainer.classList.remove('show');
+                    modalContainer.style.transition = '.5s';
+                });
+                largePic.style.opacity = 0;
+                title.style.opacity = 0;
+                title.style.transform = 'translateY(30px)';
+
                 const delay = 100;
                 setTimeout(() => {
                     // Show an image and panel with animation
@@ -333,26 +334,37 @@ function isGridViewEnabledCss() {
 // };
 
 function displayRandomImage() {
+
     // Clear the page
     clearPage();
 
+    //Get all categories in wallpapers (Popular, Animals, Cars...)
     const categories = Object.keys(wallpapers);
     
+    //If categories > than 0 (Obviously more)
     if(categories.length > 0) {
         
+        //randomCategoryIndex in categories.length
         const randomCategoryIndex = Math.floor(Math.random() * categories.length);
         
+        //Random category with random index
         const randomCategory = categories[randomCategoryIndex];
 
+        //All wallpapers on one random category
         const imagesInCategory = wallpapers[randomCategory];
 
+        //If values of images more than 0 in random category
         if (imagesInCategory.length > 0) {
 
+            //random image index for image in random category
             const randomImageIndex = Math.floor(Math.random() * imagesInCategory.length);
 
+            //random image in random category
             const randomImage = imagesInCategory[randomImageIndex];
 
+            //Create an element for card of image
             const card = document.createElement('div');
+
             card.innerHTML = templateCard
                 .replace('${img}', randomImage.file)
                 .replace('${title}', randomImage.name)
@@ -367,14 +379,17 @@ function displayRandomImage() {
             const infoButton = card.querySelector('.info');
             const closeButton = card.querySelector('.closeMe');
             const modalContainer = card.querySelector('.modal-container');
-        
+            
+            //Set attributies of image, title, and describe
             largePic.src = randomImage.file;
             title.textContent = randomImage.name;
             describe.textContent = randomImage.describe;
         
+            //Append listeners for buttons "More info and "Close Me"
             infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
             closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
-        
+            
+            //Append a created element in the page
             main.appendChild(card); 
         }
     
