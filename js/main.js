@@ -13,12 +13,8 @@ const randomBg = document.getElementById('randomBg');
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
 //view button to toggle class between grid and flex-direction column
-
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
-
-//render catalog after loading page
-// renderCatalog();
 
 renderCategoriesList();
 
@@ -73,9 +69,6 @@ main.addEventListener('click', (event) => {
         renderChosenCategory(selectedCategory);
     }
 });
-// document.addEventListener('DOMContentLoaded', setRandomBackground);
-
-// document.addEventListener('DOMContentLoaded', renderCategories);
 
 //... Other events listeners
 
@@ -267,6 +260,7 @@ function renderImage(category, id) {
                     modalContainer.classList.remove('show');
                     modalContainer.style.transition = '.5s';
                 });
+
                 largePic.style.opacity = 0;
                 title.style.opacity = 0;
                 title.style.transform = 'translateY(30px)';
@@ -299,39 +293,6 @@ function displayGridButton() {
 function isGridViewEnabledCss() {
     return cssLink.href.includes('grid.css');
 };
-
-// function renderCatalog() {
-//     // Clear the page before rendering the catalog
-//     clearPage();
-
-//     //object.keys read entire array with all attributes 
-//     const catalogHtml = Object.keys(wallpapers).map((category) => {
-
-//         return wallpapers[category].map((wallpaper, index) => {
-//             const template = document.createElement('template');
-//             template.innerHTML = templateCatalog
-//             .replace('${img}', wallpaper.file)
-//             .replace('${id}', index + 1)
-//             .replace('${title}', wallpaper.name);
-
-//             const element = template.content.firstElementChild;
-
-//             element.addEventListener('click', () => {
-//                 // Define function renderImage with index
-//                 renderImage(index + 1); 
-
-//             });
-
-//                 element.classList.add('fade-in');
-
-//                 return element;
-
-//             });
-//         });
-//                 catalogHtml.flat().forEach((element) => {
-//                 main.appendChild(element);
-//     });
-// };
 
 function displayRandomImage() {
 
@@ -401,3 +362,65 @@ function clearPage() {
     //Replace a template for emptiness
     main.innerHTML = '';
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function renderCatalog() {
+//     // Clear the page before rendering the catalog
+//     clearPage();
+
+//     //object.keys read entire array with all attributes 
+//     const catalogHtml = Object.keys(wallpapers).map((category) => {
+
+//         return wallpapers[category].map((wallpaper, index) => {
+//             const template = document.createElement('template');
+//             template.innerHTML = templateCatalog
+//             .replace('${img}', wallpaper.file)
+//             .replace('${id}', index + 1)
+//             .replace('${title}', wallpaper.name);
+
+//             const element = template.content.firstElementChild;
+
+//             element.addEventListener('click', () => {
+//                 // Define function renderImage with index
+//                 renderImage(index + 1); 
+
+//             });
+
+//                 element.classList.add('fade-in');
+
+//                 return element;
+
+//             });
+//         });
+//                 catalogHtml.flat().forEach((element) => {
+//                 main.appendChild(element);
+//     });
+// };
