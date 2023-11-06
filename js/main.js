@@ -228,9 +228,13 @@ function renderImage(category, id) {
     
                 // Create an element from template
                 const template = document.getElementById('tmpl-card');
+
+                console.log(template);
     
                 // Import element content <template>
                 const card = document.importNode(template.content, true);
+
+                console.log(card);
     
                 // Replace data in template
                 const largePic = card.querySelector('.largePic');
@@ -242,15 +246,12 @@ function renderImage(category, id) {
                 describe.textContent = imageData.describe;
     
                 // Display the created element on the page
-                main.appendChild(card);
-    
-                const modalContainer = card.querySelector('.modal-container');
+                
+                const modalContainer = card.getElementById('modal_container');
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
-    
-                console.log(closeButton);
-                console.log(openButton);
-                console.log(modalContainer);
+                
+                main.appendChild(card);
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');
