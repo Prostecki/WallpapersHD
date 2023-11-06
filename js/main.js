@@ -12,10 +12,8 @@ const randomBg = document.getElementById('randomBg');
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
-const menuBar = document.getElementById('menuBar');
 //view button to toggle class between grid and flex-direction column
-const cards = document.querySelectorAll('.flex-box-group');
-const pics = document.querySelectorAll('.flex-box-group .pic');
+
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
 
@@ -255,21 +253,24 @@ function renderImage(category, id) {
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
     
-                openButton.addEventListener('click', () => {
-                    modalContainer.classList.add('show');
-                });
-    
-                closeButton.addEventListener('click', () => {
-                    modalContainer.classList.remove('show');
-                    modalContainer.style.transition = '.5s';
-                });
-    
-                largePic.style.opacity = 0;
-                title.style.opacity = 0;
-                title.style.transform = 'translateY(30px)';
-    
+                console.log(closeButton);
+                console.log(openButton);
+                console.log(modalContainer);
+
+                if (modalContainer) {
+                    openButton.addEventListener('click', () => {
+                        modalContainer.classList.add('show');
+                    });
+
+                    closeButton.addEventListener('click', () => {
+                        modalContainer.classList.remove('show');
+                        modalContainer.style.transition = '.5s';
+                    });
+                    largePic.style.opacity = 0;
+                    title.style.opacity = 0;
+                    title.style.transform = 'translateY(30px)';
+                }
                 const delay = 100;
-    
                 setTimeout(() => {
                     // Show an image and panel with animation
                     largePic.style.opacity = 1;
@@ -280,13 +281,9 @@ function renderImage(category, id) {
                 }, delay);
             } else {
                 console.log('Invalid image ID.');
-                console.log(`${category}`);
             }
         } else {
             console.log('Invalid category.', category);
-            console.log(wallpapers.Animals[4].file);
-            console.log(selectedCategory)
-            console.log(wallpapers);
         }
 };
 
@@ -339,33 +336,50 @@ function displayRandomImage() {
     // Clear the page
     clearPage();
 
-    const randomIndex = Math.floor(Math.random() * wallpapers.length);
-    const randomWallpaper = wallpapers[randomIndex];
+    const categories = Object.keys(wallpapers);
+    
+    if(categories.length > 0) {
+        
+        const randomCategoryIndex = Math.floor(Math.random() * categories.length);
+        
+        const randomCategory = categories[randomCategoryIndex];
 
-    const card = document.createElement('div');
-    card.innerHTML = templateCard
-        .replace('${img}', randomWallpaper.file)
-        .replace('${title}', randomWallpaper.name)
-        .replace('${describe}', randomWallpaper.describe);
+        const imagesInCategory = wallpapers[randomCategory];
 
-    //For appearing animation
-    const largePic = card.querySelector('.largePic');
-    largePic.classList.add('fade-in');
+        if (imagesInCategory.length > 0) {
 
-    const title = card.querySelector('.titleModal');
-    const describe = card.querySelector('.describe');
-    const infoButton = card.querySelector('.info');
-    const closeButton = card.querySelector('.closeMe');
-    const modalContainer = card.querySelector('.modal-container');
+            const randomImageIndex = Math.floor(Math.random() * imagesInCategory.length);
 
-    largePic.src = randomWallpaper.file;
-    title.textContent = randomWallpaper.name;
-    describe.textContent = randomWallpaper.describe;
+            const randomImage = imagesInCategory[randomImageIndex];
 
-    infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
-    closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
+            const card = document.createElement('div');
+            card.innerHTML = templateCard
+                .replace('${img}', randomImage.file)
+                .replace('${title}', randomImage.name)
+                .replace('${describe}', randomImage.describe);
+        
+            //For appearing animation
+            const largePic = card.querySelector('.largePic');
+            largePic.classList.add('fade-in');
+        
+            const title = card.querySelector('.titleModal');
+            const describe = card.querySelector('.describe');
+            const infoButton = card.querySelector('.info');
+            const closeButton = card.querySelector('.closeMe');
+            const modalContainer = card.querySelector('.modal-container');
+        
+            largePic.src = randomImage.file;
+            title.textContent = randomImage.name;
+            describe.textContent = randomImage.describe;
+        
+            infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
+            closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
+        
+            main.appendChild(card); 
+        }
+    
+    };
 
-    main.appendChild(card); 
 };
 
 function clearPage() {
