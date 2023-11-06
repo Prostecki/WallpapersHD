@@ -209,33 +209,20 @@ function renderChosenCategory(category) {
 };
 
 function renderImage(category, id) {
-
     // Clear the page before rendering the catalog
     clearPage();
-
     let selectedCategory;
-    
         // Check if the category exists in the wallpapers object
         if (wallpapers.hasOwnProperty(category)) {
-    
             // Select the category and the specific image
             selectedCategory = wallpapers[category];
-    
             // Check if id is a valid index within the selected category
             if (id >= 1 && id <= selectedCategory.length) {
-    
                 const imageData = selectedCategory[id - 1];
-    
                 // Create an element from template
                 const template = document.getElementById('tmpl-card');
-
-                console.log(template);
-    
                 // Import element content <template>
                 const card = document.importNode(template.content, true);
-
-                console.log(card);
-    
                 // Replace data in template
                 const largePic = card.querySelector('.largePic');
                 const title = card.querySelector('.titleModal');
@@ -244,13 +231,10 @@ function renderImage(category, id) {
                 largePic.src = imageData.file;
                 title.textContent = imageData.name;
                 describe.textContent = imageData.describe;
-    
                 // Display the created element on the page
-                
                 const modalContainer = card.getElementById('modal_container');
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
-                
                 main.appendChild(card);
 
                 openButton.addEventListener('click', () => {
