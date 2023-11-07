@@ -101,24 +101,17 @@ function renderCategoriesList() {
 };
 
 function setRandomBackground() {
-
     // Get an array of category keys from the 'wallpapers' object
     const categoryKeys = Object.keys(wallpapers);
-
     // Generate a random index for selecting a category
     const randomCategoryIndex = Math.floor(Math.random() * categoryKeys.length);
-
     // Select a random category using the random index
     const randomCategory = categoryKeys[randomCategoryIndex];
-
     // Generate a random index for selecting an image from the selected category
     const randomIndex = Math.floor(Math.random() * wallpapers[randomCategory].length);
-
     //Declare a variable img with attributes of array
     const randomImg = wallpapers[randomCategory][randomIndex]['file'];
 
-    console.log(randomImg);
-    
     //Append attributes after addEventListener to body element
     backgroundBody.style.backgroundImage = `url(${randomImg})`;
     backgroundBody.style.backgroundRepeat = 'no-repeat';
@@ -231,10 +224,12 @@ function renderImage(category, id) {
                 largePic.src = imageData.file;
                 title.textContent = imageData.name;
                 describe.textContent = imageData.describe;
+
                 // Display the created element on the page
                 const modalContainer = card.getElementById('modal_container');
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
+                
                 main.appendChild(card);
 
                 openButton.addEventListener('click', () => {
@@ -259,6 +254,8 @@ function renderImage(category, id) {
                     title.style.opacity = 1;
                     title.style.transform = 'translateY(0)';
                 }, delay);
+
+                console.log(imageData);
             } else {
                 console.log('Invalid image ID.');
             }
