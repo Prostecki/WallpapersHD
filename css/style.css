@@ -104,6 +104,8 @@
     flex-wrap: wrap;
 }
  .category {
+    border: 1px solid black;
+    margin: 10px;
     height: 25%;
     display: flex;
     justify-content: center;
@@ -121,13 +123,20 @@
     transition: 0.4s;
  }
  .categoriesName {
+    display: inline-block;
+    height: 50px;
     font-size: 35px;
     font-weight: bolder;
     color: white;
     padding: 5px;
     text-align: start;
     width: 250px;
+    transition: all 0.7s;
+ }
+ .categoriesName:hover {
+    color: green;
     border-bottom: 1px solid white;
+    transition: all 0.7s;
  }
  .styleCatalog {
      width: 400px;
