@@ -82,30 +82,45 @@ function renderCategoriesList() {
     //Get keys of categories from object wallpapers
     Object.keys(wallpapers).forEach((category) => {
 
-        //create a div element for category
-        const categoryElement = document.createElement('div');
+        // Create a div element for category
+        const categoryContainer = document.createElement('div');
+        categoryContainer.classList.add('category-container');
+        
+        // Append a class category to created element
+        const categoryDescribe = document.createElement('p');
+        categoryDescribe.classList.add('catDescribe');
 
-        //append a class category to created element
-        categoryElement.classList.add('category');
-
-        //create a variable to store "catinfo" attribute
+        // Create a variable to store "catinfo" attribute
         let catInfoText = '';
 
+        // Loop through the wallpapers in the current category
         wallpapers[category].forEach((wallpaper) => {
             if (wallpaper.catinfo) {
                 catInfoText = wallpaper.catinfo;
             }
         });
-        
+
+        // Set the text content of the category description element
+        categoryDescribe.textContent = catInfoText;
+
+        // Create a div element for the category name
+        const categoryElement = document.createElement('div');
+        // Add a CSS class for styling
+        categoryElement.classList.add('category');
+
         //Define contain of element based on name of category
         categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
-        <p>${catInfoText}</p>`;
+        `;
 
-        //event listener for element of category
+        // Append both the category name and description to the container
+        categoryContainer.appendChild(categoryElement);
+        categoryContainer.appendChild(categoryDescribe);
+        
+        // Event listener for element of category
         categoryElement.addEventListener('click', renderChosenCategory);
 
-        //append an element on the page in 'main'
-        main.appendChild(categoryElement);
+        // Append an element on the page in 'main'
+        main.appendChild(categoryContainer);
 
     });
 };
