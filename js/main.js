@@ -88,9 +88,19 @@ function renderCategoriesList() {
         //append a class category to created element
         categoryElement.classList.add('category');
 
-        //Define contain of element based on name of category
-        categoryElement.innerHTML = `<p class="categoriesName">${category}</p>`;
+        //create a variable to store "catinfo" attribute
+        let catInfoText = '';
+
+        wallpapers[category].forEach((wallpaper) => {
+            if (wallpaper.catinfo) {
+                catInfoText = wallpaper.catinfo;
+            }
+        });
         
+        //Define contain of element based on name of category
+        categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
+        <p>${catInfoText}</p>`;
+
         //event listener for element of category
         categoryElement.addEventListener('click', renderChosenCategory);
 

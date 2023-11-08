@@ -8,7 +8,7 @@ const wallpapers = {
       {'file': 'img/6.jpeg', 'name': 'Christmas', 'describe': 'Christmas decorations'},
       {'file': 'img/7.jpeg', 'name': 'New-York', 'describe': 'New York cityscape'},
       {'file': 'img/8.jpeg', 'name': 'Winter', 'describe': 'Winter wonderland'},
-      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale'}
+      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ],
 
     "Animals": [
@@ -17,10 +17,10 @@ const wallpapers = {
       {'file': 'img/animals3.jpeg', 'category': 'Animals', 'name': 'Lynx', 'describe': 'Wild lynx'},
       {'file': 'img/animals4.jpeg', 'category': 'Animals', 'name': 'Raccoon', 'describe': 'Playful raccoon'},
       {'file': 'img/animals5.jpeg', 'category': 'Animals', 'name': 'Dog', 'describe': 'Loyal dog'},
-      {'file': 'img/animals6.jpeg', 'category': 'Animals', 'name': 'Wolf on a mountain', 'describe': 'Wolf on a mountain'},
+      {'file': 'img/animals6.jpeg', 'category': 'Animals', 'name': 'Wolf on a mountain', 'describe': 'Wolf on a mountain', 'catinfo':'This is category, which represents something interesting, you can dig into!'},
       {'file': 'img/animals7.jpeg', 'category': 'Animals', 'name': 'Kitty', 'describe': 'Adorable kitty'},
       {'file': 'img/animals8.jpeg', 'category': 'Animals', 'name': 'Wolves', 'describe': 'Pack of wolves'},
-      {'file': 'img/animals9.jpeg', 'category': 'Animals', 'name': 'Black cat', 'describe': 'Mysterious black cat'}
+      {'file': 'img/animals9.jpeg', 'category': 'Animals', 'name': 'Black cat', 'describe': 'Mysterious black cat', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ],
 
     "Cars": [
@@ -32,7 +32,7 @@ const wallpapers = {
       {'file': 'img/auto6.jpeg', 'category': 'Cars', 'name': 'Track car', 'describe': 'Track racing car'},
       {'file': 'img/auto7.jpeg', 'category': 'Cars', 'name': 'Mercedess', 'describe': 'Mercedes-Benz'},
       {'file': 'img/auto8.jpeg', 'category': 'Cars', 'name': 'Porsche', 'describe': 'Luxury Porsche car'},
-      {'file': 'img/auto9.jpeg', 'category': 'Cars', 'name': 'Speed car', 'describe': 'High-speed racing car'}
+      {'file': 'img/auto9.jpeg', 'category': 'Cars', 'name': 'Speed car', 'describe': 'High-speed racing car', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ],
 
     "Food": [
@@ -44,7 +44,7 @@ const wallpapers = {
       {'file': 'img/food6.jpeg', 'category' :'Food','name': 'Pineapple', 'describe': 'Tropical pineapple'},
       {'file': 'img/food7.jpeg', 'category' :'Food','name': 'Candy', 'describe': 'Colorful candy'},
       {'file': 'img/food8.jpeg', 'category' :'Food','name': 'Fruits', 'describe': 'Assorted fruits'},
-      {'file': 'img/food9.jpeg', 'category' :'Food','name': 'Strawberries 2', 'describe': 'More strawberries'}
+      {'file': 'img/food9.jpeg', 'category' :'Food','name': 'Strawberries 2', 'describe': 'More strawberries', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ],
 
     "Nature": [
@@ -56,7 +56,7 @@ const wallpapers = {
       {'file': 'img/nature6.jpeg', 'category' :'Nature', 'name': 'Fantasy', 'describe': 'Fantasy landscape'},
       {'file': 'img/nature7.jpeg', 'category' :'Nature', 'name': 'River', 'describe': 'Tranquil river'},
       {'file': 'img/nature8.jpeg', 'category' :'Nature', 'name': 'Dream', 'describe': 'Dreamy landscape'},
-      {'file': 'img/nature9.jpeg', 'category' :'Nature', 'name': 'Road', 'describe': 'Endless road'}
+      {'file': 'img/nature9.jpeg', 'category' :'Nature', 'name': 'Road', 'describe': 'Endless road', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ],
 
     "Space": [
@@ -68,7 +68,7 @@ const wallpapers = {
       {'file': 'img/space6.jpeg',  'category' :'Space', 'name': 'Space 6', 'describe': 'Infinite space'},
       {'file': 'img/space7.jpeg',  'category' :'Space', 'name': 'Space 7', 'describe': 'Space adventure'},
       {'file': 'img/space8.jpeg',  'category' :'Space', 'name': 'Space 8', 'describe': 'Journey to the stars'},
-      {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders'}
+      {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
     ]
 };
 
