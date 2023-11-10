@@ -104,6 +104,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+.catDescribe {
+    opacity: 0;
+}
+
  .category-container {
     border: 1px solid black;
     margin: 10px;
@@ -118,11 +122,16 @@
     cursor: pointer;
     transition: 0.4s;
     /* border-radius: 20px; */
+    transition: all 0.7;
  }
  .category:hover {
     background-color: grey;
     transition: 0.4s;
  }
+ .category-container:hover .catDescribe {
+    transition: all 0.7;
+    opacity: 1;
+}
  .categoriesName {
     display: inline-block;
     height: 50px;
