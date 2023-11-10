@@ -117,7 +117,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: grey;
+    background-color: wheat;
     box-shadow: 0px 4px 5px black;
     /* margin: 20px; */
     cursor: pointer;
@@ -125,20 +125,17 @@
     /* border-radius: 20px; */
     transition: all 0.7;
  }
- .category:hover {
+ .category:hover .catDescribe {
     background-color: grey;
     transition: 0.4s;
- }
- .category-container:hover .catDiscribe {
-    transition: all 0.7s;
     opacity: 1;
-}
+ }
  .categoriesName {
     display: inline-block;
     height: 50px;
     font-size: 35px;
     font-weight: bolder;
-    color: white;
+    color: black;
     padding: 5px;
     text-align: start;
     width: 250px;
@@ -146,17 +143,24 @@
  }
 
  @keyframes borderAnimation {
-    from {
-        border-width: 2px;
+    0% {
+        opacity: 0;
+        border-width: 3px;
     }
-    to {
+    50% {
+        opacity: 0.5;
+        border-width: 12px;
+    }
+    100% {
+        opacity: 1;
         border-width: 20px;
     }
  }
 
  .categoriesName:hover {
-    color: yellow;
-    transition: borderAnimation all 0.7s;
+    /* border-bottom: 1px solid black; */
+    color: red;
+    animation: borderAnimation all 0.7s;
  }
  .styleCatalog {
      width: 400px;
@@ -178,7 +182,7 @@
      position: fixed;
      margin: 0;
      top: 10px;
-     left: -500px;
+     left: -600px;
      display: flex;
      flex-direction: column;
      justify-content: space-evenly;
