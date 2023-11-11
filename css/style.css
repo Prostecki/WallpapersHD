@@ -108,28 +108,24 @@
     opacity: 0;
     transition: all 0.7s;
 }
-
  .category-container {
     border: 1px solid black;
     margin: 10px;
-    /* height: 25%; */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: wheat;
     box-shadow: 0px 4px 5px black;
-    /* margin: 20px; */
     cursor: pointer;
     transition: 0.4s;
-    /* border-radius: 20px; */
     transition: all 0.7;
  }
- .category:hover .catDescribe {
+ .category-container:hover .catDescribe {
     background-color: grey;
     transition: 0.4s;
     opacity: 1;
- }
+}
  .categoriesName {
     display: inline-block;
     height: 50px;
@@ -137,31 +133,28 @@
     font-weight: bolder;
     color: black;
     padding: 5px;
-    text-align: start;
-    width: 250px;
+    text-align: center;
+    width: 200px;
     transition: all 0.7s;
- }
-
+    border-radius: 20px;
+    transition: color 0.7s;
+    box-sizing: border-box;
+}
  @keyframes borderAnimation {
     0% {
-        opacity: 0;
-        border-width: 3px;
+        background-color: red;
     }
     50% {
-        opacity: 0.5;
-        border-width: 12px;
+        background-color: blue;
     }
     100% {
-        opacity: 1;
-        border-width: 20px;
+        background-color: red;
     }
- }
-
+}
  .categoriesName:hover {
-    /* border-bottom: 1px solid black; */
     color: red;
-    animation: borderAnimation all 0.7s;
- }
+    animation: borderAnimation 0.7s linear infinite;
+}
  .styleCatalog {
      width: 400px;
      text-align: center;
