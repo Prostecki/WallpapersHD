@@ -108,6 +108,14 @@ function renderCategoriesList() {
         // Add a CSS class for styling
         categoryElement.classList.add('category');
 
+        //Choose a random wallpaper from the category
+        const randomWallpaper = wallpapers[category][Math.floor(Math.random() * wallpapers[category].length)];
+
+        //Set the background image of the category element
+        categoryElement.style.backgroundImage = `url(${randomWallpaper.file})`;
+        categoryElement.style.backgroundSize = 'cover';
+        categoryElement.style.backgroundPosition = 'center';
+        console.log(wallpapers[category])
         //Define contain of element based on name of category
         categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
         `;
@@ -121,7 +129,6 @@ function renderCategoriesList() {
 
         // Append an element on the page in 'main'
         main.appendChild(categoryContainer);
-
     });
 };
 
