@@ -85,10 +85,11 @@ function renderCategoriesList() {
         // Create a div element for category
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
+        categoryContainer.classList.add('bg-pan-br');
 
         //Create an overlay element for darening the background
-        const overlay = document.createElement('div');
-        overlay.classList.add('overlay');
+        // const overlay = document.createElement('div');
+        // overlay.classList.add('overlay');
         
         // Append a class category to created element
         const categoryDescribe = document.createElement('p');
@@ -113,7 +114,7 @@ function renderCategoriesList() {
         categoryElement.classList.add('category');
 
         //Choose a random wallpaper from the category
-        const randomWallpaper = wallpapers[category][Math.floor(Math.random() * wallpapers[category].length)];
+        const randomWallpaper = wallpapers[category][0];
 
         //Set the background image of the category element
         categoryContainer.style.backgroundImage = `url(${randomWallpaper.file})`;
@@ -125,10 +126,14 @@ function renderCategoriesList() {
         categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
         `;
 
+        //Create the inset shadow
+        // const insetShadow = document.createElement('div');
+        // insetShadow.classList.add('bg-pan-br');
+        // categoryElement.appendChild(insetShadow);
+
         // Append both the category name and description to the container
         categoryContainer.appendChild(categoryElement);
         categoryContainer.appendChild(categoryDescribe);
-        categoryContainer.appendChild(overlay);
         
         // Event listener for element of category
         categoryElement.addEventListener('click', renderChosenCategory);

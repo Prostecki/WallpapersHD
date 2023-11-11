@@ -109,6 +109,7 @@
     transition: all 0.7s;
 }
  .category-container {
+    overflow: hidden;
     position: relative;
     border: 1px solid black;
     margin: 10px;
@@ -122,7 +123,17 @@
     cursor: pointer;
     transition: 0.4s;
     transition: all 0.7;
- }
+}
+.category-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
  .category-container:hover .catDescribe {
     background-color: grey;
     transition: 0.4s;
@@ -133,29 +144,27 @@
     height: 50px;
     font-size: 35px;
     font-weight: bolder;
-    color: black;
+    color: white;
     padding: 5px;
     text-align: center;
     width: 200px;
     transition: all 0.7s;
-    border-radius: 20px;
     transition: color 0.7s;
     box-sizing: border-box;
 }
  @keyframes borderAnimation {
     0% {
-        background-color: red;
+        border-bottom: 0.5px solid white;
     }
     50% {
-        background-color: blue;
+        border-bottom: none;
     }
     100% {
-        background-color: red;
+        border-bottom: 0.5px solid white;
     }
 }
  .categoriesName:hover {
-    color: red;
-    animation: borderAnimation 0.7s linear infinite;
+    animation: borderAnimation 1s linear infinite;
 }
  .styleCatalog {
      width: 400px;
@@ -166,7 +175,29 @@
      justify-content: center;
      margin-top: 50px;
 }
- .overlay {
+/* ------ ------ ------ ------ ------ ------ ------ */
+.bg-pan-br {
+	-webkit-animation: bg-pan-br 8s both;
+	        animation: bg-pan-br 8s both;
+}
+ @-webkit-keyframes bg-pan-br {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  @keyframes bg-pan-br {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+}
+/* ------ ------ ------ ------ ------ ------ ------ */
+ /* .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -174,7 +205,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
- }
+ } */
  header {
      position: relative;
      display: flex;
