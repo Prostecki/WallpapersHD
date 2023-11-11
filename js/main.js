@@ -85,7 +85,7 @@ function renderCategoriesList() {
         // Create a div element for category
         const categoryContainer = document.createElement('div');
         categoryContainer.classList.add('category-container');
-        categoryContainer.classList.add('bg-pan-br');
+        categoryContainer.classList.add('bg-pan-tl');
 
         //Create an overlay element for darening the background
         // const overlay = document.createElement('div');

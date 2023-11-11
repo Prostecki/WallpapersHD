@@ -105,14 +105,17 @@
     flex-wrap: wrap;
 }
 .catDescribe {
-    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    color: white;
     transition: all 0.7s;
 }
  .category-container {
     overflow: hidden;
     position: relative;
-    border: 1px solid black;
-    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,21 +126,6 @@
     cursor: pointer;
     transition: 0.4s;
     transition: all 0.7;
-}
-.category-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
- .category-container:hover .catDescribe {
-    background-color: grey;
-    transition: 0.4s;
-    opacity: 1;
 }
  .categoriesName {
     display: inline-block;
@@ -152,20 +140,6 @@
     transition: color 0.7s;
     box-sizing: border-box;
 }
- @keyframes borderAnimation {
-    0% {
-        border-bottom: 0.5px solid white;
-    }
-    50% {
-        border-bottom: none;
-    }
-    100% {
-        border-bottom: 0.5px solid white;
-    }
-}
- .categoriesName:hover {
-    animation: borderAnimation 1s linear infinite;
-}
  .styleCatalog {
      width: 400px;
      text-align: center;
@@ -175,41 +149,29 @@
      justify-content: center;
      margin-top: 50px;
 }
-/* ------ ------ ------ ------ ------ ------ ------ */
-.bg-pan-br {
-	-webkit-animation: bg-pan-br 8s both;
-	        animation: bg-pan-br 8s both;
+.bg-pan-tl {
+	-webkit-animation: bg-pan-tl 8s linear infinite alternate-reverse ;
+    animation: bg-pan-tl 8s linear infinite alternate-reverse ;
 }
- @-webkit-keyframes bg-pan-br {
+ @-webkit-keyframes bg-pan-tl {
     0% {
-      background-position: 0% 0%;
+      background-position: 100% 100%;
     }
     100% {
-      background-position: 100% 100%;
+      background-position: 0% 0%;
     }
   }
-  @keyframes bg-pan-br {
+  @keyframes bg-pan-tl {
     0% {
-      background-position: 0% 0%;
-    }
-    100% {
       background-position: 100% 100%;
     }
+    100% {
+      background-position: 0% 0%;
+    }
 }
-/* ------ ------ ------ ------ ------ ------ ------ */
- /* .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
- } */
  header {
      position: relative;
      display: flex;
-     /* margin-top: 20px; */
      justify-content: space-around;
      align-items: center;
 }
@@ -466,7 +428,7 @@
          padding: 25px;
     }
      footer {
-         margin-top: 25px;
+         /* margin-top: 25px; */
          position: fixed;
          bottom: 10px;
     }
