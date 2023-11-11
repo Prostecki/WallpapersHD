@@ -253,10 +253,12 @@ function renderImage(category, id) {
                 const largePic = card.querySelector('.largePic');
                 const title = card.querySelector('.titleModal');
                 const describe = card.querySelector('.describe');
+                const downloadImg = card.getElementById('download');
     
                 largePic.src = imageData.file;
                 title.textContent = imageData.name;
                 describe.textContent = imageData.describe;
+                downloadImg.href = imageData.file;
 
                 // Display the created element on the page
                 const modalContainer = card.getElementById('modal_container');
