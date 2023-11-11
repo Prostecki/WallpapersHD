@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import 'menu.css';
+@import 'categories.css';
+@import 'modalCard.css';
  * {
      font-family: 'Ubuntu', sans-serif;
 }
@@ -53,7 +56,6 @@
      margin: 0 auto;
      display: flex;
      flex-wrap: wrap;
-     /* border-radius: 20px; */
      margin-top: 25px;
      justify-content: center;
      position: relative;
@@ -100,161 +102,8 @@
 }
  .flex-box-main {
     height: 100vh;
-    /* margin: 20px 0; */
     display: flex;
     flex-wrap: wrap;
-}
-.catDescribe {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    margin: 0;
-    padding: 5px;
-    text-align: center;
-    color: white;
-    transition: all 0.7s;
-}
- .category-container {
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: wheat;
-    box-shadow: 0px 4px 5px black;
-    cursor: pointer;
-    transition: 0.4s;
-    transition: all 0.7;
-}
- .categoriesName {
-    display: inline-block;
-    height: 50px;
-    font-size: 35px;
-    font-weight: bolder;
-    color: white;
-    padding: 5px;
-    text-align: center;
-    width: 200px;
-    transition: all 0.7s;
-    transition: color 0.7s;
-    box-sizing: border-box;
-}
- .styleCatalog {
-     width: 400px;
-     text-align: center;
-     margin: 0 auto;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     margin-top: 50px;
-}
-.bg-pan-tl {
-	-webkit-animation: bg-pan-tl 8s linear infinite alternate-reverse ;
-    animation: bg-pan-tl 8s linear infinite alternate-reverse ;
-}
- @-webkit-keyframes bg-pan-tl {
-    0% {
-      background-position: 100% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-  @keyframes bg-pan-tl {
-    0% {
-      background-position: 100% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-}
- header {
-     position: relative;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-}
- #menuBar{
-     position: fixed;
-     margin: 0;
-     top: 10px;
-     left: -600px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-evenly;
-     align-items: center;
-     width: 200px;
-     height: auto;
-     background-color: grey;
-     border-radius: 5px;
-     z-index: 9;
-     box-shadow: 0px 5px 10px black;
-}
- #openMenu {
-     border-radius: 25px;
-     position: fixed;
-     left: 10px;
-     top: 10px;
-     width: 25px;
-     font-size: 20px;
-     padding: 10px;
-     background-color: grey;
-     text-align: center;
-     z-index: 9;
-     cursor: pointer;
-     transition: all 0.7s;
-}
- #openMenu:hover {
-     background-color: yellow;
-}
- #closeMenu {
-     background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
-     background-position: center;
-     background-size: cover;
-     background-color: white;
-     padding: 3px;
-     width: 20px;
-     height: 20px;
-     text-align: center;
-     cursor: pointer;
-     font-size: 15px;
-     transition: all 0.7s;
-     border-radius: 50%;
-     border: .5px solid white;
-     transition: all .7s;
-     margin: 5px;
-}
- #closeMenu:hover {
-     background-color: wheat;
-     transition: all .7s;
-}
- .knopki {
-     padding: 10px;
-     text-align: center;
-     line-height: 10px;
-     position: relative;
-     width: 80%;
-     /* display: inline-block; */
-     outline: none;
-     cursor: pointer;
-     font-size: 14px;
-     transition-property: background-color, border-color, color, box-shadow, filter;
-     transition-duration: .3s;
-     letter-spacing: 2px;
-     text-transform: uppercase;
-     white-space: normal;
-     font-weight: 700;
-     text-align: center;
-     color: white;
-     border-bottom: 0.5px solid black;
-}
- .knopki:hover{
-     color: #fff;
-     background-color: darkgrey;
-}
- .bodyWhite {
-     background-color: white;
 }
  .describe {
      width: 350px;
@@ -277,50 +126,6 @@
      display: inline-block;
      color: white;
      font-weight: 400;
-}
- .modal-container {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100vw;
-     height: 100vh;
-     background-color: rgb(0, 0, 0, 0.6);
-     display: flex;
-     opacity: 0;
-     justify-content: center;
-     align-items: center;
-     pointer-events: none;
-     transition: opacity 0.3 ease;
-}
- .modal {
-     background-color: #703c3c;
-     color: whitesmoke;
-     width: 400px;
-     height: 150px;
-     border-radius: 10px;
-     padding: 10px;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-}
- .modal h1 {
-     margin: 0;
-     text-align: center;
-}
- .modal p {
-     font-size: 14px;
-     opacity: 0.7;
-}
- .modal-container.show {
-     transition: all 0.7s;
-     pointer-events: auto;
-     opacity: 1;
-}
- .modal-container.show.fade-out {
-    transition: opacity 0.7s ease;
-    pointer-events: none;
-    opacity: 0;
 }
  #loadingAnimation {
     position: fixed;

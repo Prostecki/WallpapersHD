@@ -87,10 +87,6 @@ function renderCategoriesList() {
         categoryContainer.classList.add('category-container');
         categoryContainer.classList.add('bg-pan-tl');
 
-        //Create an overlay element for darening the background
-        // const overlay = document.createElement('div');
-        // overlay.classList.add('overlay');
-        
         // Append a class category to created element
         const categoryDescribe = document.createElement('p');
         categoryDescribe.classList.add('catDescribe');
@@ -125,12 +121,6 @@ function renderCategoriesList() {
         //Define contain of element based on name of category
         categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
         `;
-
-        //Create the inset shadow
-        // const insetShadow = document.createElement('div');
-        // insetShadow.classList.add('bg-pan-br');
-        // categoryElement.appendChild(insetShadow);
-
         // Append both the category name and description to the container
         categoryContainer.appendChild(categoryElement);
         categoryContainer.appendChild(categoryDescribe);
