@@ -1,8 +1,8 @@
 .category {
   width: 100%;
-  margin: 5px 0px;
+  padding: 0px 10px;
 }
-.category-container {
+ .category-container {
     overflow: hidden;
     position: relative;
     display: flex;
