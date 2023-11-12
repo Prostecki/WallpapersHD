@@ -8,7 +8,7 @@ const wallpapers = {
       {'file': 'img/6.jpeg', 'name': 'Christmas', 'describe': 'Christmas decorations'},
       {'file': 'img/7.jpeg', 'name': 'New-York', 'describe': 'New York cityscape'},
       {'file': 'img/8.jpeg', 'name': 'Winter', 'describe': 'Winter wonderland'},
-      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale', 'catinfo': 'A curated selection of images that have gained widespread popularity and admiration. Explore a variety of captivating visuals that have captured the hearts of many.'}
     ],
 
     "Animals": [
@@ -20,7 +20,7 @@ const wallpapers = {
       {'file': 'img/animals6.jpeg', 'category': 'Animals', 'name': 'Wolf on a mountain', 'describe': 'Wolf on a mountain', 'catinfo':'This is category, which represents something interesting, you can dig into!'},
       {'file': 'img/animals7.jpeg', 'category': 'Animals', 'name': 'Kitty', 'describe': 'Adorable kitty'},
       {'file': 'img/animals8.jpeg', 'category': 'Animals', 'name': 'Wolves', 'describe': 'Pack of wolves'},
-      {'file': 'img/animals9.jpeg', 'category': 'Animals', 'name': 'Black cat', 'describe': 'Mysterious black cat', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/animals9.jpeg', 'category': 'Animals', 'name': 'Black cat', 'describe': 'Mysterious black cat', 'catinfo': 'Immerse yourself in the beauty of the animal kingdom. From majestic wildlife to adorable pets, this category showcases the diverse and fascinating world of animals.'}
     ],
 
     "Cars": [
@@ -32,7 +32,7 @@ const wallpapers = {
       {'file': 'img/auto6.jpeg', 'category': 'Cars', 'name': 'Track car', 'describe': 'Track racing car'},
       {'file': 'img/auto7.jpeg', 'category': 'Cars', 'name': 'Mercedess', 'describe': 'Mercedes-Benz'},
       {'file': 'img/auto8.jpeg', 'category': 'Cars', 'name': 'Porsche', 'describe': 'Luxury Porsche car'},
-      {'file': 'img/auto9.jpeg', 'category': 'Cars', 'name': 'Speed car', 'describe': 'High-speed racing car', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/auto9.jpeg', 'category': 'Cars', 'name': 'Speed car', 'describe': 'High-speed racing car', 'catinfo': 'Experience the thrill of the road with stunning images of automobiles. Whether you are a car enthusiast or simply appreciate sleek designs, these wallpapers will rev up your screen.'}
     ],
 
     "Food": [
@@ -44,7 +44,7 @@ const wallpapers = {
       {'file': 'img/food6.jpeg', 'category' :'Food','name': 'Pineapple', 'describe': 'Tropical pineapple'},
       {'file': 'img/food7.jpeg', 'category' :'Food','name': 'Candy', 'describe': 'Colorful candy'},
       {'file': 'img/food8.jpeg', 'category' :'Food','name': 'Fruits', 'describe': 'Assorted fruits'},
-      {'file': 'img/food9.jpeg', 'category' :'Food','name': 'Strawberries 2', 'describe': 'More strawberries', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/food9.jpeg', 'category' :'Food','name': 'Strawberries 2', 'describe': 'More strawberries', 'catinfo': 'Indulge your visual appetite with delectable images of food. From mouth-watering dishes to tempting desserts, this category is a feast for the eyes of food lovers.'}
     ],
 
     "Nature": [
@@ -56,7 +56,7 @@ const wallpapers = {
       {'file': 'img/nature6.jpeg', 'category' :'Nature', 'name': 'Fantasy', 'describe': 'Fantasy landscape'},
       {'file': 'img/nature7.jpeg', 'category' :'Nature', 'name': 'River', 'describe': 'Tranquil river'},
       {'file': 'img/nature8.jpeg', 'category' :'Nature', 'name': 'Dream', 'describe': 'Dreamy landscape'},
-      {'file': 'img/nature9.jpeg', 'category' :'Nature', 'name': 'Road', 'describe': 'Endless road', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/nature9.jpeg', 'category' :'Nature', 'name': 'Road', 'describe': 'Endless road', 'catinfo': 'Step into the serenity of nature. Discover breathtaking landscapes, tranquil scenes, and vibrant flora. Let these wallpapers bring the calming beauty of the outdoors to your screen.'}
     ],
 
     "Space": [
@@ -68,7 +68,7 @@ const wallpapers = {
       {'file': 'img/space6.jpeg',  'category' :'Space', 'name': 'Space 6', 'describe': 'Infinite space'},
       {'file': 'img/space7.jpeg',  'category' :'Space', 'name': 'Space 7', 'describe': 'Space adventure'},
       {'file': 'img/space8.jpeg',  'category' :'Space', 'name': 'Space 8', 'describe': 'Journey to the stars'},
-      {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders', 'catinfo': 'This is category, which represents something interesting, you can dig into!'}
+      {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders', 'catinfo': 'Embark on a cosmic journey with mesmerizing images of outer space. Explore the mysteries of the universe, featuring stunning galaxies, celestial bodies, and cosmic phenomena.'}
     ]
 };
 

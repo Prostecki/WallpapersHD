@@ -150,9 +150,6 @@ function setRandomBackground() {
     backgroundBody.style.backgroundRepeat = 'no-repeat';
     backgroundBody.style.backgroundAttachment = 'fixed';
     backgroundBody.style.transition = 'all 0.7s';
-
-    //It's just test
-    console.log('it works?');
 };
 
 function reloadPageWithBg(){
@@ -220,6 +217,7 @@ function renderChosenCategory(category) {
 
             // Add an animation of appearing element
             element.classList.add('fade-in');
+            element.classList.add('flex-box-group');
 
             //Append an element on a page
             main.appendChild(element);
