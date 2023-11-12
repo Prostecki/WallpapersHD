@@ -11,6 +11,10 @@
      margin: 0 auto;
      background-attachment: fixed;
 }
+ main {
+    display: flex;
+    justify-content: center;
+ }
  .pic {
      width: 350px;
      height: 200px;
