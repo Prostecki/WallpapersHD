@@ -104,8 +104,11 @@ header {
     background-color: yellow;
     transition: 0.7s;
 }
-
-@media screen and (max-width: 800px) {
+ .visible {
+    left: -50px;
+    transition: all 0.7s;
+ }
+ @media screen and (max-width: 800px) {
     .buttonBack {
         width: 25px;
         padding: 5px;

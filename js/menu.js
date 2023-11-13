@@ -3,14 +3,14 @@ export function openTheMenu() {
     openMenu.style.transition = 'all 0.7s';
     menuBar.style.transition = 'all 0.7s';
     menuBar.style.left = '0px';
+    document.querySelector('.buttonBack').classList.add('visible');
     console.log('It opens!');
-
-    // document.addEventListener('click', closeTheMenuOnClick);
 };
 
 export function closeTheMenu() {
-    console.log('It closes!');
     openMenu.style.left = '10px';
     openMenu.style.transition = 'all 1s';
     menuBar.style.left = '-800px';
+    document.querySelector('.buttonBack').classList.remove('visible');
+    console.log('It closes!');
 };

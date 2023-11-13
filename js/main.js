@@ -77,7 +77,7 @@ main.addEventListener('click', (event) => {
 function renderCategoriesList() {
     clearPage();
 
-    reloadPageWithBg();
+    // reloadPageWithBg();
 
     console.log('Categories are avaliable!');
     
