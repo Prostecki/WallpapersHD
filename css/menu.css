@@ -85,12 +85,12 @@ header {
     opacity: 0;
     pointer-events: none;
     width: 25px;
-    padding: 5px;
+    padding: 10px;
     font-size: 20px;
     font-weight: bolder;
     border-radius: 25px;
     text-align: center;
-    top: 50px;
+    top: 60px;
     left: 10px;
     position: fixed;
     color: black;
@@ -103,4 +103,19 @@ header {
     color: black;
     background-color: yellow;
     transition: 0.7s;
+}
+
+@media screen and (max-width: 800px) {
+    .buttonBack {
+        width: 25px;
+        padding: 5px;
+        left: 10px;
+        top: 50px;
+        position: fixed;
+        color: black;
+        z-index: 9;
+        transition: 0.7s;
+        cursor: pointer;
+        background-color: grey;
+    }
 }
