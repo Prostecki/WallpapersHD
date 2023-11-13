@@ -3,6 +3,7 @@ import { openTheMenu, closeTheMenu }from "./menu.js";
 
 const main = document.querySelector('main');
 const backgroundBody = document.querySelector('body');
+const footer = document.querySelector('footer');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
 const templateCategories = document.getElementById('tmpl-categories');
 const templateCard = document.getElementById('tmpl-card').innerHTML;

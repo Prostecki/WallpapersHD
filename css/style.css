@@ -218,8 +218,8 @@
          /* transition: all 0.7s; */
          padding: 25px;
     }
-     footer {
-         /* margin-top: 25px; */
+     .footer {
+         display: none;
          position: fixed;
          bottom: 10px;
     }
