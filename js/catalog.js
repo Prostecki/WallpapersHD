@@ -8,7 +8,12 @@ const wallpapers = {
       {'file': 'img/6.jpeg', 'name': 'Christmas', 'describe': 'Christmas decorations'},
       {'file': 'img/7.jpeg', 'name': 'New-York', 'describe': 'New York cityscape'},
       {'file': 'img/8.jpeg', 'name': 'Winter', 'describe': 'Winter wonderland'},
-      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale', 'catinfo': 'A curated selection of images that have gained widespread popularity and admiration. Explore a variety of captivating visuals that have captured the hearts of many.'}
+      {'file': 'img/9.jpeg', 'name': 'Tale', 'describe': 'Magical fairy tale', 'catinfo': 'A curated selection of images that have gained widespread popularity and admiration. Explore a variety of captivating visuals that have captured the hearts of many.'},
+      {'file': 'img/10.jpeg', 'name': 'Clouds', 'describe': 'Do you dream about something?'},
+      {'file': 'img/11.jpeg', 'name': 'Forest', 'describe': 'Ambient environment here'},
+      {'file': 'img/12.jpeg', 'name': 'Cyberpank', 'describe': 'Somewhere in China-Town'},
+      {'file': 'img/13.jpeg', 'name': 'Sunshine', 'describe': 'Perfect colors in a simple picture'},
+      {'file': 'img/14.jpeg', 'name': 'Laptop', 'describe': 'Apple MacBook Pro version with purple desktop'}
     ],
 
     "Animals": [
