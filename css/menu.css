@@ -92,7 +92,7 @@ header {
     text-align: center;
     top: 50px;
     left: 10px;
-    position: absolute;
+    position: fixed;
     color: black;
     z-index: 9;
     transition: 0.7s;

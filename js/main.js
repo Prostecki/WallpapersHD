@@ -219,6 +219,12 @@ function renderChosenCategory(category) {
                 renderImage(trimmedCategory, index + 1);
             });
 
+            buttonBack.style.opacity = 1;
+            buttonBack.style.pointerEvents = 'auto';
+            buttonBack.addEventListener('click', () => {
+                renderCategoriesList();
+            });
+
             // Add an animation of appearing element
             element.classList.add('fade-in');
             element.classList.add('flex-box-group');
