@@ -282,6 +282,10 @@ function renderImage(category, id) {
                     modalContainer.style.transition = '.5s';
                 });
 
+                buttonBack.addEventListener('click', () => {
+                    renderChosenCategory(category);
+                });
+
                 largePic.style.opacity = 0;
                 title.style.opacity = 0;
                 title.style.transform = 'translateY(30px)';
