@@ -69,6 +69,18 @@ const wallpapers = {
       {'file': 'img/space7.jpeg',  'category' :'Space', 'name': 'Space 7', 'describe': 'Space adventure'},
       {'file': 'img/space8.jpeg',  'category' :'Space', 'name': 'Space 8', 'describe': 'Journey to the stars'},
       {'file': 'img/space9.jpeg',  'category' :'Space', 'name': 'Space 9', 'describe': 'Celestial wonders', 'catinfo': 'Embark on a cosmic journey with mesmerizing images of outer space. Explore the mysteries of the universe, featuring stunning galaxies, celestial bodies, and cosmic phenomena.'}
+    ],
+
+    "Unsplash": [
+      {'file': 'img/unsplashEx1.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 1', 'describe': 'Outer space'},
+      {'file': 'img/unsplashEx2.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 2', 'describe': 'More outer space'},
+      {'file': 'img/unsplashEx3.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 3', 'describe': 'Even more outer space'},
+      {'file': 'img/unsplashEx4.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 4', 'describe': 'Space exploration'},
+      {'file': 'img/unsplashEx5.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 5', 'describe': 'Galactic beauty'},
+      {'file': 'img/unsplashEx6.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 6', 'describe': 'Infinite space'},
+      {'file': 'img/unsplashEx7.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 7', 'describe': 'Space adventure'},
+      {'file': 'img/unsplashEx8.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 8', 'describe': 'Journey to the stars'},
+      {'file': 'img/unsplashEx9.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 9', 'describe': 'Celestial wonders', 'catinfo': 'Explore the Unsplash category for a captivating array of high-quality visuals, spanning landscapes, portraits, and more, each telling a unique story through the lens of talented photographers.'}
     ]
 };
 
