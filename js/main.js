@@ -118,11 +118,11 @@ function renderCategoriesList() {
         categoryContainer.style.backgroundImage = `url(${randomWallpaper.file})`;
         categoryContainer.style.backgroundSize = 'cover';
         categoryContainer.style.backgroundPosition = 'center';
-        // categoryContainer.style.;
 
         //Define contain of element based on name of category
         categoryElement.innerHTML = `<h1 class="categoriesName">${category}</h1>
         `;
+        
         // Append both the category name and description to the container
         categoryContainer.appendChild(categoryElement);
         categoryContainer.appendChild(categoryDescribe);
@@ -198,6 +198,27 @@ function renderChosenCategory(category) {
     if (wallpapers.hasOwnProperty(trimmedCategory)) {
         //if the category exists, get an array of images in this category
         const wallpapersInCategory = wallpapers[trimmedCategory];
+
+        //create a div for display category into category
+        const coverCategory = document.createElement('div');
+        //Choose a first wallpaper for the category
+        const coverBackgroundDiv = wallpapers[trimmedCategory][0].file;
+
+        //Add class 'coverEachCategory' from css
+        coverCategory.classList.add('coverEachCategory');
+        //Declare background with url
+        coverCategory.style.backgroundImage = `url(${coverBackgroundDiv})`;
+
+        coverCategory.innerHTML = `<h1 class="coverCategoriesName">${category}</h1>`;
+
+        // coverCategory.innerHTML = `<p>${wallpapersInCategory[category]}</p>`;
+
+        console.log(wallpapersInCategory[0].catinfo)
+
+        //test log
+        console.log(coverCategory);
+        //Append an element to page
+        main.appendChild(coverCategory);
 
         // Loop through wallpapers in the selected category
         wallpapersInCategory.forEach((wallpaper, index) => {
