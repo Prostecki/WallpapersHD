@@ -82,6 +82,8 @@ header {
     background-color: darkgrey;
 }
  .buttonBack {
+    opacity: 0;
+    pointer-events: none;
     width: 25px;
     padding: 5px;
     font-size: 20px;
@@ -96,7 +98,7 @@ header {
     transition: 0.7s;
     cursor: pointer;
     background-color: grey;
- }
+}
  .buttonBack:hover{
     color: black;
     background-color: yellow;

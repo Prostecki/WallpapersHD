@@ -13,6 +13,7 @@ const randomBg = document.getElementById('randomBg');
 //How to open bar menu
 const openMenu = document.getElementById('openMenu');
 const closeMenu = document.getElementById('closeMenu');
+const buttonBack = document.querySelector('.buttonBack');
 //view button to toggle class between grid and flex-direction column
 const view = document.getElementById('view');
 const cssLink = document.getElementById('cssLink');
@@ -132,6 +133,7 @@ function renderCategoriesList() {
         // Append an element on the page in 'main'
         main.appendChild(categoryContainer);
         footer.style.opacity = 0;
+        buttonBack.style.opacity = 0;
     });
 };
 
@@ -264,9 +266,12 @@ function renderImage(category, id) {
                 const modalContainer = card.getElementById('modal_container');
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
+                const buttonBack = document.querySelector('.buttonBack');
                 
                 main.appendChild(card);
                 footer.style.opacity = 1;
+                buttonBack.style.opacity = 1;
+                buttonBack.style.pointerEvents = 'auto';
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');
