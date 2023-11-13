@@ -201,8 +201,9 @@ function renderChosenCategory(category) {
 
         //create a div for display category into category
         const coverCategory = document.createElement('div');
+        const coverCategoryDescribe = document.createElement('p');
         //Choose a first wallpaper for the category
-        const coverBackgroundDiv = wallpapers[trimmedCategory][0].file;
+        const coverBackgroundDiv = wallpapersInCategory[0].file;
 
         //Add class 'coverEachCategory' from css
         coverCategory.classList.add('coverEachCategory');
@@ -210,13 +211,8 @@ function renderChosenCategory(category) {
         coverCategory.style.backgroundImage = `url(${coverBackgroundDiv})`;
 
         coverCategory.innerHTML = `<h1 class="coverCategoriesName">${category}</h1>`;
+        coverCategoryDescribe.innerHTML = `<p>${wallpapersInCategory[0].catinfo}</p>`;
 
-        // coverCategory.innerHTML = `<p>${wallpapersInCategory[category]}</p>`;
-
-        console.log(wallpapersInCategory[0].catinfo)
-
-        //test log
-        console.log(coverCategory);
         //Append an element to page
         main.appendChild(coverCategory);
 
