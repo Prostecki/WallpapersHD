@@ -131,6 +131,7 @@ function renderCategoriesList() {
 
         // Append an element on the page in 'main'
         main.appendChild(categoryContainer);
+        footer.style.opacity = 0;
     });
 };
 
@@ -265,6 +266,7 @@ function renderImage(category, id) {
                 const closeButton = card.querySelector('.closeMe');
                 
                 main.appendChild(card);
+                footer.style.opacity = 1;
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');
@@ -368,6 +370,7 @@ function displayRandomImage() {
             
             //Append a created element in the page
             main.appendChild(card); 
+            footer.style.opacity = 1;
         }
     
     };

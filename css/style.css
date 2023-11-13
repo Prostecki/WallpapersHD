@@ -219,7 +219,8 @@
          padding: 25px;
     }
      .footer {
-         display: none;
+         opacity: 0;
+         pointer-events: none;
          position: fixed;
          bottom: 10px;
     }
