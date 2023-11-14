@@ -279,22 +279,26 @@ function renderImage(category, id) {
                 const title = card.querySelector('.titleModal');
                 const describe = card.querySelector('.describe');
                 const downloadImg = card.getElementById('download');
+                const closeInCard = card.getElementById('closeInCard');
     
                 largePic.src = imageData.file;
                 title.textContent = imageData.name;
                 describe.textContent = imageData.describe;
                 downloadImg.href = imageData.file;
 
+                console.log(closeInCard);
+
+                closeInCard.addEventListener('click', () => {
+                    renderChosenCategory(category);
+                });
+
                 // Display the created element on the page
                 const modalContainer = card.getElementById('modal_container');
                 const openButton = card.querySelector('.info');
                 const closeButton = card.querySelector('.closeMe');
-                const buttonBack = document.querySelector('.buttonBack');
                 
                 main.appendChild(card);
                 footer.style.opacity = 1;
-                buttonBack.style.opacity = 1;
-                buttonBack.style.pointerEvents = 'auto';
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');
@@ -305,9 +309,8 @@ function renderImage(category, id) {
                     modalContainer.style.transition = '.5s';
                 });
 
-                buttonBack.addEventListener('click', () => {
-                    renderChosenCategory(category);
-                });
+                buttonBack.style.opacity = 0;
+                buttonBack.style.pointerEvents = 'none';
 
                 largePic.style.opacity = 0;
                 title.style.opacity = 0;
@@ -394,11 +397,14 @@ function displayRandomImage() {
             title.textContent = randomImage.name;
             describe.textContent = randomImage.describe;
 
+            const closeInCard = document.getElementById('closeInCard');
+
+            closeInCard.addEventListener('click', () => {
+                renderCategoriesList();
+            });
+
             footer.style.opacity = 1;
-            buttonBack.style.opacity = 1;
-            buttonBack.style.pointerEvents = 'auto';
-            buttonBack.addEventListener('click', renderCategoriesList);
-        
+
             //Append listeners for buttons "More info and "Close Me"
             infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
             closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
