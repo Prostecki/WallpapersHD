@@ -380,26 +380,28 @@ function displayRandomImage() {
                 .replace('${describe}', randomImage.describe);
         
             //For appearing animation
-            const largePic = card.querySelector('.largePic');
+            const largePic = document.querySelector('.largePic');
             largePic.classList.add('fade-in');
         
-            const title = card.querySelector('.titleModal');
-            const describe = card.querySelector('.describe');
-            const infoButton = card.querySelector('.info');
-            const closeButton = card.querySelector('.closeMe');
-            const modalContainer = card.querySelector('.modal-container');
+            const title = document.querySelector('.titleModal');
+            const describe = document.querySelector('.describe');
+            const infoButton = document.querySelector('.info');
+            const closeButton = document.querySelector('.closeMe');
+            const modalContainer = document.querySelector('.modal-container');
             
             //Set attributies of image, title, and describe
             largePic.src = randomImage.file;
             title.textContent = randomImage.name;
             describe.textContent = randomImage.describe;
+
+            footer.style.opacity = 1;
+            buttonBack.style.opacity = 1;
+            buttonBack.style.pointerEvents = 'auto';
+            buttonBack.addEventListener('click', renderCategoriesList);
         
             //Append listeners for buttons "More info and "Close Me"
             infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
             closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
-
-            //Append a created element in the page
-            main.appendChild(card);
         }
     };
 };

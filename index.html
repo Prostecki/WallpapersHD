@@ -20,7 +20,6 @@
     </div>
     <div class="buttonBack">←</div>
 </header>
-
 <body>
     <div id="loadingAnimation">
         <div>
@@ -29,11 +28,11 @@
     </div>
 
     <main class="flex-box-main"> 
-        
+
     </main>
 
     <footer class="footer">
-        <div class="bot">Copyright 2022 | Wallpapers Mark Taratynov</div>
+        <div class="bot">Copyright 2023 | Wallpapers Mark Taratynov</div>
     </footer>
 
     <template id="tmpl-catalog">
@@ -47,6 +46,7 @@
 
     <template id="tmpl-card">
         <div id="singleCard" class="singleCard">
+            <div id="closeInCard">X</div>
             <img class="largePic" id="picure_${id}" src="${img}">
             <button id="open" class="info">More info</button>
             <a id="download" href="${img}" download>Download</a>
