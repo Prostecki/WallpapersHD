@@ -373,10 +373,8 @@ function displayRandomImage() {
             //random image in random category
             const randomImage = imagesInCategory[randomImageIndex];
 
-            //Create an element for card of image
-            const card = document.createElement('div');
-
-            card.innerHTML = templateCard
+            //Append a templateCard to main container and display
+            main.innerHTML = templateCard
                 .replace('${img}', randomImage.file)
                 .replace('${title}', randomImage.name)
                 .replace('${describe}', randomImage.describe);
@@ -399,14 +397,11 @@ function displayRandomImage() {
             //Append listeners for buttons "More info and "Close Me"
             infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
             closeButton.addEventListener('click', () => modalContainer.classList.remove('show'));
-            
-            //Append a created element in the page
-            main.appendChild(card); 
-            footer.style.opacity = 1;
-        }
-    
-    };
 
+            //Append a created element in the page
+            main.appendChild(card);
+        }
+    };
 };
 
 function clearPage() {

@@ -83,6 +83,7 @@
      transform: scale(1.1);
 }
  .flex-box-main {
+    position: relative;
     height: 100%;
     flex-wrap: wrap;
 }
