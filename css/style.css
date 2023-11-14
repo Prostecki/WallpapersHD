@@ -71,7 +71,6 @@
 }
  .flex-box-main {
     position: relative;
-    height: 100%;
     flex-wrap: wrap;
 }
  .describe {
@@ -206,4 +205,21 @@
          position: fixed;
          bottom: 10px;
     }
+}
+
+@media screen and (max-width: 400px) {
+    .flex-box-main {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .flex-box-group {
+        margin: 0;
+        padding: 0;
+        width: 150px;
+        margin: 0px 5px 5px;
+    }
+     .pic {
+        width: 100%;
+     }
 }
