@@ -404,6 +404,8 @@ function displayRandomImage() {
             });
 
             footer.style.opacity = 1;
+            buttonBack.style.opacity = 0;
+            buttonBack.style.pointerEvents = 'none';
 
             //Append listeners for buttons "More info and "Close Me"
             infoButton.addEventListener('click', () => modalContainer.classList.add('show'));
