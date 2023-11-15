@@ -12,7 +12,7 @@ const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
 //How to open bar menu
 const openMenu = document.querySelector('.nav-container');
-const closeMenu = document.getElementById('closeMenu');
+// const closeMenu = document.getElementById('closeMenu');
 const buttonBack = document.querySelector('.buttonBack');
 //view button to toggle class between grid and flex-direction column
 const view = document.getElementById('view');
@@ -25,7 +25,7 @@ displayGridButton();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
-closeMenu.addEventListener('click', closeTheMenu);
+// closeMenu.addEventListener('click', closeTheMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);

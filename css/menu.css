@@ -96,7 +96,7 @@ header {
 .nav-container {
     position: fixed;
     top: 0;
-    left: 10px;
+    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,12 +208,25 @@ header {
         width: 100%;
         background-color: black;
     }
-
     #menuBar {
-        width: 70%;
-        height: 50px;
+        font-size: 15px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 85%;
+        padding: 5px;
     }
-    
+    #openMenu {
+        padding: 5px;
+   }
+    .knopki {
+        width: 25%;
+        padding: 5px;
+        text-align: center;
+        border: none;
+        margin-top: 0;
+        font-size: 15px;
+   }
     .buttonBack {
         width: 25px;
         padding: 5px;
