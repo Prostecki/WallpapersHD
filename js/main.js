@@ -11,7 +11,7 @@ const allCategories = document.getElementById('categories');
 const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
 //How to open bar menu
-const openMenu = document.getElementById('openMenu');
+const openMenu = document.querySelector('.nav-container');
 const closeMenu = document.getElementById('closeMenu');
 const buttonBack = document.querySelector('.buttonBack');
 //view button to toggle class between grid and flex-direction column

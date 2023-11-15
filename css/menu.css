@@ -1,14 +1,33 @@
 header {
     position: relative;
+    height: 50px;
+    width: 100%;
+    background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-#menuBar{
+ #menuBar{
     position: fixed;
     margin: 0;
-    top: 10px;
-    left: -600px;
+    top: -300px;
+    right: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 600px;
+    height: auto;
+    background-color: grey;
+    border-radius: 5px;
+    z-index: 9;
+    box-shadow: 0px 5px 10px black;
+    transition: all 0.7s;
+}
+.menuBarToggle {
+    transition: all 0.7s;
+    position: fixed;
+    margin: 0;
+    top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -16,47 +35,8 @@ header {
     width: 200px;
     height: auto;
     background-color: grey;
-    border-radius: 5px;
     z-index: 9;
     box-shadow: 0px 5px 10px black;
-}
-#openMenu {
-    border-radius: 25px;
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    width: 25px;
-    font-size: 20px;
-    padding: 10px;
-    background-color: grey;
-    text-align: center;
-    z-index: 9;
-    cursor: pointer;
-    transition: all 0.7s;
-}
-#openMenu:hover {
-    background-color: yellow;
-}
-#closeMenu {
-    background-image: url('https://cdn-icons-png.flaticon.com/256/58/58253.png');
-    background-position: center;
-    background-size: cover;
-    background-color: white;
-    padding: 3px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 15px;
-    transition: all 0.7s;
-    border-radius: 50%;
-    border: .5px solid white;
-    transition: all .7s;
-    margin: 5px;
-}
-#closeMenu:hover {
-    background-color: wheat;
-    transition: all .7s;
 }
 .knopki {
     padding: 10px;
@@ -108,64 +88,35 @@ header {
     left: -50px;
     transition: all 0.7s;
  }
- @media screen and (max-width: 800px) {
-    .buttonBack {
-        width: 25px;
-        padding: 5px;
-        left: 10px;
-        top: 50px;
-        position: fixed;
-        color: black;
-        z-index: 9;
-        transition: 0.7s;
-        cursor: pointer;
-        background-color: grey;
-    }
-}
-
 
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* .navbar {
-  width: 100%;
-  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
-} */
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    z-index: 10;
 }
-
-.navbar .menu-items {
-  display: flex;
-}
-
-.navbar .nav-container li {
+.nav-container li {
   list-style: none;
 }
-
-.navbar .nav-container a {
-  text-decoration: none;
-  color: #0e2431;
-  font-weight: 500;
-  font-size: 1.2rem;
-  padding: 0.7rem;
+.nav-container a {
+    text-decoration: none;
+    color: #0e2431;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
 }
-
-.navbar .nav-container a:hover{
+.nav-container a:hover{
     font-weight: bolder;
 }
-
-.nav-container {
-  display: block;
-  position: relative;
-  height: 60px;
-}
-
-.nav-container .checkbox {
+ .nav-container .checkbox {
   position: absolute;
   display: block;
   height: 32px;
@@ -176,8 +127,7 @@ header {
   opacity: 0;
   cursor: pointer;
 }
-
-.nav-container .hamburger-lines {
+ .nav-container .hamburger-lines {
   display: block;
   height: 26px;
   width: 32px;
@@ -190,8 +140,7 @@ header {
   justify-content: space-between;
   color: w;
 }
-
-.nav-container .hamburger-lines .line {
+ .nav-container .hamburger-lines .line {
   display: block;
   height: 4px;
   width: 100%;
@@ -199,22 +148,18 @@ header {
   /* background: #0e2431; */
   background: white;
 }
-
-.nav-container .hamburger-lines .line1 {
+ .nav-container .hamburger-lines .line1 {
   transform-origin: 0% 0%;
   transition: transform 0.4s ease-in-out;
 }
-
-.nav-container .hamburger-lines .line2 {
+ .nav-container .hamburger-lines .line2 {
   transition: transform 0.2s ease-in-out;
 }
-
-.nav-container .hamburger-lines .line3 {
+ .nav-container .hamburger-lines .line3 {
   transform-origin: 0% 100%;
   transition: transform 0.4s ease-in-out;
 }
-
-.navbar .menu-items {
+ .navbar .menu-items {
   padding-top: 120px;
   box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
   height: 100vh;
@@ -227,37 +172,58 @@ header {
   transition: transform 0.5s ease-in-out;
   text-align: center;
 }
-
-.navbar .menu-items li {
+ .navbar .menu-items li {
   margin-bottom: 1.2rem;
   font-size: 1.5rem;
   font-weight: 500;
 }
-
-.logo {
+ .logo {
   position: absolute;
   top: 5px;
   right: 15px;
   font-size: 1.2rem;
   color: #0e2431;
 }
-
-.nav-container input[type="checkbox"]:checked ~ .menu-items {
+ .nav-container input[type="checkbox"]:checked ~ .menu-items {
   transform: translateX(0);
 }
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+ .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
 }
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+ .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
   transform: scaleY(0);
 }
-
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+ .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
-
-.nav-container input[type="checkbox"]:checked ~ .logo{
+ .nav-container input[type="checkbox"]:checked ~ .logo{
   display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    header {
+        position: relative;
+        width: 100%;
+        background-color: black;
+    }
+
+    #menuBar {
+        width: 70%;
+        height: 50px;
+    }
+    
+    .buttonBack {
+        width: 25px;
+        padding: 5px;
+        left: 10px;
+        top: 50px;
+        position: fixed;
+        color: black;
+        z-index: 9;
+        transition: 0.7s;
+        cursor: pointer;
+        background-color: grey;
+    }
 }
