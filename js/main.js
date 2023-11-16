@@ -1,5 +1,5 @@
 import wallpapers from "./catalog.js";
-import { openTheMenu, closeTheMenu }from "./menu.js";
+import { toggleMenu } from "./menu.js";
 
 const main = document.querySelector('main');
 const backgroundBody = document.querySelector('body');
@@ -24,12 +24,11 @@ renderCategoriesList();
 // displayGridButton();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
-openMenu.addEventListener('click', openTheMenu);
+openMenu.addEventListener('click', toggleMenu);
 // closeMenu.addEventListener('click', closeTheMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-
 
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {
