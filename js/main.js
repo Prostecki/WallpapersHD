@@ -21,7 +21,7 @@ const cssLink = document.getElementById('cssLink');
 renderCategoriesList();
 
 //Declare a function with visible of button
-displayGridButton();
+// displayGridButton();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', openTheMenu);
@@ -29,31 +29,7 @@ openMenu.addEventListener('click', openTheMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-window.addEventListener('resize', displayGridButton);
-document.addEventListener('DOMContentLoaded', () =>{
-    view.addEventListener('click', () => {
-        let gridViewEnabledCss = true;
-        //change a css file with delay and applying some style
-        setTimeout(() => {
-            //toggle the flag
-            gridViewEnabledCss = !isGridViewEnabledCss();
-            const newCSSFile = gridViewEnabledCss ? 'css/grid.css' : 'css/style.css'
-            cssLink.href = newCSSFile;
-        }, 2000)
 
-        //after 2 sec, apply some style for loading div
-        let loadingAnimation = document.getElementById('loadingAnimation');
-        loadingAnimation.style.opacity = '0.8';
-        loadingAnimation.style.transition = 'all 0.8s';
-        console.log('div vidno');
-
-        //delay with applying some style
-        setTimeout(() => {
-            loadingAnimation.style.opacity = '0';
-            loadingAnimation.style.transition = 'all 0.8s';
-        }, 2000);
-    });
-});
 
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {
@@ -76,8 +52,6 @@ main.addEventListener('click', (event) => {
 
 function renderCategoriesList() {
     clearPage();
-
-    // reloadPageWithBg();
 
     console.log('Categories are avaliable!');
     
@@ -333,14 +307,6 @@ function renderImage(category, id) {
         } else {
             console.log('Invalid category.', category);
         }
-};
-
-function displayGridButton() {
-    if(window.innerWidth > 800) {
-        view.style.display = 'none';
-    } else {
-        view.style.display = 'block';
-    }
 };
 
 function isGridViewEnabledCss() {
