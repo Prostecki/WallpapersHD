@@ -12,8 +12,6 @@
     /* border: 1px solid black; */
     /* border-radius: 10px; */
     transition: all 0.7s;
-    width: 5;
-    height: ;
 }
 .singleCard:hover #closeInCard {
     opacity: 1;
