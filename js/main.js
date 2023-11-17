@@ -308,10 +308,6 @@ function renderImage(category, id) {
         }
 };
 
-function isGridViewEnabledCss() {
-    return cssLink.href.includes('grid.css');
-};
-
 function displayRandomImage() {
 
     // Clear the page

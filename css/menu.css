@@ -1,8 +1,6 @@
 header {
-    position: relative;
-    height: 50px;
+    height: 60px;
     width: 100%;
-    background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,13 +16,12 @@ header {
     width: 600px;
     height: auto;
     background-color: grey;
-    border-radius: 5px;
     z-index: 9;
     box-shadow: 0px 5px 10px black;
-    transition: all 0.7s;
+    transition: all 0.4s;
 }
 .menuBarToggle {
-    transition: all 0.7s;
+    transition: all 0.4s;
     position: fixed;
     margin: 0;
     top: 0px;
@@ -207,7 +204,7 @@ header {
         width: 100%;
         background-color: black;
     }
-    #menuBar {
+     #menuBar {
         font-size: 15px;
         display: flex;
         justify-content: space-evenly;
