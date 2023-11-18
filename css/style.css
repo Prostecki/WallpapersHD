@@ -136,7 +136,6 @@
          display: flex;
          align-items: start;
          width: 100%;
-         height: 100vh;
     }
      main {
          width: 100%;
@@ -145,12 +144,14 @@
      .flex-box-main {
         display: flex;
         align-items: start;
+        height: 100%;
         margin: 0;
         padding: 0;
      }
      .flex-box-group {
         position: relative;
         width: 200px;
+        height: 100px;
         margin: 0;
         padding: 0;
      }
