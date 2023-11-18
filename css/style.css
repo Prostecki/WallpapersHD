@@ -142,19 +142,25 @@
          justify-content: center;
     }
      .flex-box-main {
-        display: flex;
-        align-items: center;
+        margin: 0;
+        padding: 0;
      }
      .flex-box-group {
+        position: relative;
         width: 150px;
      }
-     .largePic {
-         width: 100%;
-         height: auto;
-    }
+     .imgContainer {
+        width: 100%;
+        overflow: hidden;
+     }
      .pic {
+        background-size: cover;
         background-position: center;
      }
+     .largePic {
+        width: 100%;
+        height: auto;
+   }
      .singleCard {
         display: flex;
         width: 100%;
