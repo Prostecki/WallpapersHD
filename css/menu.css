@@ -92,6 +92,7 @@ header {
 
 .nav-container {
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     display: flex;
@@ -212,9 +213,6 @@ header {
         width: 85%;
         padding: 5px;
     }
-    #openMenu {
-        padding: 5px;
-   }
     .knopki {
         width: 25%;
         padding: 5px;

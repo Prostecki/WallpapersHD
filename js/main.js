@@ -1,5 +1,5 @@
 import wallpapers from "./catalog.js";
-import { toggleMenu } from "./menu.js";
+import { menuBackground, toggleMenu } from "./menu.js";
 
 const main = document.querySelector('main');
 const backgroundBody = document.querySelector('body');
@@ -29,7 +29,7 @@ openMenu.addEventListener('click', toggleMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-
+window.addEventListener('scroll', menuBackground);
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {
 
