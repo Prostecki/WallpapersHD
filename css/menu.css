@@ -78,7 +78,7 @@ header {
 }
  .buttonBack:hover{
     color: black;
-    background-color: yellow;
+    background-color: white;
     transition: 0.7s;
 }
  .visible {
@@ -226,8 +226,8 @@ header {
     .buttonBack {
         width: 25px;
         padding: 5px;
-        left: 10px;
-        top: 50px;
+        left: 70px;
+        top: 15px;
         position: fixed;
         color: black;
         z-index: 9;
