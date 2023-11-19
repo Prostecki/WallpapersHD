@@ -14,9 +14,6 @@ const randomBg = document.getElementById('randomBg');
 const openMenu = document.querySelector('.nav-container');
 // const closeMenu = document.getElementById('closeMenu');
 const buttonBack = document.querySelector('.buttonBack');
-//view button to toggle class between grid and flex-direction column
-const view = document.getElementById('view');
-const cssLink = document.getElementById('cssLink');
 
 renderCategoriesList();
 
@@ -272,6 +269,7 @@ function renderImage(category, id) {
                 
                 main.appendChild(card);
                 footer.style.opacity = 1;
+                
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');

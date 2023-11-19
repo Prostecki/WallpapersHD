@@ -92,12 +92,14 @@ header {
 
 .nav-container {
     position: fixed;
-    width: 100%;
+    width: 70px;
+    border-radius: 35px;
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     height: 62px;
     z-index: 10;
 }
@@ -136,7 +138,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: w;
 }
  .nav-container .hamburger-lines .line {
   display: block;
@@ -212,6 +213,7 @@ header {
         flex-direction: row;
         width: 85%;
         padding: 5px;
+        z-index: 10;
     }
     .knopki {
         width: 25%;
