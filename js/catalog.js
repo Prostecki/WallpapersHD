@@ -86,7 +86,18 @@ const wallpapers = {
       {'file': 'img/unsplashEx7.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 7', 'describe': 'Space adventure'},
       {'file': 'img/unsplashEx8.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 8', 'describe': 'Journey to the stars'},
       {'file': 'img/unsplashEx9.jpg',  'category' :'Unsplash', 'name': 'Unsplash Ex 9', 'describe': 'Celestial wonders', 'catinfo': 'Explore the Unsplash category for a captivating array of high-quality visuals, spanning landscapes, portraits, and more, each telling a unique story through the lens of talented photographers.'}
-    ]
+    ],
+
+    "Half Life": [
+      {'file': 'img/halflife1.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 1', 'describe': 'Outer space'},
+      {'file': 'img/halflife2.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 2', 'describe': 'More outer space'},
+      {'file': 'img/halflife3.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 3', 'describe': 'Even more outer space'},
+      {'file': 'img/halflife4.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 4', 'describe': 'Space exploration'},
+      {'file': 'img/halflife5.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 5', 'describe': 'Galactic beauty'},
+      {'file': 'img/halflife6.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 6', 'describe': 'Infinite space'},
+      {'file': 'img/halflife7.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 7', 'describe': 'Space adventure'},
+      {'file': 'img/halflife8.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 8', 'describe': 'Journey to the stars'},
+      {'file': 'img/halflife9.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 9', 'describe': 'Celestial wonders', 'catinfo': 'Explore the Unsplash category for a captivating array of high-quality visuals, spanning landscapes, portraits, and more, each telling a unique story through the lens of talented photographers.'}]
 };
 
 export default wallpapers;
