@@ -86,9 +86,7 @@ header {
     transition: all 0.7s;
  }
 
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 
 .nav-container {
     position: fixed;
@@ -119,8 +117,8 @@ header {
  .nav-container .checkbox {
   position: absolute;
   display: block;
-  height: 32px;
-  width: 32px;
+  height: 26px;
+  width: 26px;
   top: 20px;
   left: 20px;
   z-index: 5;
@@ -129,8 +127,8 @@ header {
 }
  .nav-container .hamburger-lines {
   display: block;
-  height: 26px;
-  width: 32px;
+  height: 18px;
+  width: 25px;
   position: absolute;
   top: 17px;
   left: 20px;

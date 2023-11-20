@@ -12,7 +12,6 @@ const randomCard = document.getElementById('randomCard');
 const randomBg = document.getElementById('randomBg');
 //How to open bar menu
 const openMenu = document.querySelector('.nav-container');
-// const closeMenu = document.getElementById('closeMenu');
 const buttonBack = document.querySelector('.buttonBack');
 
 renderCategoriesList();
@@ -22,11 +21,11 @@ renderCategoriesList();
 
 document.addEventListener('DOMContentLoaded', reloadPageWithBg);
 openMenu.addEventListener('click', toggleMenu);
-// closeMenu.addEventListener('click', closeTheMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
 window.addEventListener('scroll', menuBackground);
+
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {
 
@@ -269,7 +268,7 @@ function renderImage(category, id) {
                 
                 main.appendChild(card);
                 footer.style.opacity = 1;
-                
+
 
                 openButton.addEventListener('click', () => {
                     modalContainer.classList.add('show');

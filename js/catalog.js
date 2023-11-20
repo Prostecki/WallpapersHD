@@ -97,7 +97,8 @@ const wallpapers = {
       {'file': 'img/halflife6.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 6', 'describe': 'Infinite space'},
       {'file': 'img/halflife7.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 7', 'describe': 'Space adventure'},
       {'file': 'img/halflife8.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 8', 'describe': 'Journey to the stars'},
-      {'file': 'img/halflife9.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 9', 'describe': 'Celestial wonders', 'catinfo': 'Explore the Unsplash category for a captivating array of high-quality visuals, spanning landscapes, portraits, and more, each telling a unique story through the lens of talented photographers.'}]
+      {'file': 'img/halflife9.jpg',  'category' :'Half Life', 'name': 'Unsplash Ex 9', 'describe': 'Celestial wonders', 'catinfo': 'Explore the Unsplash category for a captivating array of high-quality visuals, spanning landscapes, portraits, and more, each telling a unique story through the lens of talented photographers.'}
+    ]
 };
 
 export default wallpapers;

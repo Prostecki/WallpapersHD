@@ -12,7 +12,7 @@ export function toggleMenu(){
 export function menuBackground() {
     const menuHeader = document.querySelector('.nav-container');
     if (window.scrollY >= 10) {
-        menuHeader.style.backgroundColor = 'grey';
+        // menuHeader.style.backgroundColor = 'grey';
         menuHeader.style.transition = '0.5s';
     } else {
         menuHeader.style.backgroundColor = 'transparent';
