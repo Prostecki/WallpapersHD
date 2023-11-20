@@ -1,11 +1,10 @@
 import wallpapers from "./catalog.js";
-import { menuBackground, toggleMenu } from "./menu.js";
+import { menuBackgroundScroll, toggleMenu } from "./menu.js";
 
 const main = document.querySelector('main');
 const backgroundBody = document.querySelector('body');
 const footer = document.querySelector('footer');
 const templateCatalog = document.getElementById('tmpl-catalog').innerHTML;
-const templateCategories = document.getElementById('tmpl-categories');
 const templateCard = document.getElementById('tmpl-card').innerHTML;
 const allCategories = document.getElementById('categories');
 const randomCard = document.getElementById('randomCard');
@@ -24,7 +23,7 @@ openMenu.addEventListener('click', toggleMenu);
 allCategories.addEventListener('click', renderCategoriesList);
 randomCard.addEventListener('click', displayRandomImage);
 randomBg.addEventListener('click', setRandomBackground);
-window.addEventListener('scroll', menuBackground);
+window.addEventListener('scroll', menuBackgroundScroll);
 
 // Add a click event listener for category elements
 main.addEventListener('click', (event) => {

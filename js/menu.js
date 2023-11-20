@@ -1,14 +1,13 @@
-
 export function toggleMenu(){
-    if (menuBar.style.left === "-500px" || menuBar.style.left === '') {
-        menuBar.style.left = '50px';
+    if (menuBar.style.left === "-620px" || menuBar.style.left === '') {
+        menuBar.style.left = '30px';
     } else {
-        menuBar.style.left = '-500px';
+        menuBar.style.left = '-620px';
     }
     console.log('menu toggled!');
 };
 
-export function menuBackground() {
+export function menuBackgroundScroll() {
     const menuHeader = document.querySelector('.nav-container');
     if (window.scrollY >= 10) {
         menuHeader.style.backgroundColor = 'grey';
