@@ -1,10 +1,14 @@
 export function toggleMenu(){
     if (menuBar.style.left === "-620px" || menuBar.style.left === '') {
-        menuBar.style.left = '30px';
+        menuBar.style.left = '40px';
     } else {
         menuBar.style.left = '-620px';
     }
     console.log('menu toggled!');
+
+    if (window.innerWidth = 800) {
+
+    }
 };
 
 export function menuBackgroundScroll() {

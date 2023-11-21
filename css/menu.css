@@ -202,7 +202,7 @@ header {
         background-color: black;
     }
      #menuBar {
-        font-size: 15px;
+        font-size: 12px;
         display: flex;
         justify-content: space-evenly;
         flex-direction: row;
@@ -216,7 +216,7 @@ header {
         text-align: center;
         border: none;
         margin-top: 0;
-        font-size: 15px;
+        font-size: 12px;
    }
     .buttonBack {
         width: 25px;
