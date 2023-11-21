@@ -42,7 +42,7 @@
     </footer>
 
     <template id="tmpl-catalog">
-            <div id="allCards" class="flex-box-group">
+            <div id="allCards">
                 <div class="title">${title}</div>
                 <div class="imgContainer">
                     <img class="pic" src="${img}">
@@ -52,10 +52,14 @@
 
     <template id="tmpl-card">
         <div id="singleCard" class="singleCard">
-            <div id="closeInCard">X</div>
-            <img class="largePic" id="picure_${id}" src="${img}">
-            <button id="open" class="info">More info</button>
-            <a id="download" href="${img}" download>Download</a>
+            <div class="largePic-container">
+                <div id="closeInCard">X</div>
+                <img class="largePic" id="picure_${id}" src="${img}">
+            </div>
+            <div class="modal-buttons">
+                <button id="open" class="info">More info</button>
+                <a id="download" href="${img}" download>Download</a>
+            </div>
 
             <div class="modal-container" id="modal_container">
                 <div class="modal">

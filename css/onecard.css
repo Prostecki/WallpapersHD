@@ -2,17 +2,18 @@
     position: relative;
     margin: 10px;
     transition: all 0.7s;
-    /* border-radius: 10px; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
+    justify-content: center;
 }
 .largePic {
+    width: 1000px;
     box-shadow: 0px 2px 8px black;
-    /* border: 1px solid black; */
-    /* border-radius: 10px; */
     transition: all 0.7s;
 }
+ .largePic-container {
+    position: relative;
+ }
 .singleCard:hover #closeInCard {
     opacity: 1;
     transition: 0.5s;
@@ -35,7 +36,11 @@
     cursor: pointer;
     transition: 0.5s;
 }
-
+ .modal-buttons {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+ }
 @media screen and (max-width: 800px) {
     #closeInCard {
         opacity: 1;
