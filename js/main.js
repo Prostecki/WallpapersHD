@@ -253,9 +253,7 @@ function renderImage(category, id) {
                 title.textContent = imageData.name;
                 describe.textContent = imageData.describe;
                 downloadImg.href = imageData.file;
-
-                console.log(closeInCard);
-
+                
                 closeInCard.addEventListener('click', () => {
                     renderChosenCategory(category);
                 });
