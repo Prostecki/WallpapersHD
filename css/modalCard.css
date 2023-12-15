@@ -32,6 +32,20 @@
     font-size: 14px;
     opacity: 0.7;
 }
+.closeMe {
+    font-size: 15px;
+    color: teal;
+    padding: 5px 10px;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.closeMe:hover {
+    background-color: grey;
+    transition: 0.2s;
+}
 .modal-container.show {
     transition: all 0.7s;
     pointer-events: auto;
