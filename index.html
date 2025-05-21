@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/main.js" type="module" defer></script>
-    <link id="cssLink" rel="stylesheet" type="text/css" href="css/style.css">
+    <link id="cssLink" rel="stylesheet" type="text/css" href="css/style.css" />
     <title>Wallpapers</title>
-</head>
+  </head>
 
-<header>
+  <header>
     <div id="openMenu" class="nav-container">
-        <input class="checkbox" type="checkbox" name="" id="" />
-        <div class="hamburger-lines">
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
-        </div>
+      <input class="checkbox" type="checkbox" name="" id="" />
+      <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </div>
     </div>
     <div id="menuBar">
-        <div class="knopki action-button" id="categories">Categories</div>
-        <div class="knopki action-button" id="randomCard">Random</div>
-        <div class="knopki action-button" id="randomBg">Background</div>
+      <div class="knopki action-button" id="categories">Categories</div>
+      <div class="knopki action-button" id="randomCard">Random</div>
+      <div class="knopki action-button" id="randomBg">Background</div>
     </div>
     <div class="buttonBack">←</div>
-</header>
+  </header>
 
-<body>
+  <body>
     <div id="loadingAnimation">
-        <div>
-            <h1 style="color: white;">Loading...</h1>
-        </div>
+      <div>
+        <h1 style="color: white">Loading...</h1>
+      </div>
     </div>
 
-    <main class="flex-box-main"> 
+    <div id="app">
+      <!-- Your cards go here -->
+      <div class="singleCard">...</div>
 
-    </main>
+      <!-- Modals should be outside any card, at root level -->
+    </div>
+
+    <main class="flex-box-main"></main>
 
     <footer class="footer">
-        <div class="bot">Copyright 2023 | Wallpapers Mark Taratynov</div>
+      <div class="bot">Copyright 2023 | Wallpapers Mark Taratynov</div>
     </footer>
 
     <template id="tmpl-catalog">
-            <div id="allCards">
-                <div class="title">${title}</div>
-                <div class="imgContainer">
-                    <img class="pic" src="${img}">
-                </div>
-            </div>
+      <div id="allCards">
+        <div class="title">${title}</div>
+        <div class="imgContainer">
+          <img class="pic" src="${img}" />
+        </div>
+      </div>
     </template>
 
     <template id="tmpl-card">
-        <div id="singleCard" class="singleCard">
-            <div class="largePic-container">
-                <div id="closeInCard">X</div>
-                <img class="largePic" id="picure_${id}" src="${img}">
-            </div>
-            <div class="modal-buttons">
-                <button id="open" class="info">More info</button>
-                <a id="download" href="${img}" download>Download</a>
-            </div>
-
-            <div class="modal-container" id="modal_container">
-                <div class="modal">
-                    <h1 class="titleModal">${title}</h1>
-                    <p class="describe">${describe}</p>
-                    <button class="closeMe" id="close">Close Me</button>
-                </div>
-            </div>
+      <div id="singleCard" class="singleCard">
+        <div class="largePic-container">
+          <div id="closeInCard">X</div>
+          <img class="largePic" id="picure_${id}" src="${img}" />
         </div>
-    </template>
-    
+        <div class="modal-buttons">
+          <button id="open" class="info">More info</button>
+          <a id="download" href="${img}" download>Download</a>
+        </div>
 
-</body>
+        <div class="modal-container" id="modal_container">
+          <div class="modal">
+            <h1 class="titleModal">${title}</h1>
+            <p class="describe">${describe}</p>
+            <button class="closeMe" id="close">Close Me</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Place modal at the end of body -->
+    <div class="modal-container">
+      <div class="modal">
+        <!-- Modal content -->
+      </div>
+    </div>
+  </body>
 </html>

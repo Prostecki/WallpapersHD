@@ -1,77 +1,147 @@
 .modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(0, 0, 0, 0.6);
-    display: flex;
-    opacity: 0;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    transition: opacity 0.3 ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+  z-index: 1000; /* Increased z-index to ensure it's above all other elements */
+  /* Fix for incorrect parent positioning */
+  transform: none; /* Prevent inheriting transforms */
+  contain: layout; /* Ensure modal stays independent of parent layout */
 }
+
 .modal {
-    background-color: #703c3c;
-    color: whitesmoke;
-    width: 400px;
-    height: 150px;
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  max-width: 90%;
+  width: 500px;
+  background: rgba(40, 40, 40, 0.6);
+  backdrop-filter: blur(15px);
+  color: var(--primary-light);
+  border-radius: 16px;
+  padding: 30px;
+  transform: translateY(30px);
+  transition: transform var(--transition-normal);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  position: relative; /* Ensure proper stacking context */
+  z-index: 1; /* Establish stacking context within modal container */
 }
-.modal h1 {
-    margin: 0;
-    text-align: center;
-}
-.modal p {
-    font-size: 14px;
-    opacity: 0.7;
-}
-.closeMe {
-    font-size: 15px;
-    color: teal;
-    padding: 5px 10px;
-    background-color: black;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.closeMe:hover {
-    background-color: grey;
-    transition: 0.2s;
-}
+
 .modal-container.show {
-    transition: all 0.7s;
-    pointer-events: auto;
-    opacity: 1;
+  opacity: 1;
+  pointer-events: auto;
 }
+
+.modal-container.show .modal {
+  transform: translateY(0);
+}
+
+.modal h1 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary-light);
+}
+
+.modal p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.closeMe {
+  padding: 12px 25px;
+  background: var(--accent-color);
+  color: var(--primary-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.closeMe:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.closeMe:active {
+  transform: translateY(0);
+}
+
 .modal-container.show.fade-out {
-   transition: opacity 0.7s ease;
-   pointer-events: none;
-   opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+  opacity: 0;
 }
-.info, #download {
-    width: auto;
-    height: auto;
-    font-size: 13px;
-    margin: 15px 15px;
-    color: white;
-    border-radius: 5px;
-    border: 0.5px solid white;
-    transition: .5s;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-    background-color: grey;
-    text-decoration: none;
+
+.info,
+#download {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primary-light);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
-.info:hover, #download:hover {
-    border: 0.5px solid black;
-    transition: .5s;
+
+.info:hover,
+#download:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+}
+
+.info:active,
+#download:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    padding: 20px;
+    width: calc(100% - 30px);
+    max-height: 80vh; /* Prevent modal from being too tall */
+    overflow-y: auto; /* Add scrolling for tall content */
+  }
+
+  .modal h1 {
+    font-size: 20px;
+  }
+
+  .modal p {
+    font-size: 14px;
+  }
+
+  .info,
+  #download {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 6px;
+  }
 }
